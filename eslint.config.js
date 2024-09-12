@@ -11,11 +11,11 @@ export default [
       globals: globals.browser,
     },
     rules: {
-      'react/react-in-jsx-scope': 'off',
+      'react/react-in-jsx-scope': 'off', // Вимкнути правило для імпорту React
     },
     settings: {
       react: {
-        version: 'detect',
+        version: 'detect', // Автоматично визначати версію React
       },
     },
   },

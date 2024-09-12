@@ -10,7 +10,10 @@
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "noEmit": true,
+
+    /* Important for project references */
+    "composite": true,  // Додано для підтримки референсів
+    "emitDeclarationOnly": true, // Змінив на emitDeclarationOnly
 
     /* Linting */
     "strict": true,
