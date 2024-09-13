@@ -20,9 +20,10 @@
   display: grid;
   grid-template-rows: auto;
 
-  @include onDesktop {
-    grid-template-columns: repeat(24, 32px);
+  @include onMobile {
+    grid-template-columns: repeat(4, 60px);
     column-gap: 16px;
+    margin-inline: 16px;
   }
 
   @include onTablet {
@@ -31,9 +32,8 @@
     margin-inline: 24px;
   }
 
-  @include onMobile {
-    grid-template-columns: repeat(4, 60px);
+  @include onDesktop {
+    grid-template-columns: repeat(24, 32px);
     column-gap: 16px;
-    margin-inline: 16px;
   }
 }
