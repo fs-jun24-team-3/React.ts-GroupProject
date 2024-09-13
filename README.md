@@ -12,7 +12,7 @@
 >1. git add ./src
 >2. git commit -m '`your message`'
 >3. git push origin '`your branch name`'
->4. Create pull request
+>4. Create pull request to develop brunch
 >5. After a review your branch will be merged with `develop branch`
    
 ## Instructions
