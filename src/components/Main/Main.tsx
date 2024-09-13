@@ -1,8 +1,8 @@
 import React from 'react';
-import './Main.scss'
+import './Main.scss';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
 export const Main: React.FC<Props> = () => {
-  return <></>;
+  return <div className="main-content"></div>;
 };
