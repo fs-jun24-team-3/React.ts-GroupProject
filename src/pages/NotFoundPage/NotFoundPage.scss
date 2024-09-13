@@ -12,17 +12,30 @@
 
   &__title {
     color: #0f0f11;
-    font-size: 20px;
+    font-size: 32px;
     line-height: 41px;
     letter-spacing: -1px;
     font-weight: 800;
-    margin-bottom: 4px;
+    margin-bottom: 16px;
+
+    @media (max-width: 640px) {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
 
     @media (max-width: 320px) {
       font-size: 16px;
       font-weight: 700;
       margin-bottom: 4px;
     }
+  }
+
+  &__description {
+    color: #89939a;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    margin-bottom: 14px;
   }
 
   &__back-home {
@@ -45,13 +58,5 @@
       font-weight: 600;
       font-size: 12px;
     }
-  }
-
-  &__description {
-    color: #89939a;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 21px;
-    margin-bottom: 20px;
   }
 }
