@@ -3,14 +3,16 @@ name: ESLint Check
 on:
   push:
     branches:
-      - main   # Запускати на кожен push в гілку main
-      - master # або гілку master
+      - main
+      - master
       - develop
+      - bugfix/master
   pull_request:
     branches:
       - main
       - master
       - develop
+      - bugfix/master
 
 jobs:
   lint:
