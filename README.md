@@ -1,7 +1,7 @@
 ## How to name your branches:
->- If you create new feature for project you should name you branch as 'feauture/`your task name`'
->- If you wanna do a bugfix of some feature you should create a new brunch from a related 'feauture/`your task name`' and name it as 'bugfix/`your task name`'.
->After successful bugfix you have to create a pull request like '`feauture/your task name <- bugfix/your task name`' and merge it with a related 'feauture/`your task >name`' after a review.
+>- If you create new feature for project you should name you branch as 'feature/`your task name`'
+>- If you wanna do a bugfix of some feature you should create a new brunch from a related 'feature/`your task name`' and name it as 'bugfix/`your task name`'.
+>After successful bugfix you have to create a pull request like '`feature/your task name <- bugfix/your task name`' and merge it with a related 'feauture/`your task >name`' after a review.
 
 ## Before starting
 >1. git checkout develop
