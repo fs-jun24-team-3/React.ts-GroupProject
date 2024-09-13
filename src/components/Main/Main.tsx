@@ -20,7 +20,7 @@ export const Main: React.FC<Props> = () => {
 
           <CategoriesList />
 
-          <HotPricesList />
+          <HotPricesList /> 
         </div>
       </div>
     </main>
