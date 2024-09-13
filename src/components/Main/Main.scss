@@ -1,0 +1,12 @@
+@import '../../styles/mixins/mixins.scss'; 
+
+.main {
+  display: flex;
+  justify-content: center;
+  &__content {
+  }
+}
+
+.grid-container {
+  @include mainPageGrid();
+}
