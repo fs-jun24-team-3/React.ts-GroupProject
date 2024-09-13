@@ -18,6 +18,7 @@ export const HotPricesList: React.FC<Props> = () => {
       </div>
 
       <ul className="hot-prices-slider__list">
+        {/* TODO: at this stage we need to load phone cards from server, map given list and render it */}
         <HotPricesItem />
       </ul>
     </div>

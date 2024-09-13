@@ -1,12 +1,19 @@
-@import '../../styles/mixins/mixins.scss'; 
+@import '../../styles/mixins/mixins.scss';
 
 .main {
-  display: flex;
-  justify-content: center;
-  &__content {
+  grid-column: 1 / -1;
+
+  &__title {
+    margin: 56px 0;
   }
+
+  &__content {
+    @include mainContentGrid;
+  }
+  
+  &__new-models-slider, &__categories, &__hot-prices-slider, &__slider {
+    display: flex;
+  }
+  
 }
 
-.grid-container {
-  @include mainPageGrid();
-}

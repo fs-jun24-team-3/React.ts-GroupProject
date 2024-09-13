@@ -9,10 +9,12 @@ type Props = {};
 
 export const MainPage: React.FC<Props> = () => {
   return (
+    <>
+      <Header />
       <div className="main-page">
-        <Header />
-          <Main />
+        <Main />
         <Footer />
       </div>
+    </>
   );
 };

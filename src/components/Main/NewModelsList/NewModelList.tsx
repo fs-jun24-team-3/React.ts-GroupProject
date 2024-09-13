@@ -18,6 +18,7 @@ export const NewModelList: React.FC<Props> = () => {
       </div>
 
       <ul className="new-models-slider__list">
+        {/* TODO: at this stage we need to load phone cards from server, map given list and render it */}
         <NewModelItem />
       </ul>
     </div>
