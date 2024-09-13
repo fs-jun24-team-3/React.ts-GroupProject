@@ -4,10 +4,22 @@ import tseslint from 'typescript-eslint';
 import pluginReact from 'eslint-plugin-react';
 
 export default [
-  { rules: { 'react/react-in-jsx-scope': 'off' } },
-  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
-  { files: ['**/*.js'], languageOptions: { sourceType: 'script' } },
-  { languageOptions: { globals: globals.browser } },
+  {
+    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+    languageOptions: {
+      sourceType: 'module',
+      globals: globals.browser,
+    },
+    rules: {
+      'react/react-in-jsx-scope': 'off', // Вимкнути правило для імпорту React
+      'react/jsx-uses-react': 'off',
+    },
+    settings: {
+      react: {
+        version: 'detect', // Автоматично визначати версію React
+      },
+    },
+  },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
@@ -24,3 +36,4 @@ export default [
   },
   {ignores: ['build/', 'dist/assets/index-CnMgUSrV.js', 'node_modules']},
 ];
+
