@@ -11,7 +11,7 @@
     @include mainContentGrid;
   }
   
-  &__new-models-slider, &__categories, &__hot-prices-slider, &__slider {
+  &__slider, &__categories, &__banner-slider {
     display: flex;
   }
   

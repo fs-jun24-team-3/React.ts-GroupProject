@@ -1,26 +1,12 @@
 import React from 'react';
-import { NewModelItem } from './NewModelItem';
+import { GoodsSlider } from '../GoodsSlider';
+import { PhoneCard } from '../PhoneCard';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
 export const NewModelList: React.FC<Props> = () => {
   return (
-    <div className="main__new-models-slider">
-      <div className="new-models-slider__header">
-        <h2 className="new-models-slider__title">Brand new models</h2>
-
-        <div className="new-models-slider__interactive-part">
-          <button className="new-models-slider__button new-models-slider__button--prev"></button>
-
-          <button className="new-models-slider__button new-models-slider__button--prev"></button>
-        </div>
-      </div>
-
-      <ul className="new-models-slider__list">
-        {/* TODO: at this stage we need to load phone cards from server, map given list and render it */}
-        <NewModelItem />
-      </ul>
-    </div>
+      <GoodsSlider sliderTitle={'Brand new models'} />
   );
 };

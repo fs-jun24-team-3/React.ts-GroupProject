@@ -1,6 +1,6 @@
 import React from 'react';
 import './Main.scss';
-import { MainSlider } from './MainSlider';
+import { MainBannerSlider } from './MainBannerSlider';
 import { NewModelList } from './NewModelsList';
 import { CategoriesList } from './CategoriesList';
 import { HotPricesList } from './HotPricesList';
@@ -12,7 +12,7 @@ export const Main: React.FC<Props> = () => {
     <main className="main">
         <h1 className="main__title">Welcome to Nice Gadgets store!</h1>
         <div className="main__content">
-          <MainSlider />
+          <MainBannerSlider />
 
           <NewModelList />
 
