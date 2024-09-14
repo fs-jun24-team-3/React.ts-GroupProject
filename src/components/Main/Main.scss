@@ -13,6 +13,18 @@
   
   &__slider, &__categories, &__banner-slider {
     display: flex;
+    justify-content: center;
+  }
+
+  &__banner-slider {
+    &__interactive-part {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__button {
+      
+    }
   }
   
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './AsideNav.scss'
+import './AsideNav.scss';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};

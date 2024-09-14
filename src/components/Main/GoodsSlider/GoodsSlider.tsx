@@ -1,4 +1,5 @@
-import { PhoneCard } from "../PhoneCard";
+import React from 'react';
+import { PhoneCard } from '../PhoneCard';
 
 type Props = {
   sliderTitle: string;

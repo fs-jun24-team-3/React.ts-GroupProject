@@ -10,16 +10,16 @@ type Props = {};
 export const Main: React.FC<Props> = () => {
   return (
     <main className="main">
-        <h1 className="main__title">Welcome to Nice Gadgets store!</h1>
-        <div className="main__content">
-          <MainBannerSlider />
+      <h1 className="main__title">Welcome to Nice Gadgets store!</h1>
+      <div className="main__content">
+        <MainBannerSlider />
 
-          <NewModelList />
+        <NewModelList />
 
-          <CategoriesList />
+        <CategoriesList />
 
-          <HotPricesList />
-        </div>
+        <HotPricesList />
+      </div>
     </main>
   );
 };

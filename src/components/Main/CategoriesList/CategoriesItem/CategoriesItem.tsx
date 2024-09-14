@@ -4,7 +4,5 @@ import React from 'react';
 type Props = {};
 
 export const CategoriesItem: React.FC<Props> = () => {
-  return (
-    <li className="categoties__item"></li>
-  );
+  return <li className="categoties__item"></li>;
 };
