@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
@@ -18,7 +19,23 @@ export const MainBannerSlider: React.FC<Props> = () => {
         </button>
       </div>
 
-      <div className="banner-slider__indicator"></div>
+      <div className="banner-slider__indicators">
+        <div
+          className={classNames('banner-slider__indicator', {
+            'banner-slider__indicator--is-active': true,
+          })}
+        ></div>
+        <div
+          className={classNames('banner-slider__indicator', {
+            'banner-slider__indicator--is-active': false,
+          })}
+        ></div>
+        <div
+          className={classNames('banner-slider__indicator', {
+            'banner-slider__indicator--is-active': false,
+          })}
+        ></div>
+      </div>
     </div>
   );
 };

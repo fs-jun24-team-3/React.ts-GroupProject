@@ -12,9 +12,9 @@ export const GoodsSlider: React.FC<Props> = ({ sliderTitle }) => {
         <h2 className="slider__title">{sliderTitle}</h2>
 
         <div className="slider__interactive-part">
-          <button className="slider__button slider__button--prev"></button>
+          <button className="slider__button slider__button--prev">{'<'}</button>
 
-          <button className="slider__button slider__button--next"></button>
+          <button className="slider__button slider__button--next">{'>'}</button>
         </div>
       </div>
       <ul className="slider__list">
