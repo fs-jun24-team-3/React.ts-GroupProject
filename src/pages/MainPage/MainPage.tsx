@@ -11,10 +11,10 @@ export const MainPage: React.FC<Props> = () => {
   return (
     <>
       <Header />
-      <div className="grid-container">
+      <div className="main-page">
         <Main />
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };
