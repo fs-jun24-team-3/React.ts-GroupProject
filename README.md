@@ -1,4 +1,5 @@
 ## How to name your branches:
+>- ONLY in lowercase
 >- If you create new feature for project you should name you branch as 'feature/`your task name`'
 >- If you wanna do a bugfix of some feature you should create a new brunch from a related 'feature/`your task name`' and name it as 'bugfix/`your task name`'.
 >After successful bugfix you have to create a pull request like '`feature/your task name <- bugfix/your task name`' and merge it with a related 'feauture/`your task >name`' after a review.
