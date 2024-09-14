@@ -5,7 +5,5 @@ import { GoodsSlider } from '../GoodsSlider';
 type Props = {};
 
 export const NewModelList: React.FC<Props> = () => {
-  return (
-      <GoodsSlider sliderTitle={'Brand new models'} />
-  );
+  return <GoodsSlider sliderTitle={'Brand new models'} />;
 };

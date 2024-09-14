@@ -11,3 +11,5 @@ export const HotPricesList: React.FC<Props> = () => {
 };
 
 
+
+
