@@ -1,17 +1,11 @@
-@mixin onDesktop {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-
 @mixin onTablet {
-  @media (min-width: 640px) {
+  @media ((min-width: 640px) and (max-width: 1200px)) {
     @content;
   }
 }
 
 @mixin onMobile {
-  @media (min-width: 320px) {
+  @media (max-width: 639px) {
     @content;
   }
 }
@@ -32,8 +26,6 @@
     margin-inline: 24px;
   }
 
-  @include onDesktop {
-    grid-template-columns: repeat(24, 32px);
-    column-gap: 16px;
-  }
+  grid-template-columns: repeat(24, 32px);
+  column-gap: 16px;
 }
