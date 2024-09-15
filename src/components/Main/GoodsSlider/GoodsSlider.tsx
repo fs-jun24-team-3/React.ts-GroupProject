@@ -23,8 +23,6 @@ export const GoodsSlider: React.FC<Props> = ({ sliderTitle }) => {
         <PhoneCard />
         <PhoneCard />
         <PhoneCard />
-        <PhoneCard />
-        <PhoneCard />
       </ul>
     </div>
   );

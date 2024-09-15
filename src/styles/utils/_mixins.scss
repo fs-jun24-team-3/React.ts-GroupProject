@@ -19,25 +19,20 @@
 @mixin mainPageGrid() {
   display: grid;
   justify-content: center;
+  column-gap: 16px;
 
   @include onMobile {
     grid-template-columns: repeat(4, 60px);
-    column-gap: 16px;
     margin-inline: 16px;
-    row-gap: 64px;
   }
 
   @include onTablet {
     grid-template-columns: repeat(12, 32px);
-    column-gap: 16px;
     margin-inline: 24px;
-    row-gap: 80px;
   }
 
   @include onDesktop {
     grid-template-columns: repeat(24, 32px);
-    column-gap: 16px;
-    row-gap: 80px;
   }
 }
 
