@@ -1,0 +1,53 @@
+@mixin onDesktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin mainPageGrid() {
+  display: grid;
+  justify-content: center;
+  column-gap: 16px;
+
+  @include onMobile {
+    grid-template-columns: repeat(4, 60px);
+    margin-inline: 16px;
+  }
+
+  @include onTablet {
+    grid-template-columns: repeat(12, 32px);
+    margin-inline: 24px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(24, 32px);
+  }
+}
+
+@mixin mainContentGrid() {
+  display: grid;
+
+  @include onMobile {
+    row-gap: 64px;
+  }
+
+  @include onTablet {
+    row-gap: 80px;
+  }
+
+  @include onDesktop {
+    row-gap: 80px;
+  }
+}

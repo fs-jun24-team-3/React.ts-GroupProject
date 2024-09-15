@@ -1,5 +1,6 @@
 import React from 'react';
-import './NotFoundPage.scss'
+import './NotFoundPage.scss';
+
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 

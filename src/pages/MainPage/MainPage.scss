@@ -1,0 +1,4 @@
+.main-page {
+  font-family: 'Montserrat', sans-serif;
+  @include mainPageGrid();
+}
