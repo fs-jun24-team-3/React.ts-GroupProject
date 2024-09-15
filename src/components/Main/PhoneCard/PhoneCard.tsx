@@ -1,5 +1,4 @@
 import React from 'react';
-import './PhoneCard.scss';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
