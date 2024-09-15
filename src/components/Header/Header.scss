@@ -2,10 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  //   padding: 18px 0;
   border-bottom: 1px solid #e2e6e9;
+  position: relative;
+
   &__menu {
     display: flex;
+    align-items: center;
   }
   &__logo {
     width: 80px;
@@ -19,7 +21,6 @@
   }
   &__icons {
     display: flex;
-    // background-color: aqua;
     &--like {
       width: 16px;
       height: 16px;

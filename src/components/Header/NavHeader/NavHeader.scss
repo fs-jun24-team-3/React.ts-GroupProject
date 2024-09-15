@@ -1,10 +1,14 @@
 .nav {
   display: flex;
   align-items: center;
+  height: 100%;
   @media (max-width: 640px) {
     display: none;
   }
   &__icon {
+    height: 100%;
+    position: relative;
+    text-decoration: none;
     text-transform: uppercase;
     font-weight: 800;
     font-size: 12px;
@@ -20,30 +24,18 @@
         margin-right: 36px;
       }
     }
-    &--active {
-      background-color: aqua;
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #000;
-      }
-    }
-  }
-}
 
-.nav__icon--active {
-  background-color: aqua;
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #000;
+    &--active:after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 3px;
+      bottom: -26px;
+      @media (max-width: 1200px) {
+        bottom: -18px;
+      }
+      background-color: #000;
+    }
   }
 }
