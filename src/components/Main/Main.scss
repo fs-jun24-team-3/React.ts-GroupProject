@@ -1,3 +1,4 @@
+// #region Main
 .main {
   grid-column: 1 / -1;
 
@@ -15,19 +16,19 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    overflow: hidden;
-    position: relative;
+    // overflow: hidden;
 
     &::-webkit-scrollbar {
       visibility: hidden;
     }
 
-
     // Для Firefox
     scrollbar-width: none;
   }
 }
+// #endregion
 
+// #region BannerSlider
 .banner-slider {
   &__interactive-part {
     display: flex;
@@ -83,10 +84,10 @@
     }
   }
 }
+// #endregion
 
+// #region Slider
 .slider {
-
-
   &__header {
     display: flex;
     justify-content: space-between;
@@ -133,9 +134,12 @@
   }
 
   &__item {
+    position: relative;
   }
 }
+// #endregion
 
+// #region PhoneCard
 .card {
   height: 506px;
   width: 272px;
@@ -149,8 +153,8 @@
   transition: 1s;
 
   &:hover {
-    transform: scale(105%);
     // position: absolute;
+    transform: scale(105%);
   }
 
   &__logo {
@@ -215,3 +219,5 @@
 .card :not(:last-child) {
   margin-bottom: 8px;
 }
+// #endregion
+
