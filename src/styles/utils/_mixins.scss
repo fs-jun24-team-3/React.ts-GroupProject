@@ -51,3 +51,19 @@
     row-gap: 80px;
   }
 }
+
+@mixin wideButtonSizes() {
+  height: 40px;
+
+  @include onMobile {
+    width: 100px;
+  }
+
+  @include onTablet {
+    width: 125px;
+  }
+
+  @include onDesktop {
+    width: 160px;
+  }
+}

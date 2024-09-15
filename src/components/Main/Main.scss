@@ -135,25 +135,31 @@
 
   &__item {
     position: relative;
+    height: 506px;
+    width: 272px;
+    box-sizing: border-box;
   }
 }
 // #endregion
 
 // #region PhoneCard
+.card :not(:last-child) {
+  margin-bottom: 8px;
+}
+
 .card {
-  height: 506px;
-  width: 272px;
+  max-width: 272px;
   background-color: #ffffff;
   border: 1px solid #e2e6e9;
   display: flex;
-  flex-direction: column;
   padding: 32px;
-  box-sizing: border-box;
+  flex-direction: column;
   border-radius: 8px;
   transition: 1s;
+  box-sizing: border-box;
 
   &:hover {
-    // position: absolute;
+    position: absolute;
     transform: scale(105%);
   }
 
@@ -192,9 +198,13 @@
   &__item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     font-size: 12px;
     font-weight: 700;
+
+    & :nth-child(n) {
+      margin: 0;
+      padding: 0;
+    }
 
     &-name {
       color: #e2e6e9;
@@ -208,16 +218,12 @@
   &__interactive-part {
     margin-top: 8px;
     display: flex;
-    justify-content: center;
-  }
+    justify-content: space-between;
 
-  &__button {
-    height: 21px;
+    & :nth-child(n) {
+      margin: 0;
+      padding: 0;
+    }
   }
-}
-
-.card :not(:last-child) {
-  margin-bottom: 8px;
 }
 // #endregion
-

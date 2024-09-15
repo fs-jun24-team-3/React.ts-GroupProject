@@ -1,4 +1,6 @@
 import React from 'react';
+import { RoundButton } from '../../Buttons/RoundButton';
+import { WideButton } from '../../Buttons/WideButton';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
@@ -27,8 +29,8 @@ export const PhoneCard: React.FC<Props> = () => {
           </li>
         </ul>
         <div className="card__interactive-part">
-          <button className="card__button card_button--buy">Add to cart</button>
-          <button className="card__button card_button--like">Like</button>
+          <WideButton buttonTitle="Add to cart" />
+          <RoundButton buttonImgPath="./src/img/headerIcon/like.png" />
         </div>
       </div>
     </li>
