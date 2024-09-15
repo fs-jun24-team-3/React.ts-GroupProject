@@ -1,31 +1,58 @@
+@mixin onDesktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
 @mixin onTablet {
-  @media ((min-width: 640px) and (max-width: 1200px)) {
+  @media (min-width: 640px) {
     @content;
   }
 }
 
 @mixin onMobile {
-  @media (max-width: 639px) {
+  @media (max-width: 320px) {
     @content;
   }
 }
 
 @mixin mainPageGrid() {
   display: grid;
-  grid-template-rows: auto;
+  justify-content: center;
 
   @include onMobile {
     grid-template-columns: repeat(4, 60px);
     column-gap: 16px;
     margin-inline: 16px;
+    row-gap: 64px;
   }
 
   @include onTablet {
     grid-template-columns: repeat(12, 32px);
     column-gap: 16px;
     margin-inline: 24px;
+    row-gap: 80px;
   }
 
-  grid-template-columns: repeat(24, 32px);
-  column-gap: 16px;
+  @include onDesktop {
+    grid-template-columns: repeat(24, 32px);
+    column-gap: 16px;
+    row-gap: 80px;
+  }
+}
+
+@mixin mainContentGrid() {
+  display: grid;
+
+  @include onMobile {
+    row-gap: 64px;
+  }
+
+  @include onTablet {
+    row-gap: 80px;
+  }
+
+  @include onDesktop {
+    row-gap: 80px;
+  }
 }
