@@ -20,6 +20,11 @@ export const GoodsSlider: React.FC<Props> = ({ sliderTitle }) => {
       <ul className="slider__list">
         {/* TODO: at this stage we need to load phone cards from server, map given list and render it */}
         <PhoneCard />
+        <PhoneCard />
+        <PhoneCard />
+        <PhoneCard />
+        <PhoneCard />
+        <PhoneCard />
       </ul>
     </div>
   );
