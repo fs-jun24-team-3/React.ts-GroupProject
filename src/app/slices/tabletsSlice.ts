@@ -10,3 +10,5 @@ export const tabletsSlice = createSlice({
     setTablets: (_, action: PayloadAction<Tablet[]>) => action.payload,
   },
 });
+
+export const tabletsActions = tabletsSlice.actions;

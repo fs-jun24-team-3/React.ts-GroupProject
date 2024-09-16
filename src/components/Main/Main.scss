@@ -17,13 +17,11 @@
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
+    scrollbar-width: none; // Для Firefox
 
     &::-webkit-scrollbar {
       visibility: hidden;
     }
-
-    // Для Firefox
-    scrollbar-width: none;
   }
 }
 // #endregion

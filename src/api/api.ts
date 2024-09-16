@@ -1,3 +1,6 @@
+import { Accessory } from '../utils/types/Accessory';
+import { Phone } from '../utils/types/Phone';
+import { Product } from '../utils/types/Product';
 import { Tablet } from '../utils/types/Tablet';
 
 const BASE_URL =
@@ -17,8 +20,7 @@ function get<T>(url: string): Promise<T> {
     .then(res => res.json());
 }
 
-// Replace [] with according type
-export const getPhones = () => get<[]>('/api/phones');
+export const getPhones = () => get<Phone[]>('/api/phones');
 export const getTablets = () => get<Tablet[]>('/api/tablets');
-export const getProducts = () => get<[]>('/api/products');
-export const getAccessories = () => get<[]>('/api/accessories');
+export const getProducts = () => get<Product[]>('/api/products');
+export const getAccessories = () => get<Accessory[]>('/api/accessories');

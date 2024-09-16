@@ -43,8 +43,6 @@
 }
 
 .wide-button {
-  @include wideButtonSizes;
-
   background-color: #4219d0;
   font-size: 14px;
   font-weight: 700;
@@ -52,15 +50,17 @@
   border-radius: 48px;
   border: none;
   transition: box-shadow, background-color, 0.1s;
-
+  @include wideButtonSizes;
+  
   &:hover {
     box-shadow: 0px 3px 13px 0px #17203166;
   }
-
+  
   &:active {
     color: #4219d0;
     border: 1px solid #e2e6e9;
     background-color: #fff;
     box-shadow: none;
   }
+
 }

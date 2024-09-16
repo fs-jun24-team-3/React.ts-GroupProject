@@ -10,3 +10,5 @@ export const phonesSlice = createSlice({
     setPhones: (_, action: PayloadAction<Phone[]>) => action.payload,
   },
 });
+
+export const phonesActions = phonesSlice.actions;

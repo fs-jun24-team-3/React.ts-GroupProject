@@ -10,3 +10,5 @@ export const accessoriesSlice = createSlice({
     setAccessories: (_, action: PayloadAction<Accessory[]>) => action.payload,
   },
 });
+
+export const accessoriesActions = accessoriesSlice.actions;
