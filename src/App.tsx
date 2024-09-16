@@ -1,11 +1,6 @@
-import './App.css';
-import { Header } from './components/Header';
+import { MainPage } from './pages/MainPage';
 export const App = () => {
-  return (
-    <>
-      <Header />
-    </>
-  );
+  return <MainPage />;
 };
 
 export default App;

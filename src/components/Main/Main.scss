@@ -1,0 +1,19 @@
+@import '../../styles/mixins/mixins.scss';
+
+.main {
+  grid-column: 1 / -1;
+
+  &__title {
+    margin: 56px 0;
+  }
+
+  &__content {
+    @include mainContentGrid;
+  }
+  
+  &__slider, &__categories, &__banner-slider {
+    display: flex;
+  }
+  
+}
+
