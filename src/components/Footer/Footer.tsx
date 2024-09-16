@@ -7,6 +7,13 @@ import logo from '../../img/Logo.png';
 type Props = {};
 
 export const Footer: React.FC<Props> = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <footer className='footer'>
       <div className='footer__container'>
@@ -18,7 +25,7 @@ export const Footer: React.FC<Props> = () => {
 
         <div className='footer__button'>
           <span className='footer__button-text'>Back to top</span>
-          <div className='footer__button-icon'>
+          <div onClick={scrollToTop} className='footer__button-icon'>
             <span className='footer__button-icon--arrow'></span>
           </div>
         </div>

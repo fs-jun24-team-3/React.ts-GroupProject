@@ -1,13 +1,12 @@
 .nav-footer{
     display: flex;
     justify-content: center;
-    flex-grow: 1;
+    flex: 1;
 
     &__wrapper {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        flex: 0.7;
 
         @include onMobile {
             flex-direction: column;

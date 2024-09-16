@@ -1,16 +1,10 @@
 // @import '../../styles/mixins/mixins.scss';
 @import '../../styles/utils/mixins';
 .main {
-  min-height: 100%;
-  margin-bottom: -257px;
-  padding-bottom: 257px;
-
-  @include onTablet {
-    margin-bottom: -96px;
-    padding-bottom: 96px;
-  }
-  
+  position: relative;
+  min-height: calc(100vh - ($header-height + $footer-height));
   grid-column: 1 / -1;
+  
 
   &__title {
     margin: 56px 0;
