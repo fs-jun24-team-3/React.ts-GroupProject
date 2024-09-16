@@ -2,6 +2,7 @@ import React from 'react';
 import { NavHeader } from './NavHeader';
 import './Header.scss';
 import logo from '../../img/Logo.png';
+import { NavLink } from 'react-router-dom';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
@@ -10,9 +11,9 @@ export const Header: React.FC<Props> = () => {
   return (
     <header className="header">
       <div className="header__menu">
-        <a href="/">
+        <NavLink to="/home">
           <img className="header__logo" src={logo} />
-        </a>
+        </NavLink>
 
         <NavHeader />
       </div>
