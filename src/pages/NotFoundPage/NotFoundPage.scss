@@ -1,0 +1,41 @@
+.not-found {
+  grid-column: 1 / -1;
+
+  &__title {
+    font-size: pxToRem(20);
+    font-weight: 780;
+    margin-top: 16px;
+    margin-bottom: 4px;
+
+    @include onTablet {
+      font-size: pxToRem(30);
+      margin-top: 16px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    @include onDesktop {
+      color: $primary-color;
+      font-size: pxToRem(32);
+      line-height: 41px;
+      letter-spacing: -1px;
+      font-weight: 800;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__description {
+    color: $secondary-color;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    margin-bottom: 14px;
+  }
+
+  &__link {
+    color: $primary-color;
+    display: inline-block;
+    font-weight: 700;
+  }
+}
