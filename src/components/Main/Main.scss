@@ -1,5 +1,5 @@
-@import '../../styles/mixins/mixins.scss';
-
+// @import '../../styles/mixins/mixins.scss';
+@import '../../styles/utils/mixins';
 .main {
   min-height: 100%;
   margin-bottom: -257px;
@@ -19,10 +19,10 @@
   &__content {
     @include mainContentGrid;
   }
-  
-  &__slider, &__categories, &__banner-slider {
+
+  &__slider,
+  &__categories,
+  &__banner-slider {
     display: flex;
   }
-  
 }
-
