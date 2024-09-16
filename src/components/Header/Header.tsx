@@ -8,9 +8,12 @@ type Props = {};
 
 export const Header: React.FC<Props> = () => {
   return (
-    <div className="header">
+    <header className="header">
       <div className="header__menu">
-        <img className="header__logo" src={logo} />
+        <a href="/">
+          <img className="header__logo" src={logo} />
+        </a>
+
         <NavHeader />
       </div>
       <div className="header__icons">
@@ -24,6 +27,6 @@ export const Header: React.FC<Props> = () => {
           <div className="header__icons--menu"></div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
