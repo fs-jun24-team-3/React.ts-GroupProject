@@ -1,9 +1,10 @@
 .nav {
-  display: flex;
+  display: none;
+
   align-items: center;
   height: 100%;
-  @media (max-width: 640px) {
-    display: none;
+  @include onTablet {
+    display: flex;
   }
   &__icon {
     height: 100%;
@@ -15,13 +16,14 @@
     line-height: 11px;
     letter-spacing: 4%;
     color: #89939a;
-
-    &:not(:last-child) {
-      margin-right: 64px;
-    }
-    @media (max-width: 1200px) {
+    @include onTablet {
       &:not(:last-child) {
         margin-right: 36px;
+      }
+    }
+    @include onDesktop {
+      &:not(:last-child) {
+        margin-right: 64px;
       }
     }
 
@@ -31,9 +33,12 @@
       display: block;
       width: 100%;
       height: 3px;
-      bottom: -26px;
-      @media (max-width: 1200px) {
+
+      @include onTablet {
         bottom: -18px;
+      }
+      @include onDesktop {
+        bottom: -26px;
       }
       background-color: #000;
     }
