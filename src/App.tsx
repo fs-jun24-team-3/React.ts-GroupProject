@@ -6,6 +6,7 @@ import { PhonesPage } from './pages/PhonesPage/PhonesPage';
 import { TabletsPage } from './pages/TabletspPage/TabletsPage';
 import { AccessoriesPage } from './pages/AccessoriesPage/AccessoriesPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { CartPage } from './pages/CartPage/CartPage';
 // import { MainPage } from './pages/MainPage';
 
 export const App = () => {
@@ -19,6 +20,7 @@ export const App = () => {
         <Route path="/phones/:phoneId" element={<PhonesPage />} />
         <Route path="/tablets" element={<TabletsPage />} />
         <Route path="/accessories" element={<AccessoriesPage />} />
+        <Route path="/cart" element={<CartPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
