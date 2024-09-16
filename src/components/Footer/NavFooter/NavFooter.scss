@@ -1,10 +1,7 @@
-@import '../../../styles/mixins/mixins.scss';
-
 .nav-footer{
     display: flex;
     justify-content: center;
     flex-grow: 1;
-
 
     &__wrapper {
         display: flex;

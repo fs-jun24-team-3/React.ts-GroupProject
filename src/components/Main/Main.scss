@@ -1,6 +1,15 @@
 @import '../../styles/mixins/mixins.scss';
 
 .main {
+  min-height: 100%;
+  margin-bottom: -257px;
+  padding-bottom: 257px;
+
+  @include onTablet {
+    margin-bottom: -96px;
+    padding-bottom: 96px;
+  }
+  
   grid-column: 1 / -1;
 
   &__title {
