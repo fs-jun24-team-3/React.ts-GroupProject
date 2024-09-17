@@ -16,6 +16,12 @@
   }
 }
 
+@mixin above1200 {
+  @media (min-width: 1201px) {
+    @content;
+  }
+}
+
 @mixin mainPageGrid() {
   display: grid;
   column-gap: 16px;

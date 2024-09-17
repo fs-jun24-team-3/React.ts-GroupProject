@@ -24,21 +24,13 @@ export const Header: React.FC<Props> = () => {
         </div>
         <NavLink
           to="/cart"
-          // className="header__icon--basket"
           className={({ isActive }) =>
             classNames('header__icon--basket', {
               'header__icon--active': isActive,
             })
           }
         >
-          <div
-            className="header__icons--basket"
-            // className={({ isActive }) =>
-            //   classNames('header__icons--basket', {
-            //     'header__icons--active': isActive,
-            //   })
-            // }
-          ></div>
+          <div className="header__icons--basket"></div>
         </NavLink>
         <div className="header__icon--menu">
           <div className="header__icons--menu"></div>
