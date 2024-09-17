@@ -22,12 +22,12 @@
   column-gap: 16px;
 
   @include onMobile {
-    grid-template-columns: repeat(4, 60px);
+    grid-template-columns: repeat(4, 1fr);
     margin-inline: 16px;
   }
 
   @include onTablet {
-    grid-template-columns: repeat(12, 32px);
+    grid-template-columns: repeat(12, 1fr);
     margin-inline: 24px;
   }
 
@@ -52,6 +52,55 @@
   }
 }
 
+@mixin bannerImgs() {
+  @include onMobile {
+    background-image: url('../../img/mainIcons/Banner1_mobileVers.png');
+    // aspect-ratio: 1 / 1;
+  }
+
+  @include onTablet {
+    background-image: url('../../img/mainIcons/Banner1_tabletVers.png');
+  }
+
+  @include onDesktop {
+    background-image: url('../../img/mainIcons/Banner1.png');
+  }
+}
+
+@mixin cardItemSize() {
+  @include onMobile {
+    width: 212px;
+    height: 439px;
+  }
+
+  @include onTablet {
+    width: 237px;
+    height: 512px;
+  }
+
+  @include onDesktop {
+    width: 272px;
+    height: 506px;
+  }
+}
+
+@mixin cardLogoSizes {
+  @include onMobile {
+    width: 148px;
+    height: 129px;
+  }
+
+  @include onTablet {
+    width: 173px;
+    height: 181px;
+  }
+
+  @include onDesktop {
+    width: 208px;
+    height: 196px;
+  }
+}
+
 @mixin wideButtonSizes() {
   height: 40px;
 
@@ -67,3 +116,4 @@
     width: 160px;
   }
 }
+

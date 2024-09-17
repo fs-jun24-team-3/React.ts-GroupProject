@@ -95,32 +95,9 @@
     margin-bottom: 24px;
   }
 
-  &__title {
-    margin: 0;
-  }
-
   &__interactive-part {
     display: flex;
     gap: 16px;
-  }
-
-  &__button {
-    height: 32px;
-    width: 32px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 48px;
-    border: $button-border-default;
-    background-color: $button-bg-color;
-
-    &:hover {
-      border: $button-border-on-hover;
-    }
-
-    &:active {
-      color: $button-content-color-on-click;
-      background-color: $button-bg-color-on-click;
-    }
   }
 
   &__list {
@@ -133,9 +110,8 @@
   }
 
   &__item {
-    position: relative;
-    height: 506px;
-    width: 272px;
+    // position: relative;
+    @include cardItemSize;
     box-sizing: border-box;
   }
 }
@@ -150,26 +126,28 @@
   max-width: 272px;
   background-color: #ffffff;
   border: 1px solid #e2e6e9;
-  display: flex;
   padding: 32px;
+  display: flex;
   flex-direction: column;
   border-radius: 8px;
   transition: 1s;
-  box-sizing: border-box;
 
   &:hover {
-    position: absolute;
+    // position: absolute;
     transform: scale(105%);
   }
 
   &__logo {
-    width: 208px;
-    height: 196px;
+    @include cardLogoSizes;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-self: center;
     background-image: url('../../img/mainIcons/PhoneLogo.png');
   }
 
   &__title {
-    margin: 0;
+    margin-top: 16px;
     font-size: 14px;
     font-weight: 600;
   }
