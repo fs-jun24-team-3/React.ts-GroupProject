@@ -4,6 +4,7 @@
 
   &__title {
     margin: 56px 0;
+    grid-column: 1 / -1;
   }
 
   &__content {
@@ -40,11 +41,12 @@
   &__banner {
     height: 100%;
     width: 100%;
-    background-image: url('../../img/mainIcons/Banner1.png');
     object-fit: cover;
     background-size: cover;
     background-position: center;
     border-radius: 8px;
+
+    @include bannerImgs;
   }
 
   &__button {
@@ -72,6 +74,8 @@
     justify-content: center;
     margin-top: 18px;
     gap: 14px;
+
+    @include bannerMarginBottom;
   }
 
   &__indicator {
@@ -112,7 +116,7 @@
   &__item {
     // position: relative;
     @include cardItemSize;
-    box-sizing: border-box;
+    box-sizing: content-box;
   }
 }
 // #endregion
@@ -123,7 +127,6 @@
 }
 
 .card {
-  max-width: 272px;
   background-color: #ffffff;
   border: 1px solid #e2e6e9;
   padding: 32px;
@@ -131,6 +134,8 @@
   flex-direction: column;
   border-radius: 8px;
   transition: 1s;
+  box-sizing: border-box;
+  @include cardWidth;
 
   &:hover {
     // position: absolute;
@@ -138,18 +143,17 @@
   }
 
   &__logo {
-    @include cardLogoSizes;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    height: auto;
+    width: 100%;
+    flex-shrink: 1;
     align-self: center;
-    background-image: url('../../img/mainIcons/PhoneLogo.png');
   }
 
   &__title {
     margin-top: 16px;
     font-size: 14px;
     font-weight: 600;
+    min-width: 152px;
   }
 
   &__price {

@@ -13,8 +13,8 @@ export const MainPage: React.FC<Props> = () => {
       <Header />
       <div className="main-page">
         <Main />
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 };

@@ -8,12 +8,16 @@ export const PhoneCard: React.FC<Props> = () => {
   return (
     <li className="slider__item">
       <div className="card">
-        <div className="card__logo"></div>
-        <h3 className="card__title">
+        <img
+          src="./src/img/mainIcons/PhoneLogo.png"
+          alt=""
+          className="card__logo"
+        />
+        <p className="card__title">
           {'Apple iPhone 14 Pro 128GB Silver (MQ023)'}
-        </h3>
-        <div className="card__price">$999</div>
-        <div className="card__separator"></div>
+        </p>
+        <p className="card__price">$999</p>
+        <p className="card__separator"></p>
         <ul className="card__info">
           <li className="card__item">
             <div className="card__item-name">Screen</div>
