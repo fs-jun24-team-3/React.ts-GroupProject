@@ -3,6 +3,7 @@ import { Cart } from '../../../type/Cart';
 import minus from '../../../img/icon/Minus.png';
 import plus from '../../../img/icon/Plus.png';
 import './CartItem.scss';
+
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {
   cart: Cart;
@@ -16,7 +17,6 @@ export const CartItem: React.FC<Props> = ({ cart }) => {
         <img src={cart.img} />
         <div className="cartItem__name">{cart.title}</div>
       </div>
-
       <div className="block__price">
         <div className="cartItem__count">
           <button className="cartItem__count--button">

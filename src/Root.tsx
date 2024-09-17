@@ -4,7 +4,6 @@ import { store } from './app/store';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import App from './App';
 import { MainPage } from './pages/MainPage';
-// import { PhonesPage } from './pages/PhonesPage/PhonesPage';
 import { TabletsPage } from './pages/TabletspPage/TabletsPage';
 import { AccessoriesPage } from './pages/AccessoriesPage/AccessoriesPage';
 import { CartPage } from './pages/CartPage/CartPage';
