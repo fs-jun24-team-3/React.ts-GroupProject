@@ -22,7 +22,7 @@ export const Header: React.FC<Props> = () => {
           <div className="header__icons--like"></div>
         </div>
         <div className="header__icon--basket">
-          <div className="header__icons--basket"></div>
+          <NavLink to="/cart" className="header__icons--basket"></NavLink>
         </div>
         <div className="header__icon--menu">
           <div className="header__icons--menu"></div>
