@@ -13,7 +13,6 @@
     @include onMobile {
       margin: 32px 16px;
       flex-direction: column;
-      align-items: flex-start;
       gap: 32px;
     }
 
@@ -50,7 +49,16 @@
     display: flex;
     align-items: center;
     flex: 1;
-    justify-content: flex-end;
+
+    @include onMobile {
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    @include onTablet {
+      justify-content: flex-end;
+      margin-bottom: 0;
+    }
 
     &-text {
       padding-right: 16px;
@@ -82,7 +90,7 @@
         border-bottom: 0;
         transform: rotate(45deg) translateX(1px);
 
-        &:active {
+        .footer__button:active & {
             border-left: 2px solid $white-color;
             border-top: 2px solid $white-color;
         }

@@ -3,9 +3,11 @@
 
   align-items: center;
   height: 100%;
+  
   @include onTablet {
     display: flex;
   }
+
   &__icon {
     height: 100%;
     position: relative;
@@ -37,9 +39,11 @@
       @include onTablet {
         bottom: -18px;
       }
+
       @include onDesktop {
         bottom: -26px;
       }
+
       background-color: #000;
     }
   }
