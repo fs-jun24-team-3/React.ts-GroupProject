@@ -1,6 +1,7 @@
 import React from 'react';
 import './MainPage.scss';
 import { Main } from '../../components/Main';
+// import { Outlet } from 'react-router-dom';
 // import { Header } from '../../components/Header';
 // import { Footer } from '../../components/Footer';
 
@@ -13,7 +14,8 @@ export const MainPage: React.FC<Props> = () => {
       {/* <Header /> */}
       <div className="main-page">
         <Main />
-        {/* <Footer /> */}
+        {/* <Outlet />
+        <Footer /> */}
       </div>
     </>
   );

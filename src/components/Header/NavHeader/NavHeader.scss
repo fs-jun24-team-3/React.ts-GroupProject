@@ -15,7 +15,7 @@
     font-size: 12px;
     line-height: 11px;
     letter-spacing: 4%;
-    color: #89939a;
+    color: $secondary-color;
     @include onTablet {
       &:not(:last-child) {
         margin-right: 36px;

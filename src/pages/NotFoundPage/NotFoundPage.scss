@@ -1,11 +1,12 @@
 .not-found {
-  grid-column: 1 / -1;
+  @include mainPageGrid;
 
   &__title {
     font-size: pxToRem(20);
     font-weight: 780;
     margin-top: 16px;
     margin-bottom: 4px;
+    grid-column: 1/-1;
 
     @include onTablet {
       font-size: pxToRem(30);
@@ -31,6 +32,7 @@
     font-weight: 500;
     line-height: 21px;
     margin-bottom: 14px;
+    grid-column: 1/-1;
   }
 
   &__link {
