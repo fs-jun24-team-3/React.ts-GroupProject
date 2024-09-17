@@ -6,38 +6,20 @@ import classNames from 'classnames';
 type Props = {};
 
 export const NavHeader: React.FC<Props> = () => {
+  const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
+    classNames('nav__icon', { 'nav__icon--active': isActive });
   return (
     <div className="nav">
-      <NavLink
-        to="/"
-        className={({ isActive }) =>
-          classNames('nav__icon', { 'nav__icon--active': isActive })
-        }
-      >
+      <NavLink to="/" className={getNavLinkClass}>
         home
       </NavLink>
-      <NavLink
-        to="/phones"
-        className={({ isActive }) =>
-          classNames('nav__icon', { 'nav__icon--active': isActive })
-        }
-      >
+      <NavLink to="/phones" className={getNavLinkClass}>
         phones
       </NavLink>
-      <NavLink
-        to="/tablets"
-        className={({ isActive }) =>
-          classNames('nav__icon', { 'nav__icon--active': isActive })
-        }
-      >
+      <NavLink to="/tablets" className={getNavLinkClass}>
         tablets
       </NavLink>
-      <NavLink
-        to="/accessories"
-        className={({ isActive }) =>
-          classNames('nav__icon', { 'nav__icon--active': isActive })
-        }
-      >
+      <NavLink to="/accessories" className={getNavLinkClass}>
         accessories
       </NavLink>
     </div>
