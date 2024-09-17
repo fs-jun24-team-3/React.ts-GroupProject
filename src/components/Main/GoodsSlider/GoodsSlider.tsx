@@ -1,6 +1,6 @@
 import React from 'react';
-import { PhoneCard } from '../PhoneCard';
 import { RoundButton } from '../../Buttons/RoundButton';
+import { PhoneCard } from '../PhoneCard';
 
 type Props = {
   sliderTitle: string;
