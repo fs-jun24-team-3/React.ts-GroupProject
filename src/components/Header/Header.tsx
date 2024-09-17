@@ -3,6 +3,7 @@ import { NavHeader } from './NavHeader';
 import './Header.scss';
 import logo from '../../img/Logo.png';
 import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
@@ -21,9 +22,16 @@ export const Header: React.FC<Props> = () => {
         <div className="header__icon--like">
           <div className="header__icons--like"></div>
         </div>
-        <div className="header__icon--basket">
-          <NavLink to="/cart" className="header__icons--basket"></NavLink>
-        </div>
+        <NavLink
+          to="/cart"
+          className={({ isActive }) =>
+            classNames('header__icon--basket', {
+              'header__icon--active': isActive,
+            })
+          }
+        >
+          <div className="header__icons--basket"></div>
+        </NavLink>
         <div className="header__icon--menu">
           <div className="header__icons--menu"></div>
         </div>
