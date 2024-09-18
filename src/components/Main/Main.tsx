@@ -18,10 +18,6 @@ export const Main: React.FC<Props> = () => {
         <GoodsSlider sliderTitle={'Brand new models'} />
         <CategoriesList />
         <GoodsSlider sliderTitle={'Hot prices'} />
-        {/* <NewModelList /> */}
-
-        {/* <HotPricesList /> */}
-        {/* <NewModelList /> */}
       </div>
     </main>
   );
