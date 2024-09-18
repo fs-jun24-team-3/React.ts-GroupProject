@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavHeader } from './NavHeader';
-import './Header.scss';
+import styles from './Header.module.scss';
 import logo from '../../img/Logo.png';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
@@ -10,30 +10,30 @@ type Props = {};
 
 export const Header: React.FC<Props> = () => {
   return (
-    <header className="header">
-      <div className="header__menu">
+    <header className={styles.header}>
+      <div className={styles.header__menu}>
         <NavLink to="/home">
-          <img className="header__logo" src={logo} />
+          <img className={styles.header__logo} src={logo} />
         </NavLink>
 
         <NavHeader />
       </div>
-      <div className="header__icons">
-        <div className="header__icon--like">
-          <div className="header__icons--like"></div>
+      <div className={styles.header__icons}>
+        <div className={styles['nav__icon--active']}>
+          <div className={styles['header__icons--like']}></div>
         </div>
         <NavLink
           to="/cart"
           className={({ isActive }) =>
-            classNames('header__icon--basket', {
-              'header__icon--active': isActive,
+            classNames([styles['header__icon--basket']], {
+              [styles['header__icon--active']]: isActive,
             })
           }
         >
-          <div className="header__icons--basket"></div>
+          <div className={styles['header__icons--basket']}></div>
         </NavLink>
-        <div className="header__icon--menu">
-          <div className="header__icons--menu"></div>
+        <div className={styles['header__icon--menu']}>
+          <div className={styles['header__icons--menu']}></div>
         </div>
       </div>
     </header>
