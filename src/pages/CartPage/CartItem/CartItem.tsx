@@ -4,7 +4,6 @@ import minus from '../../../img/icon/Minus.png';
 import plus from '../../../img/icon/Plus.png';
 import './CartItem.scss';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {
   cart: Cart;
 };

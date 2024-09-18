@@ -1,5 +1,5 @@
 .cart {
-  @include mainContentGrid;
+  @include container;
 
   &__rout {
     display: flex;

@@ -11,9 +11,9 @@ type Props = {};
 export const MainPage: React.FC<Props> = () => {
   return (
     <>
-      <div className="main-page">
-        <Main />
-      </div>
+      {/* <div className="main-page"> */}
+      <Main />
+      {/* </div> */}
     </>
   );
 };

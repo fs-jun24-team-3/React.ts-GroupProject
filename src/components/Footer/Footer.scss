@@ -1,43 +1,39 @@
 .footer {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  height: $footer-height;
   border-top: 1px solid $elemnts-color;
   font-size: 12px;
+  background-color: #fff;
+
+  @include onMobile {
+    height: 257px;
+    padding: 32px 16px;
+  }
+  @include onTablet {
+    height: 96px;
+  }
 
   &__container {
+    height: 100%;
+    @include container;
     display: flex;
-    justify-content: center;
-
-    @include onMobile {
-      margin: 32px 16px;
-      flex-direction: column;
-      gap: 32px;
-    }
+    flex-direction: column;
+    justify-content: space-between;
 
     @include onTablet {
-      margin: 32px 32px;
       flex-direction: row;
-      align-items: center;
     }
 
     @include onDesktop {
-      margin: 32px 152px;
     }
-
-    @media (min-width: 1201) {
-      margin: 32px 152px;
-    }
-  }
-
-  &__menu {
-    flex: 1;
   }
 
   &__logo {
-    width: 89px;
-    height: 32px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    &__img {
+      width: 89px;
+      height: 30px;
+    }
   }
 
   &__button {
@@ -46,22 +42,18 @@
     line-height: 11px;
     letter-spacing: 4%;
     color: $secondary-color;
-    display: flex;
-    align-items: center;
-    flex: 1;
 
-    @include onMobile {
-      justify-content: center;
-      margin-bottom: 32px;
-    }
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+    justify-content: center;
 
     @include onTablet {
       justify-content: flex-end;
       margin-bottom: 0;
-    }
-
-    &-text {
-      padding-right: 16px;
+      width: 200px;
     }
 
     &-icon {
@@ -72,6 +64,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-left: 16px;
 
       &:hover {
         border: 1px solid $primary-color;
@@ -82,17 +75,16 @@
       }
 
       &--arrow {
-        width: 5px;
-        height: 5px;
-        border-left: 2px solid $primary-color;
-        border-top: 2px solid $primary-color;
-        border-right: 2px solid transparent;
-        border-bottom: 0;
-        transform: rotate(45deg) translateX(1px);
+        width: 16px;
+        height: 16px;
+        background-image: url(../../img/arrowActive/ArrowUp.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
 
         .footer__button:active & {
-            border-left: 2px solid $white-color;
-            border-top: 2px solid $white-color;
+          border-left: 2px solid $white-color;
+          border-top: 2px solid $white-color;
         }
       }
     }
