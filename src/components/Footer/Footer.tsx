@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.scss'
+import './Footer.scss';
 import { NavFooter } from './NavFooter';
 import logo from '../../img/Logo.png';
 
@@ -15,18 +15,18 @@ export const Footer: React.FC<Props> = () => {
   };
 
   return (
-    <footer className='footer'>
-      <div className='footer__container'>
-        <div className='footer__menu'>
-          <img className='footer__logo' src={logo} alt="Nice Gadgets Logo" />
+    <footer className="footer">
+      <div className="footer__container">
+        <div className="footer__menu">
+          <img className="footer__logo" src={logo} alt="Nice Gadgets Logo" />
         </div>
 
-          <NavFooter />
+        <NavFooter />
 
-        <div className='footer__button'>
-          <span className='footer__button-text'>Back to top</span>
-          <div onClick={scrollToTop} className='footer__button-icon'>
-            <span className='footer__button-icon--arrow'></span>
+        <div className="footer__button">
+          <span className="footer__button-text">Back to top</span>
+          <div onClick={scrollToTop} className="footer__button-icon">
+            <span className="footer__button-icon--arrow"></span>
           </div>
         </div>
       </div>

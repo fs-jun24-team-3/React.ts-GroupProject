@@ -1,4 +1,10 @@
-@import '../mixins/mixins.scss';
+@import './mixins.scss';
+
+$button-bg-color: #fff;
+$button-border-default: 1px solid #b4bdc3;
+$button-border-on-hover: 1px solid #0f0f11;
+$button-content-color-on-click: #fff;
+$button-bg-color-on-click: #0f0f11;
 
 $accent-color: #4219d0;
 $secondary-accent-color: #f4ba47;
@@ -15,11 +21,18 @@ $font-family: 'Montserrat', sans-serif;
 $base-font-size: 14;
 
 $header-height: 48px;
+
 @include onDesktop {
-    $header-height: 64px;
+  $header-height: 64px;
 }
 
 $footer-height: 96px;
 @include onDesktop {
-    $footer-height: 257px;
+  $footer-height: 257px;
+}
+
+body {
+  background-color: $hover-plus-background-color;
+  margin: 0px;
+  font-family: $font-family;
 }

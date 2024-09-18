@@ -91,8 +91,8 @@
         transform: rotate(45deg) translateX(1px);
 
         .footer__button:active & {
-            border-left: 2px solid $white-color;
-            border-top: 2px solid $white-color;
+          border-left: 2px solid $white-color;
+          border-top: 2px solid $white-color;
         }
       }
     }

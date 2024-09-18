@@ -1,0 +1,28 @@
+.categorie {
+  grid-column: span 4;
+  @include onDesktop {
+    grid-column: span 8;
+  }
+  &__img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    @include onDesktop {
+      border-radius: 0px;
+    }
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    color: $primary-color;
+    margin-top: 24px;
+  }
+  &__text {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: $secondary-color;
+    margin-top: 4px;
+  }
+}
