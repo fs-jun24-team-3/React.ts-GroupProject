@@ -5,6 +5,9 @@
   border-bottom: 1px solid $elemnts-color;
   position: relative;
   background-color: $white-color;
+  z-index: 5;
+
+  
 
   &__menu {
     display: flex;
@@ -75,6 +78,7 @@
     }
 
     &--menu {
+      cursor: default;
       width: 16px;
       height: 16px;
       background-image: url(../../img/headerIcon/Menu.png);
@@ -82,10 +86,17 @@
       background-repeat: no-repeat;
       background-position: center;
       margin: 16px;
+    }
 
-      @include onTablet {
-        display: none;
-      }
+    &--close {
+      cursor: default;
+      width: 16px;
+      height: 16px;
+      background-image: url(../../img/closeButton/Close.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 16px;
     }
   }
 
@@ -104,11 +115,8 @@
     display: block;
     border-right: 1px solid $elemnts-color;
     border-left: 1px solid $elemnts-color;
-
-    @include onTablet {
-      display: none;
-    }
   }
+
   &__icon--basket {
     cursor: default;
     position: relative;
@@ -124,12 +132,88 @@
       background-color: #000;
 
       @include onTablet {
-        bottom: 0px;
+        bottom: -18px;
       }
-
       @include onDesktop {
         bottom: 0px;
       }
+    }
+  }
+
+  &__icon--close {
+    display: block;
+    border-right: 1px solid $elemnts-color;
+    border-left: 1px solid $elemnts-color;
+  }
+}
+
+.dropdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 4;
+  background-color: $white-color;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 72px;
+  }
+
+  &-icons {
+    display: flex;
+    border-top: 1px solid $elemnts-color;
+  }
+
+  &__icons {
+    &--like {
+      cursor: default;
+      width: 16px;
+      height: 16px;
+      background-image: url(../../img/headerIcon/like.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 16px 50%;
+    }
+
+    &--basket {
+      cursor: default;
+      width: 16px;
+      height: 16px;
+      background-image: url(../../img/headerIcon/basket.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 16px 50%;
+    }
+  }
+
+  &__icon--like {
+    display: block;
+    border-right: 1px solid $elemnts-color;
+    width: 50%;
+  }
+
+  &__icon--basket {
+    display: block;
+    width: 50%;
+  }
+
+  &__icon--active {
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: #000;
     }
   }
 }
