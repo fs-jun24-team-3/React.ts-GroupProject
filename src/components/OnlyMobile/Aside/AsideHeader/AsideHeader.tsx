@@ -7,4 +7,3 @@ type Props = {};
 export const AsideHeader: React.FC<Props> = () => {
   return <></>;
 };
-

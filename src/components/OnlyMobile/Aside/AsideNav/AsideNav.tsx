@@ -7,4 +7,3 @@ type Props = {};
 export const AsideNav: React.FC<Props> = () => {
   return <></>;
 };
-

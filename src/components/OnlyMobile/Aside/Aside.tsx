@@ -6,4 +6,3 @@ type Props = {};
 export const Aside: React.FC<Props> = () => {
   return <></>;
 };
-

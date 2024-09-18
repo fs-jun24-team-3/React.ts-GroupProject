@@ -7,4 +7,3 @@ type Props = {};
 export const AsideFooter: React.FC<Props> = () => {
   return <></>;
 };
-
