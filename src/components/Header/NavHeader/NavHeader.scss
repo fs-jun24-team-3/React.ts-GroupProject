@@ -1,14 +1,9 @@
 .nav {
   display: none;
-  // background-color: bisque;
-
-  // height: 100%;
 
   @include onTablet {
     display: flex;
-    // flex-direction: column;
     align-items: center;
-
     height: 48px;
   }
 
@@ -17,10 +12,8 @@
   }
 
   &__icon {
-    // margin: ;
     display: flex;
     align-items: center;
-    // background-color: aqua;
     height: 100%;
     position: relative;
     text-decoration: none;
@@ -35,21 +28,5 @@
         margin-right: 36px;
       }
     }
-    // @include onDesktop {
-    //   &:not(:last-child) {
-    //     margin-right: 64px;
-    //   }
-    // }
-
-    // &--active:after {
-    //   content: '';
-    //   position: absolute;
-    //   display: block;
-    //   width: 100%;
-    //   height: 3px;
-    //   bottom: 0px;
-
-    //   background-color: #000;
-    // }
   }
 }
