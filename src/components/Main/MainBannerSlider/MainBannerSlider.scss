@@ -1,0 +1,95 @@
+.banner-slider {
+  &__interactive-part {
+    @include onTablet {
+      @include container;
+    }
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 320px;
+    @include onTablet {
+      height: 189px;
+    }
+    @include onDesktop {
+      height: 400px;
+    }
+  }
+
+  &__banner {
+    height: 100%;
+    width: 100%;
+    background-image: url('../../../img/mainIcons/banerPhone.png');
+
+    @include onTablet {
+      background-image: url('../../../img/mainIcons/Banner1.png');
+    }
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px;
+
+    @include onTablet {
+      border-radius: 8px;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    height: 100%;
+    font-size: 16px;
+    width: 32px;
+    border-radius: 48px;
+    border: $button-border-default;
+    background-color: $button-bg-color;
+    box-sizing: border-box;
+    display: none;
+    &--prev {
+      background-image: url(../../../img/arrowActive/ArrowLeft.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 16px;
+      height: 16px;
+      grid-column: 1/2;
+    }
+    &--next {
+      background-image: url(../../../img/arrowActive/ArrowRight.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 16px;
+      height: 16px;
+      grid-column: -2/-1;
+    }
+
+    // &:hover {
+    //   border: $button-border-on-hover;
+    // }
+
+    // &:active {
+    //   color: $button-content-color-on-click;
+    //   background-color: $button-bg-color-on-click;
+    // }
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+    gap: 14px;
+  }
+
+  &__indicator {
+    height: 4px;
+    width: 14px;
+    background-color: #e2e6e9;
+
+    &--is-active {
+      background-color: #0f0f11;
+    }
+  }
+}

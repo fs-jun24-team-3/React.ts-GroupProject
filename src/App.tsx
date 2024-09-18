@@ -1,6 +1,15 @@
-import { MainPage } from './pages/MainPage';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { Outlet } from 'react-router-dom';
+
 export const App = () => {
-  return <MainPage />;
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  );
 };
 
 export default App;

@@ -2,59 +2,74 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #e2e6e9;
+  border-bottom: 1px solid $elemnts-color;
   position: relative;
-
+  background-color: #fff;
   &__menu {
     display: flex;
     align-items: center;
   }
+
   &__logo {
-    width: 80px;
-    height: 28px;
-    margin-right: 48px;
-    margin-left: 24px;
-    @media (max-width: 1200px) {
-      width: 64px;
-      height: 20px;
+    width: 64px;
+    height: 20px;
+    margin-right: 32px;
+    margin-left: 16px;
+
+    @include onDesktop {
+      width: 80px;
+      height: 28px;
+      margin-right: 48px;
+      margin-left: 24px;
     }
   }
+
   &__icons {
     display: flex;
+
     &--like {
+      display: none;
       width: 16px;
       height: 16px;
       background-image: url(../../img/headerIcon/like.png);
-      display: block;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      margin: 24px;
-      @media (max-width: 1200px) {
+      margin: 16px;
+
+      @include onTablet {
         margin: 16px;
+        display: block;
       }
-      @media (max-width: 640px) {
-        display: none;
+
+      @include onDesktop {
+        margin: 24px;
+        display: block;
       }
     }
+
     &--basket {
+      display: none;
       width: 16px;
       height: 16px;
-      display: block;
       background-image: url(../../img/headerIcon/basket.png);
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      margin: 24px;
-      @media (max-width: 1200px) {
+      margin: 16px;
+
+      @include onTablet {
         margin: 16px;
+        display: block;
       }
-      @media (max-width: 640px) {
-        display: none;
+
+      @include onDesktop {
+        margin: 24px;
+        display: block;
       }
     }
+
     &--menu {
-      display: none;
       width: 16px;
       height: 16px;
       background-image: url(../../img/headerIcon/Menu.png);
@@ -62,25 +77,51 @@
       background-repeat: no-repeat;
       background-position: center;
       margin: 16px;
-      @media (max-width: 640px) {
-        display: block;
+
+      @include onTablet {
+        display: none;
       }
     }
   }
+
   &__icon--like {
     display: block;
-    border-right: 1px solid #e2e6e9;
-    border-left: 1px solid #e2e6e9;
-    @media (max-width: 640px) {
+    border-right: 1px solid $elemnts-color;
+    border-left: 1px solid $elemnts-color;
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__icon--menu {
+    display: block;
+    border-right: 1px solid $elemnts-color;
+    border-left: 1px solid $elemnts-color;
+
+    @include onTablet {
       display: none;
     }
   }
-  &__icon--menu {
-    display: none;
-    border-right: 1px solid #e2e6e9;
-    border-left: 1px solid #e2e6e9;
-    @media (max-width: 640px) {
+  &__icon--basket {
+    position: relative;
+  }
+  &__icon--active {
+    &::after {
+      content: '';
+      position: absolute;
       display: block;
+      width: 100%;
+      height: 3px;
+
+      @include onTablet {
+        bottom: -18px;
+      }
+      @include onDesktop {
+        bottom: 0px;
+      }
+      background-color: #000;
     }
   }
 }

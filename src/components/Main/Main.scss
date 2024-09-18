@@ -1,29 +1,22 @@
 .main {
-  grid-column: 1 / -1;
-
-  &__title {
-    margin: 56px 0;
+  padding-bottom: 64px;
+  @include onTablet {
+    padding-bottom: 80px;
   }
 
-  &__content {
-    @include mainContentGrid;
+  &__title {
+    @include container;
+
+    margin-top: 24px;
+    margin-bottom: 24px;
   }
 
   &__slider,
   &__categories,
   &__banner-slider {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-
     &::-webkit-scrollbar {
       visibility: hidden;
     }
-
-
-    // Для Firefox
     scrollbar-width: none;
   }
 }
@@ -85,8 +78,6 @@
 }
 
 .slider {
-
-
   &__header {
     display: flex;
     justify-content: space-between;
@@ -120,19 +111,23 @@
       color: $button-content-color-on-click;
       background-color: $button-bg-color-on-click;
     }
-  }
-
-  // Todo: need to restrict max-width of phones list and hide overflow
-  &__list {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 16px;
-    max-width: 100%;
-  }
-
-  &__item {
+    &--prev {
+      width: 16px;
+      height: 16px;
+      background-image: url(../../img/arrowActive/ArrowLeft.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &--next {
+      width: 16px;
+      height: 16px;
+      // padding: 8px;
+      background-image: url(../../img/arrowActive/ArrowRight.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
 }
 

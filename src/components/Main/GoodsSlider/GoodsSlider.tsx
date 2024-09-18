@@ -1,5 +1,6 @@
 import React from 'react';
 import { PhoneCard } from '../PhoneCard';
+import './GoodSlider.scss';
 
 type Props = {
   sliderTitle: string;
@@ -12,9 +13,13 @@ export const GoodsSlider: React.FC<Props> = ({ sliderTitle }) => {
         <h2 className="slider__title">{sliderTitle}</h2>
 
         <div className="slider__interactive-part">
-          <button className="slider__button slider__button--prev">{'<'}</button>
+          <button className="slider__button">
+            <div className="slider__button--prev"></div>
+          </button>
 
-          <button className="slider__button slider__button--next">{'>'}</button>
+          <button className="slider__button">
+            <div className="slider__button--next"></div>
+          </button>
         </div>
       </div>
       <ul className="slider__list">

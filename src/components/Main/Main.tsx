@@ -1,9 +1,10 @@
 import React from 'react';
 import './Main.scss';
 import { MainBannerSlider } from './MainBannerSlider';
-import { NewModelList } from './NewModelsList';
+// import { NewModelList } from './NewModelsList';
+import { GoodsSlider } from './GoodsSlider';
 import { CategoriesList } from './CategoriesList';
-import { HotPricesList } from './HotPricesList';
+// import { HotPricesList } from './HotPricesList';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
@@ -14,11 +15,13 @@ export const Main: React.FC<Props> = () => {
       <div className="main__content">
         <MainBannerSlider />
 
-        <NewModelList />
-
+        <GoodsSlider sliderTitle={'Brand new models'} />
         <CategoriesList />
+        <GoodsSlider sliderTitle={'Hot prices'} />
+        {/* <NewModelList /> */}
 
-        <HotPricesList />
+        {/* <HotPricesList /> */}
+        {/* <NewModelList /> */}
       </div>
     </main>
   );

@@ -1,0 +1,100 @@
+.footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: $footer-height;
+  border-top: 1px solid $elemnts-color;
+  font-size: 12px;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+
+    @include onMobile {
+      margin: 32px 16px;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    @include onTablet {
+      margin: 32px 32px;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    @include onDesktop {
+      margin: 32px 152px;
+    }
+
+    @media (min-width: 1201) {
+      margin: 32px 152px;
+    }
+  }
+
+  &__menu {
+    flex: 1;
+  }
+
+  &__logo {
+    width: 89px;
+    height: 32px;
+  }
+
+  &__button {
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 4%;
+    color: $secondary-color;
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    @include onMobile {
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    @include onTablet {
+      justify-content: flex-end;
+      margin-bottom: 0;
+    }
+
+    &-text {
+      padding-right: 16px;
+    }
+
+    &-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid $icons-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        border: 1px solid $primary-color;
+      }
+
+      &:active {
+        background-color: $primary-color;
+      }
+
+      &--arrow {
+        width: 5px;
+        height: 5px;
+        border-left: 2px solid $primary-color;
+        border-top: 2px solid $primary-color;
+        border-right: 2px solid transparent;
+        border-bottom: 0;
+        transform: rotate(45deg) translateX(1px);
+
+        .footer__button:active & {
+          border-left: 2px solid $white-color;
+          border-top: 2px solid $white-color;
+        }
+      }
+    }
+  }
+}

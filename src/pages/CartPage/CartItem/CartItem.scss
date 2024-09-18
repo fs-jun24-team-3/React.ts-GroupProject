@@ -1,0 +1,81 @@
+.cartItem {
+  align-items: center;
+  border: 1px solid $elemnts-color;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  grid-column: 1/-1;
+
+  @include onTablet {
+    padding: 24px;
+    grid-column: 1/-1;
+  }
+  @include onDesktop {
+    grid-column: 1/-10;
+  }
+
+  &__close {
+    width: 16px;
+    height: 16px;
+    background-image: url(../../../img/icon/Close.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &__count {
+    display: flex;
+    align-items: center;
+    &--button {
+      background-color: #fff;
+      display: block;
+      width: 32px;
+      height: 32px;
+      border: 1px solid $elemnts-color;
+      border-radius: 32px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &-minus {
+        width: 16px;
+        height: 16px;
+      }
+      &-plus {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    &__number {
+      margin-left: 8px;
+      margin-right: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 21px;
+    }
+  }
+  &__name {
+    width: 128px;
+  }
+  &__price {
+    color: $primary-color;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 30px;
+  }
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+.block {
+  &__information {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  &__price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
