@@ -4,13 +4,15 @@
   align-items: center;
   border-bottom: 1px solid $elemnts-color;
   position: relative;
-  background-color: #fff;
+  background-color: $white-color;
+
   &__menu {
     display: flex;
     align-items: center;
   }
 
   &__logo {
+    cursor: default;
     width: 64px;
     height: 20px;
     margin-right: 32px;
@@ -25,9 +27,11 @@
   }
 
   &__icons {
+    cursor: default;
     display: flex;
 
     &--like {
+      cursor: default;
       display: none;
       width: 16px;
       height: 16px;
@@ -49,6 +53,7 @@
     }
 
     &--basket {
+      cursor: default;
       display: none;
       width: 16px;
       height: 16px;
@@ -105,8 +110,10 @@
     }
   }
   &__icon--basket {
+    cursor: default;
     position: relative;
   }
+
   &__icon--active {
     &::after {
       content: '';
@@ -114,14 +121,15 @@
       display: block;
       width: 100%;
       height: 3px;
+      background-color: #000;
 
       @include onTablet {
-        bottom: -18px;
+        bottom: 0px;
       }
+
       @include onDesktop {
         bottom: 0px;
       }
-      background-color: #000;
     }
   }
 }

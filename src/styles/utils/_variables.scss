@@ -1,4 +1,4 @@
-@import '../mixins/mixins.scss';
+@import './mixins';
 
 $accent-color: #4219d0;
 $secondary-accent-color: #f4ba47;
@@ -16,10 +16,10 @@ $base-font-size: 14;
 
 $header-height: 48px;
 @include onDesktop {
-    $header-height: 64px;
+  $header-height: 64px;
 }
 
 $footer-height: 96px;
 @include onDesktop {
-    $footer-height: 257px;
+  $footer-height: 257px;
 }
