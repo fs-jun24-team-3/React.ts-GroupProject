@@ -10,7 +10,7 @@ type Props = {};
 
 export const Main: React.FC<Props> = () => {
   return (
-    <main className="main">
+    <>
       <h1 className="main__title">Welcome to Nice Gadgets store!</h1>
       <div className="main__content">
         <MainBannerSlider />
@@ -19,6 +19,6 @@ export const Main: React.FC<Props> = () => {
         <CategoriesList />
         <GoodsSlider sliderTitle={'Hot prices'} />
       </div>
-    </main>
+    </>
   );
 };
