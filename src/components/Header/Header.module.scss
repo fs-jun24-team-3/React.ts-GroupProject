@@ -1,0 +1,135 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $elemnts-color;
+  position: relative;
+  background-color: $white-color;
+
+  &__menu {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    cursor: default;
+    width: 64px;
+    height: 20px;
+    margin-right: 32px;
+    margin-left: 16px;
+
+    @include onDesktop {
+      width: 80px;
+      height: 28px;
+      margin-right: 48px;
+      margin-left: 24px;
+    }
+  }
+
+  &__icons {
+    cursor: default;
+    display: flex;
+
+    &--like {
+      cursor: default;
+      display: none;
+      width: 16px;
+      height: 16px;
+      background-image: url(../../img/headerIcon/like.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 16px;
+
+      @include onTablet {
+        margin: 16px;
+        display: block;
+      }
+
+      @include onDesktop {
+        margin: 24px;
+        display: block;
+      }
+    }
+
+    &--basket {
+      cursor: default;
+      display: none;
+      width: 16px;
+      height: 16px;
+      background-image: url(../../img/headerIcon/basket.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 16px;
+
+      @include onTablet {
+        margin: 16px;
+        display: block;
+      }
+
+      @include onDesktop {
+        margin: 24px;
+        display: block;
+      }
+    }
+
+    &--menu {
+      width: 16px;
+      height: 16px;
+      background-image: url(../../img/headerIcon/Menu.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 16px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__icon--like {
+    display: block;
+    border-right: 1px solid $elemnts-color;
+    border-left: 1px solid $elemnts-color;
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__icon--menu {
+    display: block;
+    border-right: 1px solid $elemnts-color;
+    border-left: 1px solid $elemnts-color;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+  &__icon--basket {
+    cursor: default;
+    position: relative;
+  }
+
+  &__icon--active {
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: #000;
+
+      @include onTablet {
+        bottom: 0px;
+      }
+
+      @include onDesktop {
+        bottom: 0px;
+      }
+    }
+  }
+}
