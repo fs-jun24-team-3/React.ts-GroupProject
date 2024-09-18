@@ -7,6 +7,8 @@
   background-color: $white-color;
   z-index: 5;
 
+  
+
   &__menu {
     display: flex;
     align-items: center;
@@ -161,7 +163,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 72px; 
+    padding-top: 72px;
   }
 
   &-icons {
@@ -170,7 +172,6 @@
   }
 
   &__icons {
-
     &--like {
       cursor: default;
       width: 16px;
