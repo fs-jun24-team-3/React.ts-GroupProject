@@ -1,1 +1,1 @@
-export * from './NewModelList'
+export * from './NewModelList';

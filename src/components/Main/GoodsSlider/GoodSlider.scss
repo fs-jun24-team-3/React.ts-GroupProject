@@ -1,0 +1,31 @@
+.main__slider {
+  @include container;
+  margin-top: 56px;
+}
+
+.slider__list {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto; /* Горизонтальний скрол */
+  scroll-behavior: smooth; /* Плавний скролінг */
+  white-space: nowrap; /* Не переносити елементи на новий рядок */
+  padding: 0px;
+  margin: 0;
+  list-style: none;
+}
+
+.slider__list::-webkit-scrollbar {
+  display: none; /* Сховати скролбар, якщо не потрібен */
+}
+
+.slider__item {
+  min-width: 212px; /* Мінімальна ширина кожного елемента */
+  flex-shrink: 0; /* Не дозволяти елементам зменшуватися */
+  &:not(:last-child) {
+    margin-right: 16px;
+  }
+}
+
+.main__slider {
+  overflow: hidden; /* Приховати зайві елементи поза видимою областю */
+}
