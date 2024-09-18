@@ -1,7 +1,6 @@
 import React from 'react';
 import './CategoriesItem.scss';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {
   img: string;
   title: string;

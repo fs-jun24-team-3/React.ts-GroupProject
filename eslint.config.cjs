@@ -10,11 +10,7 @@ module.exports = [
   // Основна конфігурація для TypeScript та JSX
   {
     files: ['**/*.{ts,tsx,jsx}'],
-    ignores: [
-      'build/',
-      'dist/assets/index-C_1RAfnd.js',
-      'node_modules/',
-    ],
+    ignores: ['build/', 'dist/assets/index-C_1RAfnd.js', 'node_modules/'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
