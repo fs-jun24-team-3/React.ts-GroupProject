@@ -1,5 +1,5 @@
 import React from 'react';
-import './NavHeader.scss';
+import styles from './NavHeader.module.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -9,17 +9,20 @@ export const NavHeader: React.FC<Props> = () => {
   const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
     classNames('nav__icon', { 'nav__icon--active': isActive });
   return (
-    <div className="nav">
-      <NavLink to="/" className={getNavLinkClass}>
+    <div className={styles.nav}>
+      <NavLink
+        to="/"
+        className={`${styles.nav__icon} ${styles['nav__icon--active']}`}
+      >
         home
       </NavLink>
-      <NavLink to="/phones" className={getNavLinkClass}>
+      <NavLink to="#" className={styles.nav__icon}>
         phones
       </NavLink>
-      <NavLink to="/tablets" className={getNavLinkClass}>
+      <NavLink to="#" className={styles.nav__icon}>
         tablets
       </NavLink>
-      <NavLink to="/accessories" className={getNavLinkClass}>
+      <NavLink to="#" className={styles.nav__icon}>
         accessories
       </NavLink>
     </div>
