@@ -17,8 +17,12 @@ export const Footer: React.FC<Props> = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
-        <div className="footer__menu">
-          <img className="footer__logo" src={logo} alt="Nice Gadgets Logo" />
+        <div className="footer__logo">
+          <img
+            className="footer__logo__img"
+            src={logo}
+            alt="Nice Gadgets Logo"
+          />
         </div>
 
         <NavFooter />
