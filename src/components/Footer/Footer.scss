@@ -1,14 +1,14 @@
 .footer {
   border-top: 1px solid $elemnts-color;
-  font-size: 12px;
-  background-color: #fff;
+  background-color: $white-color;
 
-  @include onMobile {
-    height: 257px;
-    padding: 32px 16px;
-  }
   @include onTablet {
     height: 96px;
+  }
+
+  @include onDesktop {
+    height: 96px;
+    padding: 32px 16px;
   }
 
   &__container {
@@ -20,9 +20,6 @@
 
     @include onTablet {
       flex-direction: row;
-    }
-
-    @include onDesktop {
     }
   }
 
@@ -42,11 +39,8 @@
     line-height: 11px;
     letter-spacing: 4%;
     color: $secondary-color;
-
     display: flex;
-
     align-items: center;
-
     width: 100%;
     justify-content: center;
 
@@ -54,6 +48,12 @@
       justify-content: flex-end;
       margin-bottom: 0;
       width: 200px;
+    }
+
+    &-text {
+      font-size: pxToRem(12);
+      font-weight: 700;
+      line-height: 16px;
     }
 
     &-icon {
