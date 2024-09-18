@@ -4,13 +4,16 @@
   align-items: center;
   border-bottom: 1px solid $elemnts-color;
   position: relative;
-  background-color: #fff;
+  background-color: $white-color;
+  z-index: 5;
+
   &__menu {
     display: flex;
     align-items: center;
   }
 
   &__logo {
+    cursor: default;
     width: 64px;
     height: 20px;
     margin-right: 32px;
@@ -25,9 +28,11 @@
   }
 
   &__icons {
+    cursor: default;
     display: flex;
 
     &--like {
+      cursor: default;
       display: none;
       width: 16px;
       height: 16px;
@@ -49,6 +54,7 @@
     }
 
     &--basket {
+      cursor: default;
       display: none;
       width: 16px;
       height: 16px;
@@ -70,6 +76,7 @@
     }
 
     &--menu {
+      cursor: default;
       width: 16px;
       height: 16px;
       background-image: url(../../img/headerIcon/Menu.png);
@@ -77,10 +84,17 @@
       background-repeat: no-repeat;
       background-position: center;
       margin: 16px;
+    }
 
-      @include onTablet {
-        display: none;
-      }
+    &--close {
+      cursor: default;
+      width: 16px;
+      height: 16px;
+      background-image: url(../../img/closeButton/Close.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 16px;
     }
   }
 
@@ -99,14 +113,13 @@
     display: block;
     border-right: 1px solid $elemnts-color;
     border-left: 1px solid $elemnts-color;
-
-    @include onTablet {
-      display: none;
-    }
   }
+
   &__icon--basket {
+    cursor: default;
     position: relative;
   }
+
   &__icon--active {
     &::after {
       content: '';
@@ -114,6 +127,7 @@
       display: block;
       width: 100%;
       height: 3px;
+      background-color: #000;
 
       @include onTablet {
         bottom: -18px;
@@ -121,6 +135,83 @@
       @include onDesktop {
         bottom: 0px;
       }
+    }
+  }
+
+  &__icon--close {
+    display: block;
+    border-right: 1px solid $elemnts-color;
+    border-left: 1px solid $elemnts-color;
+  }
+}
+
+.dropdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 4;
+  background-color: $white-color;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 72px; 
+  }
+
+  &-icons {
+    display: flex;
+    border-top: 1px solid $elemnts-color;
+  }
+
+  &__icons {
+
+    &--like {
+      cursor: default;
+      width: 16px;
+      height: 16px;
+      background-image: url(../../img/headerIcon/like.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 16px 50%;
+    }
+
+    &--basket {
+      cursor: default;
+      width: 16px;
+      height: 16px;
+      background-image: url(../../img/headerIcon/basket.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 16px 50%;
+    }
+  }
+
+  &__icon--like {
+    display: block;
+    border-right: 1px solid $elemnts-color;
+    width: 50%;
+  }
+
+  &__icon--basket {
+    display: block;
+    width: 50%;
+  }
+
+  &__icon--active {
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 3px;
       background-color: #000;
     }
   }

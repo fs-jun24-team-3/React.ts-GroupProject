@@ -1,26 +1,40 @@
 import React from 'react';
-import './NavHeader.scss';
+import styles from './NavHeader.module.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-type Props = {};
+type Props = {
+  handleMenuOpen: () => void;
+};
 
-export const NavHeader: React.FC<Props> = () => {
+export const NavHeader: React.FC<Props> = ({ handleMenuOpen }) => {
   const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
-    classNames('nav__icon', { 'nav__icon--active': isActive });
+    classNames(styles.nav__icon, { [styles['nav__icon--active']]: isActive });
   return (
-    <div className="nav">
-      <NavLink to="/" className={getNavLinkClass}>
-        home
+    <div className={styles.nav}>
+      <NavLink to="/" className={getNavLinkClass} onClick={handleMenuOpen}>
+        Home
       </NavLink>
-      <NavLink to="/phones" className={getNavLinkClass}>
-        phones
+      <NavLink
+        to="/phones"
+        className={getNavLinkClass}
+        onClick={handleMenuOpen}
+      >
+        Phones
       </NavLink>
-      <NavLink to="/tablets" className={getNavLinkClass}>
-        tablets
+      <NavLink
+        to="/tablets"
+        className={getNavLinkClass}
+        onClick={handleMenuOpen}
+      >
+        Tablets
       </NavLink>
-      <NavLink to="/accessories" className={getNavLinkClass}>
-        accessories
+      <NavLink
+        to="/accessories"
+        className={getNavLinkClass}
+        onClick={handleMenuOpen}
+      >
+        Accessories
       </NavLink>
     </div>
   );

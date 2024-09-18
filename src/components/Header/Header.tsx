@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavHeader } from './NavHeader';
-import './Header.scss';
+import styles from './Header.module.scss';
 import logo from '../../img/Logo.png';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
@@ -9,33 +9,103 @@ import classNames from 'classnames';
 type Props = {};
 
 export const Header: React.FC<Props> = () => {
-  return (
-    <header className="header">
-      <div className="header__menu">
-        <NavLink to="/home">
-          <img className="header__logo" src={logo} />
-        </NavLink>
+  const [isMobileScreen, setIsMobileScreen] = useState(window.innerWidth < 640);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-        <NavHeader />
-      </div>
-      <div className="header__icons">
-        <div className="header__icon--like">
-          <div className="header__icons--like"></div>
+  useEffect(() => {
+    const handleMenuOnResize = () => {
+      if (window.innerWidth > 639 && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleMenuOnResize);
+    return () => window.removeEventListener('resize', handleMenuOnResize);
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const handleScreenSize = () => {
+      setIsMobileScreen(window.innerWidth < 640);
+    };
+
+    window.addEventListener('resize', handleScreenSize);
+    return () => window.removeEventListener('resize', handleScreenSize);
+  }, []);
+
+  const handleMenuOpen = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  return (
+    <>
+      <header className={styles.header}>
+        <div className={styles.header__menu}>
+          <NavLink to="/home" onClick={handleMenuOpen}>
+            <img className={styles.header__logo} src={logo} alt="Nice Gadgets logo" />
+          </NavLink>
+
+          {!isMobileScreen && <NavHeader handleMenuOpen={handleMenuOpen} />}
         </div>
-        <NavLink
-          to="/cart"
-          className={({ isActive }) =>
-            classNames('header__icon--basket', {
-              'header__icon--active': isActive,
-            })
-          }
-        >
-          <div className="header__icons--basket"></div>
-        </NavLink>
-        <div className="header__icon--menu">
-          <div className="header__icons--menu"></div>
+        <div className={styles.header__icons}>
+          {!isMobileScreen && (
+            <>
+              <div className={classNames(styles["header__icon"], styles["header__icon--like"])}>
+                <div className={styles["header__icons--like"]}></div>
+              </div>
+              <NavLink
+                to="/cart"
+                onClick={handleMenuOpen}
+                className={({ isActive }) =>
+                  classNames([styles['header__icon--basket']], {
+                    [styles['header__icon--active']]: isActive,
+                  })
+                }
+              >
+                <div className={styles["header__icons--basket"]}></div>
+              </NavLink>
+            </>
+          )}
+
+          {isMobileScreen && (
+            <div
+              className={
+                isMenuOpen ? styles['header__icon--close'] : styles['header__icon--menu']
+              }
+              onClick={handleMenuOpen}
+            >
+              <div
+                className={
+                  isMenuOpen ? styles['header__icons--close'] : styles['header__icons--menu']
+                }
+              ></div>
+            </div>
+          )}
         </div>
-      </div>
-    </header>
+      </header>
+
+      {isMobileScreen && isMenuOpen && (
+        <div className={styles["dropdown"]}>
+          <div className={styles["dropdown-content"]}>
+            <NavHeader handleMenuOpen={handleMenuOpen}/>
+          </div>
+          <div className={styles["dropdown-icons"]}>
+            <div className={classNames(styles["dropdown__icon"], styles["dropdown__icon--like"])}>
+              <div className={styles["dropdown__icons--like"]}></div>
+            </div>
+            <NavLink
+              to="/cart"
+              onClick={handleMenuOpen}
+              className={({ isActive }) =>
+                classNames([styles['dropdown__icon--basket']], {
+                  [styles['dropdown__icon--active']]: isActive,
+                })
+              }
+            >
+              <div className={styles["dropdown__icons--basket"]}></div>
+            </NavLink>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
