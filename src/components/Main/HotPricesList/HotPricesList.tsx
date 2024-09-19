@@ -5,11 +5,5 @@ import { GoodsSlider } from '../GoodsSlider';
 type Props = {};
 
 export const HotPricesList: React.FC<Props> = () => {
-  return (
-    <GoodsSlider sliderTitle={'Hot prices'} />
-  );
+  return <GoodsSlider sliderTitle={'Hot prices'} />;
 };
-
-
-
-

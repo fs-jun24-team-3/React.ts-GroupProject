@@ -11,6 +11,7 @@ const rootReducer = combineSlices(
   tabletsSlice,
 );
 
+
 export const store = configureStore({
   reducer: rootReducer,
 });

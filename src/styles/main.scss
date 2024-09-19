@@ -2,5 +2,7 @@
 @import './base/typography';
 
 body {
-  background-color: $hover-plus-background-color;
+  // background-color: $hover-plus-background-color;
+  margin: 0px;
+  font-family: $font-family;
 }

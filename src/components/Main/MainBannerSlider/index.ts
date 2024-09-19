@@ -1,1 +1,1 @@
-export * from './MainBannerSlider'
+export * from './MainBannerSlider';
