@@ -24,6 +24,18 @@ export const PhonesPage: React.FC<Props> = () => {
   const indexOfFirstPhone = indexOfLastPhone - PHONES_PER_PAGE;
   const currentPhones = phones.slice(indexOfFirstPhone, indexOfLastPhone);
 
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   useEffect(() => {
     dispatch(loadPhones());
   }, [dispatch]);
@@ -49,7 +61,10 @@ export const PhonesPage: React.FC<Props> = () => {
           ))}
         </div>
         <div className={styles.phones__pagination}>
-          <button className={styles.phones__pagination__arr}>
+          <button
+            className={styles.phones__pagination__arr}
+            onClick={() => handlePrevPage()}
+          >
             <div className={styles.phones__pagination__arrLeft}></div>
           </button>
           <div className={styles.phones__pagination__buttons}>
@@ -57,14 +72,20 @@ export const PhonesPage: React.FC<Props> = () => {
               <button
                 key={index + 1}
                 onClick={() => paginate(index + 1)}
-                // className={currentPage === index + 1 ? styles.activePage : ''}
-                className={styles.phones__pagination__button}
+                className={
+                  currentPage !== index + 1
+                    ? styles.phones__pagination__button
+                    : styles.phones__pagination__button_current
+                }
               >
                 {index + 1}
               </button>
             ))}
           </div>
-          <button className={styles.phones__pagination__arr}>
+          <button
+            onClick={() => handleNextPage()}
+            className={styles.phones__pagination__arr}
+          >
             <div className={styles.phones__pagination__arrRight}></div>
           </button>
         </div>

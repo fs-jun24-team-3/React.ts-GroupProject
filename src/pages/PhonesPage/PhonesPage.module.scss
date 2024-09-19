@@ -82,6 +82,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      &:hover {
+        border: 1px solid $primary-color;
+      }
 
       &Left {
         width: 16px;
@@ -121,6 +124,16 @@
       font-size: 14px;
       font-weight: 600;
       line-height: 21px;
+      &:hover {
+        border: 1px solid $primary-color;
+      }
+      &_current {
+        width: 32px;
+        height: 32px;
+        border-radius: 16px;
+        color: #fff;
+        background-color: $primary-color;
+      }
     }
   }
 }
