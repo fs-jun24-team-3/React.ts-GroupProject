@@ -18,17 +18,12 @@ const phones: Phone = {
   priceDiscount: 1050,
   colorsAvailable: ['black', 'green', 'yellow', 'white', 'purple', 'red'],
   color: 'black',
-  images: [
-    'img/phones/apple-iphone-11/black/00.webp',
-    'img/phones/apple-iphone-11/black/01.webp',
-    'img/phones/apple-iphone-11/black/02.webp',
-    'img/phones/apple-iphone-11/black/03.webp',
-    'img/phones/apple-iphone-11/black/04.webp',
-  ],
+  images: 'img/phones/apple-iphone-11/black/00.webp',
+
   description: [
-    { title: 'Display', text: "6.1' IPS LCD" },
-    { title: 'Camera', text: '12MP ultra-wide and 12MP wide cameras' },
-    { title: 'Battery', text: '3110 mAh battery with fast charging' },
+    { title: 'Display', text: ["6.1' IPS LCD"] },
+    { title: 'Camera', text: ['12MP ultra-wide and 12MP wide cameras'] },
+    { title: 'Battery', text: ['3110 mAh battery with fast charging'] },
   ],
   screen: "6.1' IPS",
   resolution: '1792x828',
