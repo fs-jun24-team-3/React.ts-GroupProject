@@ -1,15 +1,17 @@
 .cartItem {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   border: 1px solid $elemnts-color;
   background-color: #fff;
+  box-sizing: border-box;
   border-radius: 16px;
   padding: 16px;
   grid-column: 1/-1;
 
   @include onTablet {
     padding: 24px;
+    flex-direction: row;
     grid-column: 1/-1;
   }
   @include onDesktop {
@@ -49,6 +51,7 @@
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 8px;
+    max-width: 366px
   }
 
   &__details {
@@ -62,6 +65,7 @@
     font-size: 22px;
     line-height: 30px;
     margin-right: 16px;
+    margin-left: 24px;
   }
 
   &__count {
@@ -102,6 +106,10 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
+
+  @include onTablet{
+    margin-bottom: 16px;
+  }
 }
 
 .block__price {
