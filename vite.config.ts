@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -5,10 +6,15 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   base: '/React.ts-GroupProject',
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "src/styles/utils/utils.scss";`,
+        additionalData: `@import "@/styles/utils/utils.scss";`,
       },
     },
   },
