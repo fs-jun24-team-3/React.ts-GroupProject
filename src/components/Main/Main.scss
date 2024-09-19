@@ -155,7 +155,7 @@
   }
 
   &__logo {
-    height: auto;
+    max-height: auto;
     width: 100%;
     flex-shrink: 1;
     align-self: center;
