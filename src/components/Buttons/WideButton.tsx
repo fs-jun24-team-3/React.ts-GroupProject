@@ -1,5 +1,5 @@
 import React from 'react';
-import './Buttons.scss';
+import styles from './Buttons.module.scss';
 
 type Props = {
   onClick?: () => void;
@@ -16,7 +16,7 @@ export const WideButton: React.FC<Props> = ({
 }) => {
   return (
     <button
-      className="wide-button"
+      className={styles.wide_button}
       onClick={onClick}
       style={{ height: height, width: width }}
     >

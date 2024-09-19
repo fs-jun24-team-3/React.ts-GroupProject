@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Buttons.scss';
+import styles from './Buttons.module.scss';
 import classNames from 'classnames';
 import heartImgOnClick from '../../img/heartOnClick.png';
 
@@ -25,9 +25,9 @@ export const RoundButton: React.FC<Props> = ({
   return (
     <button
       className={classNames(
-        'round-button',
-        { 'heart-button': buttonImgPath },
-        { 'heart-button--is-active': isClicked },
+        styles.round_button,
+        { [styles.heart_button]: buttonImgPath },
+        { [styles.heart_button__is_active]: isClicked },
       )}
       onClick={() => {
         handleClick();
@@ -37,7 +37,7 @@ export const RoundButton: React.FC<Props> = ({
       {buttonName || (
         <img
           src={isClicked ? heartImgOnClick : buttonImgPath}
-          className="round-button__picture"
+          className={styles.round_button__picture}
           alt="icon"
         />
       )}

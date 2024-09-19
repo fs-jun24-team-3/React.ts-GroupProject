@@ -1,4 +1,4 @@
-.round-button {
+.round_button {
   height: 32px;
   width: 32px;
   cursor: pointer;
@@ -26,41 +26,41 @@
   }
 }
 
-.heart-button {
-  background-color: #fff;
+.heart_button {
+  background-color: $button-bg-color;
   height: 40px;
   width: 40px;
 
   &:active {
     color: $button-content-color-on-click;
-    background-color: #fff;
+    background-color: $heart-button-bg-color-on-click;
     border: $button-border-default;
   }
 
-  &--is-active {
-    border: 1px solid #e2e6e9;
+  &__is_active {
+    border: $heart-button-border-when-active;
   }
 }
 
-.wide-button {
+.wide_button {
   @include wideButtonSizes;
 
-  background-color: #4219d0;
+  background-color: $wide-button-bg-color-default;
   font-size: 14px;
   font-weight: 700;
-  color: #fff;
+  color: $wide-button-text-color-default;
   border-radius: 48px;
   border: none;
   transition: box-shadow, background-color, 0.1s;
 
   &:hover {
-    box-shadow: 0px 3px 13px 0px #17203166;
+    box-shadow: $wide-button-box-shadow-on-hover;
   }
 
   &:active {
-    color: #4219d0;
-    border: 1px solid #e2e6e9;
-    background-color: #fff;
+    color: $wide-button-text-color-on-click;
+    border: $wide-button-border-on-click;
+    background-color: $wide-button-bg-color-on-click;
     box-shadow: none;
   }
 }
