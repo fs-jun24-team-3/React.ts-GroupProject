@@ -6,7 +6,7 @@ interface PhonesState {
   phones: Phone[];
   isPhonesLoading: boolean;
   errorOnPhones: string;
-};
+}
 
 const initialState: PhonesState = {
   phones: [],
