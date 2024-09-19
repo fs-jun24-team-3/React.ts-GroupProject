@@ -46,3 +46,50 @@
     padding: 0 24px;
   }
 }
+
+@mixin cardItemSize() {
+  width: 100%;
+  height: auto;
+  @include onMobile {
+    // width: 212px;
+    // height: 439px;
+  }
+
+  @include onTablet {
+    // width: 237px;
+    // height: 512px;
+  }
+
+  @include onDesktop {
+    // width: 272px;
+    // height: 506px;
+  }
+}
+
+@mixin cardWidth() {
+  // @include onMobile {
+  //   width: 212px;
+  // }
+
+  // @include onTablet {
+  //   width: 237px;
+  // }
+
+  // @include onDesktop {
+  //   width: 272px;
+  // }
+}
+
+@mixin wideButtonSizes() {
+  @include onMobile {
+    width: 100px;
+  }
+
+  @include onTablet {
+    width: 125px;
+  }
+
+  @include onDesktop {
+    width: 160px;
+  }
+}

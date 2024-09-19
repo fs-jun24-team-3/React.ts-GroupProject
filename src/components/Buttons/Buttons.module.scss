@@ -1,0 +1,66 @@
+.round_button {
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 48px;
+  border: $button-border-default;
+  background-color: $button-bg-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    border: $button-border-on-hover;
+  }
+
+  &:active {
+    color: $button-content-color-on-click;
+    background-color: $button-bg-color-on-click;
+    border: $button-border-default;
+  }
+
+  &__picture {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.heart_button {
+  background-color: $button-bg-color;
+  height: 40px;
+  width: 40px;
+
+  &:active {
+    color: $button-content-color-on-click;
+    background-color: $heart-button-bg-color-on-click;
+    border: $button-border-default;
+  }
+
+  &__is_active {
+    border: $heart-button-border-when-active;
+  }
+}
+
+.wide_button {
+  @include wideButtonSizes;
+
+  background-color: $wide-button-bg-color-default;
+  font-size: 14px;
+  font-weight: 700;
+  color: $wide-button-text-color-default;
+  border-radius: 48px;
+  border: none;
+  transition: box-shadow, background-color, 0.1s;
+
+  &:hover {
+    box-shadow: $wide-button-box-shadow-on-hover;
+  }
+
+  &:active {
+    color: $wide-button-text-color-on-click;
+    border: $wide-button-border-on-click;
+    background-color: $wide-button-bg-color-on-click;
+    box-shadow: none;
+  }
+}

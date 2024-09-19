@@ -56,8 +56,8 @@
     margin-top: 24px;
   }
   &__item {
-    // background-color: bisque;
     grid-column: span 4;
+    height: auto;
 
     @include onTablet {
       grid-column: span 4;

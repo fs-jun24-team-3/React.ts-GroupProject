@@ -32,11 +32,6 @@ export const PhonesPage: React.FC<Props> = () => {
           <div className={styles.phones__item}>
             <PhoneCard />
           </div>
-          <div className={styles.phones__item}>{/* <PhoneCard /> */}</div>
-          <div className={styles.phones__item}>{/* <PhoneCard /> */}</div>
-          <div className={styles.phones__item}>{/* <PhoneCard /> */}</div>
-          <div className={styles.phones__item}>{/* <PhoneCard /> */}</div>
-          <div className={styles.phones__item}>{/* <PhoneCard /> */}</div>
           {/* <PhoneCard />
           <PhoneCard />
           <PhoneCard />
