@@ -1,4 +1,6 @@
 .banner-slider {
+  // @include container;
+
   &__interactive-part {
     @include onTablet {
       @include container;

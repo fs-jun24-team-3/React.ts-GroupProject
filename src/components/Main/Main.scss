@@ -17,6 +17,7 @@
     &::-webkit-scrollbar {
       visibility: hidden;
     }
+
     scrollbar-width: none;
   }
 }
@@ -129,84 +130,4 @@
       background-position: center;
     }
   }
-}
-
-.card {
-  height: 506px;
-  width: 272px;
-  background-color: #ffffff;
-  border: 1px solid #e2e6e9;
-  display: flex;
-  flex-direction: column;
-  padding: 32px;
-  box-sizing: border-box;
-  border-radius: 8px;
-  transition: 1s;
-
-  &:hover {
-    transform: scale(105%);
-    // position: absolute;
-  }
-
-  &__logo {
-    width: 208px;
-    height: 196px;
-    background-image: url('../../img/mainIcons/PhoneLogo.png');
-  }
-
-  &__title {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  &__price {
-    font-size: 22px;
-    font-weight: 800;
-    color: #0f0f11;
-  }
-
-  &__separator {
-    content: '';
-    border: 1px solid #e2e6e9;
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  &__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 700;
-
-    &-name {
-      color: #e2e6e9;
-    }
-
-    &-meaning {
-      color: #0f0f11;
-    }
-  }
-
-  &__interactive-part {
-    margin-top: 8px;
-    display: flex;
-    justify-content: center;
-  }
-
-  &__button {
-    height: 21px;
-  }
-}
-
-.card :not(:last-child) {
-  margin-bottom: 8px;
 }

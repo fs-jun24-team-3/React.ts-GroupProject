@@ -15,17 +15,5 @@
 }
 
 .slider__list::-webkit-scrollbar {
-  display: none; /* Сховати скролбар, якщо не потрібен */
-}
-
-.slider__item {
-  min-width: 212px; /* Мінімальна ширина кожного елемента */
-  flex-shrink: 0; /* Не дозволяти елементам зменшуватися */
-  &:not(:last-child) {
-    margin-right: 16px;
-  }
-}
-
-.main__slider {
-  overflow: hidden; /* Приховати зайві елементи поза видимою областю */
+  // display: none; /* Сховати скролбар, якщо не потрібен */
 }

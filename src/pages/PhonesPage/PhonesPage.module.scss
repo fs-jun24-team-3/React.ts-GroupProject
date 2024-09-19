@@ -1,0 +1,69 @@
+.phones {
+  @include container;
+
+  padding-top: 24px;
+  &__routs {
+    display: flex;
+    align-items: center;
+    &__home {
+      width: 16px;
+      height: 16px;
+      background-image: url(../../img/icon/Home.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &__array {
+      box-sizing: border-box;
+      padding: 0 8px;
+      width: 16px;
+      height: 16px;
+      background-image: url(../../img/arrow/ArrowRight.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &__currentPage {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 15px;
+      color: $secondary-color;
+    }
+  }
+  &__title {
+    margin-top: 24px;
+    margin-bottom: 8px;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+    letter-spacing: -1%;
+    color: $primary-color;
+    @include onTablet {
+      margin-top: 40px;
+      font-size: 48px;
+      line-height: 56px;
+    }
+  }
+  &__countModel {
+    font-weight: 600;
+    font-size: 14px;
+    color: $secondary-color;
+  }
+  &__items {
+    list-style: none;
+    @include mainPageGrid;
+    row-gap: 40px;
+    margin-top: 24px;
+  }
+  &__item {
+    // background-color: bisque;
+    grid-column: span 4;
+
+    @include onTablet {
+      grid-column: span 4;
+    }
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+}
