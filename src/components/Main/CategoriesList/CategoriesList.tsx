@@ -14,9 +14,24 @@ export const CategoriesList: React.FC<Props> = () => {
       <h2 className="categories__title">Shop by category</h2>
 
       <ul className="categories__list">
-        <CategoriesItem img={img1} title={'Mobile phones'} text={'95 models'} />
-        <CategoriesItem img={img2} title={'Tablets'} text={'24 models'} />
-        <CategoriesItem img={img3} title={'Accessories'} text={'100 models'} />
+        <CategoriesItem
+          link={'/phones'}
+          img={img1}
+          title={'Mobile phones'}
+          text={'95 models'}
+        />
+        <CategoriesItem
+          link={'/tablets'}
+          img={img2}
+          title={'Tablets'}
+          text={'24 models'}
+        />
+        <CategoriesItem
+          link={'/accessories'}
+          img={img3}
+          title={'Accessories'}
+          text={'100 models'}
+        />
       </ul>
     </div>
   );
