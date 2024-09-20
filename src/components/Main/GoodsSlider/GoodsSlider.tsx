@@ -1,13 +1,13 @@
 import React from 'react';
 import { PhoneCard } from '../PhoneCard';
 import './GoodSlider.scss';
-import { Phone } from '../../../utils/types/Phone';
 
 type Props = {
   sliderTitle: string;
 };
 
-const phones: Phone = {
+//це заглушка, її можна видалити коли будуть виведемо данні з редаксу
+const phones = {
   id: 'apple-iphone-11-128gb-black',
   category: 'phones',
   namespaceId: 'apple-iphone-11',
@@ -18,7 +18,7 @@ const phones: Phone = {
   priceDiscount: 1050,
   colorsAvailable: ['black', 'green', 'yellow', 'white', 'purple', 'red'],
   color: 'black',
-  images: 'img/phones/apple-iphone-11/black/00.webp',
+  images: ['img/phones/apple-iphone-11/black/00.webp'],
 
   description: [
     { title: 'Display', text: ["6.1' IPS LCD"] },
@@ -52,10 +52,10 @@ export const GoodsSlider: React.FC<Props> = ({ sliderTitle }) => {
       </div>
       <ul className="slider__list">
         {/* TODO: at this stage we need to load phone cards from server, map given list and render it */}
-        <PhoneCard phones={phones} />
-        <PhoneCard phones={phones} />
-        <PhoneCard phones={phones} />
-        <PhoneCard phones={phones} />
+        <PhoneCard item={phones} />
+        <PhoneCard item={phones} />
+        <PhoneCard item={phones} />
+        <PhoneCard item={phones} />
       </ul>
     </div>
   );
