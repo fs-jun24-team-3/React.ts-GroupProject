@@ -163,10 +163,9 @@
     border: none;
 
     &:hover {
-      transition: box-shadow 1.6s, transform 0.6s;
       cursor: pointer;
+      transition: box-shadow 1.6s, transform 0.6s;
       transform: scale(101%);
-      box-shadow: rgb(3, 255, 255) 0px 4px 29px;
     }
   }
 

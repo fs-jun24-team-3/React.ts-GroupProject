@@ -20,13 +20,6 @@ function get<T>(url: string, useJSON: boolean = true): Promise<T> {
     .then(res => res.json());
 }
 
-// export enum CategoryNames {
-//   Phones = 'phones',
-//   Tablets = 'tablets',
-//   Products = 'products',
-//   Accessories = 'accessories',
-// }
-
 export const getPhones = () => get<Phone[]>('/api/phones');
 export const getTablets = () => get<Tablet[]>('/api/tablets');
 export const getProducts = () => get<Product[]>('/api/products');

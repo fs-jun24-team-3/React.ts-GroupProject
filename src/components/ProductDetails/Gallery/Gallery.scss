@@ -1,7 +1,7 @@
 // #region SwiperConfigs
 .swiper {
-  width: 464px;
-  height: 464px;
+  @include swiperSizes;
+
   background-color: #fff;
 
   &__container {
@@ -29,27 +29,30 @@
 // #region SwiperBlockStyles
 .swiper-block {
   display: flex;
-  flex-direction: row;
+  @include swiperBlockFlexDirection;
   gap: 16px;
 
   &__slides {
     display: flex;
-    flex-direction: column;
+    @include swiperSlidesBlockFlexDirection;
     list-style: none;
     gap: 16px;
+    padding: 0;
+    margin: 0;
+    bottom: 0;
   }
 
   &__slide {
-    position: relative;
+    @include slidePreviewSizes;
+    
     display: flex;
     flex-direction: column;
     list-style: none;
-    height: 80px;
-    width: 80px;
     box-sizing: border-box;
     border: 1px solid #E2E6E9;
     padding: 7px;
-
+    border-radius: 8px;    
+    cursor: pointer;
 
     &:hover {
       border: 1px solid #0F0F11;

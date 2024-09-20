@@ -93,3 +93,75 @@
     width: 160px;
   }
 }
+
+@mixin swiperSizes() {
+  @include onMobile {
+    width: 288px;
+    height: 288px;
+  }
+
+  @include onTablet {
+    width: 287px;
+    height: 287px;
+  }
+
+  @include onDesktop {
+    width: 464px;
+    height: 464px;
+  }
+}
+
+@mixin slidePreviewSizes() {
+  @include onMobile {
+    width: 51px;
+    height: 49px;
+  }
+
+  @include onTablet {
+    width: 35px;
+    height: 35px;
+  }
+
+  @include onDesktop {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@mixin slidePreviewBorderRadius {
+  @include onMobile {
+    width: 4px;
+    height: 4px;
+  }
+
+  @include onTablet {
+    width: 4px;
+    height: 4px;
+  }
+
+  @include onDesktop {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@mixin swiperBlockFlexDirection {
+  @include onMobile {
+    flex-direction: column;
+  }
+
+  @include onTablet {
+    flex-direction: row-reverse;
+  }
+}
+
+@mixin swiperSlidesBlockFlexDirection {
+  @include onMobile {
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  @include onTablet {
+    flex-direction: column;
+  }
+}

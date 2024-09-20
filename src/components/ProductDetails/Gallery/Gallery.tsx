@@ -11,9 +11,7 @@ import SwiperCore from 'swiper';
 import classNames from 'classnames';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-type Props = {
-  goodImgs?: string[];
-};
+type Props = {};
 
 export const Gallery: React.FC<Props> = () => {
   const [galleryImgsURLs, setGalleryImgsURLs] = useState<string[]>();
@@ -34,22 +32,6 @@ export const Gallery: React.FC<Props> = () => {
 
   return (
     <div className="swiper-block">
-      <ul className="swiper-block__slides">
-        {galleryImgsURLs &&
-          galleryImgsURLs.map((galleryImgsURL, index) => (
-            <li
-              key={index}
-              className={classNames('swiper-block__slide', {
-                'swiper-block__slide--is-active': index === currentSlideIndex,
-              })}
-              onClick={() => {
-                handleChangeSlide(index);
-              }}
-            >
-              <img src={BASE_URL + galleryImgsURL} alt="" />
-            </li>
-          ))}
-      </ul>
       <Swiper
         pagination={{
           dynamicBullets: true,
@@ -77,11 +59,27 @@ export const Gallery: React.FC<Props> = () => {
           galleryImgsURLs.map(galleryImgsURL => (
             <SwiperSlide key={galleryImgsURL}>
               <span className="swiper__container">
-                <img src={BASE_URL + galleryImgsURL} alt="" />
+                <img src={BASE_URL + galleryImgsURL} alt="slide in cube" />
               </span>
             </SwiperSlide>
           ))}
       </Swiper>
+      <ul className="swiper-block__slides">
+        {galleryImgsURLs &&
+          galleryImgsURLs.map((galleryImgsURL, index) => (
+            <li
+              key={index}
+              className={classNames('swiper-block__slide', {
+                'swiper-block__slide--is-active': index === currentSlideIndex,
+              })}
+              onClick={() => {
+                handleChangeSlide(index);
+              }}
+            >
+              <img src={BASE_URL + galleryImgsURL} alt="slide" />
+            </li>
+          ))}
+      </ul>
     </div>
   );
 };

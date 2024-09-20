@@ -5,6 +5,7 @@ import { WideButton } from '../../Buttons/WideButton';
 import heartImgDefault from '../../../img/headerIcon/like.png';
 import { Phone } from '../../../utils/types/Phone';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../../api/api';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {
   phones: Phone;
@@ -14,18 +15,16 @@ export const PhoneCard: React.FC<Props> = ({ phones }) => {
   const { name, images, priceRegular, screen, ram, capacity, id } = phones;
   const navigate = useNavigate();
 
-  const imageUrl = encodeURI(
-    `https://raw.githubusercontent.com/mate-academy/react_phone-catalog/f064fa3751d4adbc9a531a51805d593af585860b/public/${images[0]}`,
-  );
+  console.log(BASE_URL + images);
   return (
     <li className="slider__item">
       <div className="card">
         <img
-          src={imageUrl}
+          src={BASE_URL + (Array.isArray(images) ? images[0] : images)}
           alt=""
           className="card__logo"
           onClick={() => {
-            navigate(`./${id}`);
+            navigate(`/phones/${id}`);
           }}
         />
         <p className="card__title">{name}</p>
