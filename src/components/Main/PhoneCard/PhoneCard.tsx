@@ -1,18 +1,17 @@
 import React from 'react';
 import { RoundButton } from '../../Buttons/RoundButton';
 import { WideButton } from '../../Buttons/WideButton';
-// import phoneLogo from '../../../img/mainIcons/PhoneLogo.png';
 import heartImgDefault from '../../../img/headerIcon/like.png';
 import { Phone } from '../../../utils/types/Phone';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../../api/api';
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+
 type Props = {
-  phones: Phone;
+  item: Phone;
 };
 
-export const PhoneCard: React.FC<Props> = ({ phones }) => {
-  const { name, images, priceRegular, screen, ram, capacity, id } = phones;
+export const PhoneCard: React.FC<Props> = ({ item }) => {
+  const { name, images, priceRegular, screen, ram, capacity, id } = item;
   const navigate = useNavigate();
 
   console.log(BASE_URL + images);
