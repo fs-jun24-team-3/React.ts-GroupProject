@@ -1,10 +1,8 @@
 import React from 'react';
 import './Main.scss';
 import { MainBannerSlider } from './MainBannerSlider';
-// import { NewModelList } from './NewModelsList';
 import { GoodsSlider } from './GoodsSlider';
 import { CategoriesList } from './CategoriesList';
-// import { HotPricesList } from './HotPricesList';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
