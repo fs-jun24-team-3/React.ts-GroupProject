@@ -11,7 +11,7 @@ export interface Tablet {
   priceDiscount: number;
   colorsAvailable: string[];
   color: string;
-  images: string;
+  images: string[];
   description: DeviceDescription[];
   screen: string;
   resolution: string;

@@ -1,0 +1,74 @@
+// #region SwiperConfigs
+.swiper {
+  width: 464px;
+  height: 464px;
+  background-color: #fff;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  &__container img {
+    object-fit: contain;
+  }
+
+}
+
+.swiper-slide {
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+// #endregion
+
+// #region SwiperBlockStyles
+.swiper-block {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  &__slides {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 16px;
+  }
+
+  &__slide {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    height: 80px;
+    width: 80px;
+    box-sizing: border-box;
+    border: 1px solid #E2E6E9;
+    padding: 7px;
+
+
+    &:hover {
+      border: 1px solid #0F0F11;
+    }
+
+    &--is-active {
+      border: 1px solid #0F0F11;
+    }
+  }
+
+  &__slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+
+    // &:hover {
+    //   transition: border 1s;
+    //   border: 1px solid #0F0F11;
+    // }
+  }
+}
+// #endregion
