@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './dropdown.module.scss';
+import styles from './Dropdown.module.scss';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
