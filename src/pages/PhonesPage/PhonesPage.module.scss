@@ -54,6 +54,7 @@
     @include mainPageGrid;
     row-gap: 40px;
     margin-top: 24px;
+    align-items: stretch;
   }
   &__item {
     grid-column: span 4;

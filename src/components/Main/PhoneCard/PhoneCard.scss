@@ -1,98 +1,10 @@
 .slider__item {
-  // min-width: 212px; /* Мінімальна ширина кожного елемента */
-  // flex-shrink: 0; /* Не дозволяти елементам зменшуватися */
   width: 100%;
   &:not(:last-child) {
     margin-right: 16px;
   }
-  // width: 100%;
 }
 
 .main__slider {
-  overflow: hidden; /* Приховати зайві елементи поза видимою областю */
+  overflow: hidden;
 }
-
-.card {
-  height: auto;
-  width: auto;
-  //   width: 272px;
-  background-color: #ffffff;
-  border: 1px solid #e2e6e9;
-  display: flex;
-  flex-direction: column;
-  //   padding: 32px;
-  box-sizing: border-box;
-  border-radius: 8px;
-  //   transition: 1s;
-
-  &:hover {
-    // transform: scale(105%);
-    // position: absolute;
-  }
-
-  &__logo {
-    background-image: url('../../../img/mainIcons/imageIphone.png');
-    width: 100px;
-    height: 100px;
-    background-size: cover;
-
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  &__title {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  &__price {
-    font-size: 22px;
-    font-weight: 800;
-    color: #0f0f11;
-  }
-
-  &__separator {
-    content: '';
-    border: 1px solid #e2e6e9;
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  &__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 700;
-
-    &-name {
-      color: #e2e6e9;
-    }
-
-    &-meaning {
-      color: #0f0f11;
-    }
-  }
-
-  &__interactive-part {
-    margin-top: 8px;
-    display: flex;
-    justify-content: center;
-  }
-
-  &__button {
-    height: 21px;
-  }
-}
-
-// .card :not(:last-child) {
-//   margin-bottom: 8px;
-// }
