@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './ProductDetailsPage.module.scss';
 
 import { About } from '../../components/ProductDetails/About';
-import { Breadcrumbs } from '../../components/ProductDetails/Breadcrumbs';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { Gallery } from '../../components/ProductDetails/Gallery';
 import { TechSpecs } from '../../components/ProductDetails/TechSpecs';
 import { GoodsSlider } from '../../components/Main/GoodsSlider';
