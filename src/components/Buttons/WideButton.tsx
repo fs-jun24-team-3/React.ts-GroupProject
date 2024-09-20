@@ -106,7 +106,7 @@ export const WideButton: React.FC<Props> = ({
       onClick={handleClick}
       style={{ ...styleList }}
     >
-      <span className="button-text">{buttonTitle}</span>
+      {buttonTitle}
     </button>
   );
 };
