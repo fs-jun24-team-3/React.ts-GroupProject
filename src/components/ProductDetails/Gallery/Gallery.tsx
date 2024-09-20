@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { BASE_URL, getPhone } from '../../../api/api';
+import { BASE_URL, getGood } from '../../../api/api';
 import { useParams } from 'react-router-dom';
 import { EffectCube, Pagination, Keyboard } from 'swiper/modules';
 import './Gallery.scss';
@@ -9,6 +9,7 @@ import 'swiper/scss/pagination';
 import 'swiper/scss/effect-cube';
 import SwiperCore from 'swiper';
 import classNames from 'classnames';
+import { getGoodsType } from '../../../utils/helpers/getGoodsType';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
@@ -16,8 +17,11 @@ type Props = {};
 export const Gallery: React.FC<Props> = () => {
   const [galleryImgsURLs, setGalleryImgsURLs] = useState<string[]>();
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
-  const { phoneId } = useParams();
+  const { goodsId } = useParams();
   const swiperRef = useRef<SwiperCore>();
+  const goodsType = getGoodsType(goodsId as string);
+
+  console.log(goodsId);
 
   const handleChangeSlide = (index: number) => {
     setCurrentSlideIndex(index);
@@ -25,8 +29,8 @@ export const Gallery: React.FC<Props> = () => {
   };
 
   useEffect(() => {
-    getPhone(phoneId as string).then(res => {
-      setGalleryImgsURLs(res!.images);
+    getGood(goodsType as string, goodsId as string).then(goods => {
+      setGalleryImgsURLs(goods!.images);
     });
   }, []);
 

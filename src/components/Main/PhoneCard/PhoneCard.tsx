@@ -3,7 +3,7 @@ import { RoundButton } from '../../Buttons/RoundButton';
 import { WideButton } from '../../Buttons/WideButton';
 import heartImgDefault from '../../../img/headerIcon/like.png';
 import { Phone } from '../../../utils/types/Phone';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../../api/api';
 import { Tablet } from '../../../utils/types/Tablet';
 import { Accessory } from '../../../utils/types/Accessory';
@@ -15,6 +15,9 @@ type Props = {
 export const PhoneCard: React.FC<Props> = ({ item }) => {
   const { name, images, priceRegular, screen, ram, capacity, id } = item;
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  console.log(location);
 
   return (
     <li className="slider__item">
@@ -24,7 +27,7 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
           alt=""
           className="card__logo"
           onClick={() => {
-            navigate(`/phones/${id}`);
+            navigate(`${pathname}/${id}`);
           }}
         />
         <p className="card__title">{name}</p>
