@@ -4,6 +4,8 @@ import './CartPage.scss';
 import '../../styles/base/buttons.scss';
 import { CartItem } from './CartItem/CartItem';
 import { Cart } from '../../type/Cart';
+import { WideButton } from '../../components/Buttons/WideButton';
+import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
@@ -81,6 +83,7 @@ const cartItems = [
 ];
 
 export const CartPage: React.FC<Props> = () => {
+  const navigate = useNavigate();
   return (
     <div className="cart">
       <div className="cart__rout">
@@ -98,9 +101,17 @@ export const CartPage: React.FC<Props> = () => {
           <div className="cart__total-count__price">$2000</div>
           <div className="cart__total-count__text">Total for 3 items</div>
           <div className="cart__total-count__line"></div>
-          <button className="cart__total-count__button-checkout main__button">
-            Checkout
-          </button>
+          <WideButton
+            buttonTitle={'Checkout'}
+            styleList={{
+              height: 48,
+              width: '100%',
+            }}
+            onClick={() => {
+              navigate('/home');
+            }}
+            submitPayment={true}
+          />
         </div>
       </div>
     </div>

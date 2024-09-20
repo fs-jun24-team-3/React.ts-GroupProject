@@ -64,3 +64,39 @@
     box-shadow: none;
   }
 }
+
+.shake_horizontal {
+  animation: shake_horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+@keyframes shake_horizontal {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70% {
+    background-color: #f12;
+    transform: translateX(-10px);
+  }
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65% {
+    background-color: #fff;
+    transform: translateX(10px);
+  }
+  80% {
+    transform: translateX(8px);
+  }
+  90% {
+    transform: translateX(-8px);
+  }
+}
