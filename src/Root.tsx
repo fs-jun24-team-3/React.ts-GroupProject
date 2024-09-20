@@ -5,6 +5,7 @@ import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import App from './App';
 import { MainPage } from './pages/MainPage';
 
+import { ProductDetailsPage } from './pages/ProductDetailsPage/';
 import { TabletsPage } from './pages/TabletspPage/TabletsPage';
 import { AccessoriesPage } from './pages/AccessoriesPage/AccessoriesPage';
 import { CartPage } from './pages/CartPage/CartPage';
@@ -22,7 +23,8 @@ export const Root = () => {
               <Route index element={<MainPage />} />
               <Route path="home" element={<Navigate to="/" replace />} />
               <Route path="phones">
-                <Route path=":phoneId?" element={<PhonesPage />} />
+                <Route index element={<PhonesPage />} />
+                <Route path=":phoneId" element={<ProductDetailsPage />} />
               </Route>
 
               <Route path="tablets" element={<TabletsPage />} />
