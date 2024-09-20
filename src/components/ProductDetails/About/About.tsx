@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './About.module.scss';
+import { DeviceDescription } from '../../../utils/types/DeviceDescription';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-type Props = {};
+type Props = {
+  description: DeviceDescription[];
+};
 
 export const About: React.FC<Props> = () => {
   return <div className={styles['about-block']}>About</div>;

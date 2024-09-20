@@ -2,7 +2,7 @@ import { DeviceDescription } from './DeviceDescription';
 
 export interface Accessory {
   id: string;
-  category: string;
+  category: 'accessory';
   namespaceId: string;
   name: string;
   capacityAvailable: string[];

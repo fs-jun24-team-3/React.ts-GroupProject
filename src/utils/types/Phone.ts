@@ -2,7 +2,7 @@ import { DeviceDescription } from './DeviceDescription';
 
 export interface Phone {
   id: string;
-  category: string;
+  category: 'phone';
   namespaceId: string;
   name: string;
   capacityAvailable: string[];
@@ -11,7 +11,7 @@ export interface Phone {
   priceDiscount: number;
   colorsAvailable: string[];
   color: string;
-  images: string;
+  images: string[];
   description: DeviceDescription[];
   screen: string;
   resolution: string;

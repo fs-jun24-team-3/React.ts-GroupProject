@@ -2,7 +2,7 @@ import { DeviceDescription } from './DeviceDescription';
 
 export interface Tablet {
   id: string;
-  category: string;
+  category: 'tablet';
   namespaceId: string;
   name: string;
   capacityAvailable: string[];
@@ -11,7 +11,7 @@ export interface Tablet {
   priceDiscount: number;
   colorsAvailable: string[];
   color: string;
-  images: string;
+  images: string[];
   description: DeviceDescription[];
   screen: string;
   resolution: string;

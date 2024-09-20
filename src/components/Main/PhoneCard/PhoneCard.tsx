@@ -5,7 +5,7 @@ import heartImgDefault from '../../../img/headerIcon/like.png';
 import { Phone } from '../../../utils/types/Phone';
 import { Tablet } from '../../../utils/types/Tablet';
 import { Accessory } from '../../../utils/types/Accessory';
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+
 type Props = {
   item: Phone | Tablet | Accessory;
 };
