@@ -25,7 +25,7 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
           className="card__logo"
           onClick={() => {
             navigate(
-              pathname !== '/' ? `${pathname}/${id}` : `${category}/${id}`,
+              pathname !== '/' ? `${pathname}/${id}` : `${category}s/${id}`,
             );
           }}
         />
