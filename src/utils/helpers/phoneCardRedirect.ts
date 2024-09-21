@@ -1,5 +1,4 @@
 import { NavigateFunction } from 'react-router-dom';
-import { ProductCategory } from '../types/ProductCategory';
 
 export function phoneCardRedirect(
   pathname: string,
@@ -9,15 +8,9 @@ export function phoneCardRedirect(
 ) {
   let targetPath = '';
 
-  if (pathname === '/') {
+  if (pathname === '/' || pathname.includes('apple')) {
     targetPath = `/${productCategory}s/${productId}`;
-  } else if (pathname.includes('apple')) {
-    targetPath = `/${productCategory}s/${productId}`;
-  } else if (
-    pathname.includes(ProductCategory.Accessory.slice(0, -2)) ||
-    pathname.includes(ProductCategory.Tablet) ||
-    pathname.includes(ProductCategory.Phone)
-  ) {
+  } else {
     targetPath = `${pathname}/${productId}`;
   }
 
