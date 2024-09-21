@@ -49,17 +49,17 @@
     flex-direction: column;
     list-style: none;
     box-sizing: border-box;
-    border: 1px solid #E2E6E9;
+    border: $slide-preview-default-border;
     padding: 7px;
     border-radius: 8px;    
     cursor: pointer;
 
     &:hover {
-      border: 1px solid #0F0F11;
+      border: 1px solid $slide-preview-active-hover-border;
     }
 
     &--is-active {
-      border: 1px solid #0F0F11;
+      border: 1px solid $slide-preview-active-hover-border;
     }
   }
 

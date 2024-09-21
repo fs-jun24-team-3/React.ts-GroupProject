@@ -13,11 +13,10 @@ type Props = {
 };
 
 export const PhoneCard: React.FC<Props> = ({ item }) => {
-  const { name, images, priceRegular, screen, ram, capacity, id } = item;
+  const { name, category, images, priceRegular, screen, ram, capacity, id } =
+    item;
   const navigate = useNavigate();
   const { pathname } = useLocation();
-
-  console.log(location);
 
   return (
     <li className="slider__item">
@@ -27,7 +26,9 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
           alt=""
           className="card__logo"
           onClick={() => {
-            navigate(`${pathname}/${id}`);
+            navigate(
+              pathname !== '/' ? `${pathname}/${id}` : `${category}/${id}`,
+            );
           }}
         />
         <p className="card__title">{name}</p>
