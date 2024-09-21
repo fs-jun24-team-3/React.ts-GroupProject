@@ -150,20 +150,17 @@
   background-color: $white-color;
   flex-direction: column;
   justify-content: space-between;
-  background-color: bisque;
 
   &-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 72px;
-    background-color: brown;
   }
 
   &-icons {
     display: flex;
     border-top: 1px solid $elemnts-color;
-    background-color: aqua;
   }
 
   &__icons {
@@ -176,7 +173,6 @@
       background-repeat: no-repeat;
       background-position: center;
       margin: 16px 50%;
-      background-color: aquamarine;
     }
 
     &--basket {
@@ -188,7 +184,6 @@
       background-repeat: no-repeat;
       background-position: center;
       margin: 16px 50%;
-      background-color: aquamarine;
     }
   }
 

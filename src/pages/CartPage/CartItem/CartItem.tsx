@@ -1,8 +1,8 @@
 import React from 'react';
-import { Cart } from '../../../type/Cart';
 import minus from '../../../img/icon/Minus.png';
 import plus from '../../../img/icon/Plus.png';
 import './CartItem.scss';
+import { Cart } from '../../../utils/types/Cart';
 
 type Props = {
   cart: Cart;
