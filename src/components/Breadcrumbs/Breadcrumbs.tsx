@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Breadcrumbs.module.scss';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-type Props = {};
+type Props = {
+  pageTitle: string;
+};
 
 export const Breadcrumbs: React.FC<Props> = () => {
   return (

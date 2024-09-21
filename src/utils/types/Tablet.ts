@@ -1,8 +1,9 @@
 import { DeviceDescription } from './DeviceDescription';
+import { ProductCategory } from './ProductCategory';
 
 export interface Tablet {
   id: string;
-  category: string;
+  category: ProductCategory.Tablet;
   namespaceId: string;
   name: string;
   capacityAvailable: string[];

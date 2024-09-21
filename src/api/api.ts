@@ -4,7 +4,7 @@ import { Product } from '../utils/types/Product';
 import { Tablet } from '../utils/types/Tablet';
 
 export const BASE_URL =
-  'https://raw.githubusercontent.com/mate-academy/react_phone-catalog/f064fa3751d4adbc9a531a51805d593af585860b/public/';
+  'https://raw.githubusercontent.com/mate-academy/react_phone-catalog/master/public';
 
 function wait(delay: number): Promise<void> {
   return new Promise(resolve => {

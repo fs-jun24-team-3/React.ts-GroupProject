@@ -1,8 +1,16 @@
 import React from 'react';
 import styles from './TechSpecs.module.scss';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-type Props = {};
+type Props = {
+  screen: string;
+  resolution: string;
+  processor: string;
+  ram: string;
+  capacity: string;
+  cell: string[];
+  camera: string | null;
+  zoom: string | null;
+};
 
 export const TechSpecs: React.FC<Props> = () => {
   return <div className={styles['tech-specs-block']}>Tech specs</div>;

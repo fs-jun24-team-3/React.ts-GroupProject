@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import styles from './Catalog.module.scss';
 import { PhoneCard } from '../Main/PhoneCard';
-import { Phone } from '../../utils/types/Phone';
-import { Tablet } from '../../utils/types/Tablet';
-import { Accessory } from '../../utils/types/Accessory';
+import { UnionProduct } from '../../utils/types/UnionProduct';
 
 type Props = {
-  items: (Phone | Tablet | Accessory)[];
+  items: UnionProduct[];
 };
 
 const PHONES_PER_PAGE = 12;
@@ -46,7 +44,7 @@ export const Catalog: React.FC<Props> = ({ items }) => {
         <div className={styles.phones__countModel}>{items.length} models</div>
         <div className={styles.phonesDropdown}>Компонента Олени</div>
         <div className={styles.phones__items}>
-          {curentItems.map((item: Phone | Tablet | Accessory) => (
+          {curentItems.map((item: UnionProduct) => (
             <div className={styles.phones__item} key={item.id}>
               <PhoneCard item={item} />
             </div>

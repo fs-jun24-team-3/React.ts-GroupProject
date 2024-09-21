@@ -2,14 +2,12 @@ import React from 'react';
 import { RoundButton } from '../../Buttons/RoundButton';
 import { WideButton } from '../../Buttons/WideButton';
 import heartImgDefault from '../../../img/headerIcon/like.png';
-import { Phone } from '../../../utils/types/Phone';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../../api/api';
-import { Tablet } from '../../../utils/types/Tablet';
-import { Accessory } from '../../../utils/types/Accessory';
+import { UnionProduct } from '../../../utils/types/UnionProduct';
 
 type Props = {
-  item: Phone | Tablet | Accessory;
+  item: UnionProduct;
 };
 
 export const PhoneCard: React.FC<Props> = ({ item }) => {
