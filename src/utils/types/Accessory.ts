@@ -1,8 +1,9 @@
 import { DeviceDescription } from './DeviceDescription';
+import { ProductCategory } from './ProductCategory';
 
 export interface Accessory {
   id: string;
-  category: 'accessory';
+  category: ProductCategory.Accessory;
   namespaceId: string;
   name: string;
   capacityAvailable: string[];

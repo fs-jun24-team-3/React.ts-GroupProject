@@ -1,10 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
-import { Phone } from '../../utils/types/Phone';
-import { Tablet } from '../../utils/types/Tablet';
 import styles from './ProductDetailsPage.module.scss';
-import { Accessory } from '../../utils/types/Accessory';
 import { getAccessories, getPhones, getTablets } from '../../api/api';
 
 import { Loading } from '../../components/Loading';
@@ -14,11 +11,11 @@ import { GoodsSlider } from '../../components/Main/GoodsSlider';
 import { Gallery } from '../../components/ProductDetails/Gallery';
 import { TechSpecs } from '../../components/ProductDetails/TechSpecs';
 import { VariantsActions } from '../../components/ProductDetails/VariantsActions';
+import { UnionProduct } from '../../utils/types/UnionProduct';
+import { ProductCategory } from '../../utils/types/ProductCategory';
 
 export const ProductDetailsPage = () => {
-  const [product, setProduct] = useState<Phone | Tablet | Accessory | null>(
-    null,
-  );
+  const [product, setProduct] = useState<UnionProduct | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const { pathname } = useLocation();
@@ -121,8 +118,16 @@ export const ProductDetailsPage = () => {
               ram={product.ram}
               capacity={product.capacity}
               cell={product.cell}
-              camera={product.category !== 'accessory' ? product.camera : null}
-              zoom={product.category !== 'accessory' ? product.zoom : null}
+              camera={
+                product.category !== ProductCategory.Accessory
+                  ? product.camera
+                  : null
+              }
+              zoom={
+                product.category !== ProductCategory.Accessory
+                  ? product.zoom
+                  : null
+              }
             />
           </div>
         </div>

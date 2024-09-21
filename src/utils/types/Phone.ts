@@ -1,8 +1,9 @@
 import { DeviceDescription } from './DeviceDescription';
+import { ProductCategory } from './ProductCategory';
 
 export interface Phone {
   id: string;
-  category: 'phone';
+  category: ProductCategory.Phone;
   namespaceId: string;
   name: string;
   capacityAvailable: string[];
