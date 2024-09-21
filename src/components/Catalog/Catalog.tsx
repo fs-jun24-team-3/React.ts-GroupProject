@@ -5,7 +5,6 @@ import { Phone } from '../../utils/types/Phone';
 import { Tablet } from '../../utils/types/Tablet';
 import { Accessory } from '../../utils/types/Accessory';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {
   items: (Phone | Tablet | Accessory)[];
 };

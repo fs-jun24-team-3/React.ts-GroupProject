@@ -146,7 +146,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-  transition: 1s;
+  transition: transform 1s;
   box-sizing: border-box;
   @include cardWidth;
   height: 100%;
@@ -156,11 +156,18 @@
   }
 
   &__logo {
-    height: 196px;
-    width: auto;
-    flex-shrink: 1;
+    max-height: auto;
+    width: 100%;
     align-self: center;
-    margin-bottom: auto;
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      transition: box-shadow 1.6s, transform 0.6s;
+      transform: scale(101%);
+    }
   }
 
   &__title {
