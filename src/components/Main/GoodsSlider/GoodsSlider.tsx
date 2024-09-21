@@ -1,15 +1,17 @@
 import React from 'react';
 import { PhoneCard } from '../PhoneCard';
 import './GoodSlider.scss';
+import { UnionProduct } from '../../../utils/types/UnionProduct';
+import { ProductCategory } from '../../../utils/types/ProductCategory';
 
 type Props = {
   sliderTitle: string;
 };
 
 //це заглушка, її можна видалити коли будуть виведемо данні з редаксу
-const phones = {
+const phones: UnionProduct = {
   id: 'apple-iphone-11-128gb-black',
-  category: 'phones',
+  category: ProductCategory.Phone,
   namespaceId: 'apple-iphone-11',
   name: 'Apple iPhone 11 128GB Black',
   capacityAvailable: ['64GB', '128GB', '256GB'],
