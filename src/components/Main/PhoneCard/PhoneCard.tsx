@@ -2,6 +2,8 @@ import React from 'react';
 import { RoundButton } from '../../Buttons/RoundButton';
 import { WideButton } from '../../Buttons/WideButton';
 import heartImgDefault from '../../../img/headerIcon/like.png';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../../api/api';
 import { UnionProduct } from '../../../utils/types/UnionProduct';
 
 type Props = {
@@ -9,15 +11,24 @@ type Props = {
 };
 
 export const PhoneCard: React.FC<Props> = ({ item }) => {
-  const { name, images, priceRegular, screen, ram, capacity } = item;
+  const { name, category, images, priceRegular, screen, ram, capacity, id } =
+    item;
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
-  const imageUrl = encodeURI(
-    `https://raw.githubusercontent.com/mate-academy/react_phone-catalog/f064fa3751d4adbc9a531a51805d593af585860b/public/${images[0]}`,
-  );
   return (
     <li className="slider__item">
       <div className="card">
-        <img src={imageUrl} alt="" className="card__logo" />
+        <img
+          src={BASE_URL + (Array.isArray(images) ? images[0] : images)}
+          alt=""
+          className="card__logo"
+          onClick={() => {
+            navigate(
+              pathname !== '/' ? `${pathname}/${id}` : `${category}/${id}`,
+            );
+          }}
+        />
         <p className="card__title">{name}</p>
         <div className="card__inform">
           <p className="card__price">${priceRegular}</p>

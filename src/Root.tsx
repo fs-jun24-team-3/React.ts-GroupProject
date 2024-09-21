@@ -22,6 +22,7 @@ export const Root = () => {
             <Route path="/" element={<App />}>
               <Route index element={<MainPage />} />
               <Route path="home" element={<Navigate to="/" replace />} />
+
               <Route path="phones">
                 <Route index element={<PhonesPage />} />
                 <Route path=":productId" element={<ProductDetailsPage />} />
