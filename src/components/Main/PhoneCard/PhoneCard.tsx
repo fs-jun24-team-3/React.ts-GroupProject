@@ -5,6 +5,7 @@ import heartImgDefault from '../../../img/headerIcon/like.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../../api/api';
 import { UnionProduct } from '../../../utils/types/UnionProduct';
+import { phoneCardRedirect } from '../../../utils/helpers/phoneCardRedirect';
 
 type Props = {
   item: UnionProduct;
@@ -24,9 +25,7 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
           alt=""
           className="card__logo"
           onClick={() => {
-            navigate(
-              pathname !== '/' ? `${pathname}/${id}` : `${category}s/${id}`,
-            );
+            phoneCardRedirect(pathname, category, id, navigate);
           }}
         />
         <p className="card__title">{name}</p>
