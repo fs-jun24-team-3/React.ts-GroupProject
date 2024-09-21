@@ -90,6 +90,7 @@ export const WideButton: React.FC<Props> = ({
       setIsAnimating(true);
       anime(animationSettings);
       setIsAnimating(false);
+      onClick();
     }
 
     if (submitPayment) {
