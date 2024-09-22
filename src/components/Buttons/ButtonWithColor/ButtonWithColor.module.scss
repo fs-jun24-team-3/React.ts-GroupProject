@@ -1,0 +1,19 @@
+.button-with-color {
+  border: $button-with-color-border;
+  overflow: hidden;
+  padding: 3px;
+
+  &__element {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+    &--selected {
+      border-color: $primary-color;
+    }
+  }
+
+  &:hover {
+    border-color: $icons-color;
+  }
+}

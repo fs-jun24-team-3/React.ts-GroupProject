@@ -74,7 +74,9 @@
     //   background-color: $button-bg-color-on-click;
     // }
     @include onTablet {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 
