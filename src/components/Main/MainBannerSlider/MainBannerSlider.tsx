@@ -1,6 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import '../MainBannerSlider/MainBannerSlider.scss';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import './MainBannerSwiper.scss';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
@@ -13,7 +15,17 @@ export const MainBannerSlider: React.FC<Props> = () => {
           <div className="banner-slider__button--prev"></div>
         </button>
 
-        <div className="banner-slider__banner"></div>
+        <Swiper>
+          <SwiperSlide>
+            <span className="swiper__banner-container">
+              <img
+                src="../../../img/mainIcons/Banner1.png"
+                alt="banner slide"
+                className="banner-slider__banner"
+              ></img>
+            </span>
+          </SwiperSlide>
+        </Swiper>
 
         <button className="banner-slider__button">
           <div className="banner-slider__button--next"></div>

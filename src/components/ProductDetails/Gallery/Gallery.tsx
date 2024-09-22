@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { BASE_URL } from '../../../api/api';
 import { EffectCube, Pagination, Keyboard } from 'swiper/modules';
-import './Gallery.scss';
+import swiperStyles from './Gallery.module.scss';
 import 'swiper/scss';
 import 'swiper/scss/pagination';
 import 'swiper/scss/effect-cube';
@@ -20,9 +20,12 @@ export const Gallery: React.FC<Props> = ({ images }) => {
     swiperRef.current?.slideTo(index);
   };
 
+  console.log(swiperStyles);
+
   return (
-    <div className="swiper-block">
+    <div className={swiperStyles['swiper-block']}>
       <Swiper
+        className={swiperStyles['swiper']}
         pagination={{
           dynamicBullets: true,
           clickable: true,
@@ -46,19 +49,20 @@ export const Gallery: React.FC<Props> = ({ images }) => {
         }}
       >
         {images.map(image => (
-          <SwiperSlide key={image}>
-            <span className="swiper__container">
+          <SwiperSlide className={swiperStyles['swiper-slide']} key={image}>
+            <span className={swiperStyles['swiper__container']}>
               <img src={BASE_URL + image} alt="slide in cube" />
             </span>
           </SwiperSlide>
         ))}
       </Swiper>
-      <ul className="swiper-block__slides">
+      <ul className={swiperStyles['swiper-block__slides']}>
         {images.map((image, index) => (
           <li
             key={index}
-            className={classNames('swiper-block__slide', {
-              'swiper-block__slide--is-active': index === currentSlideIndex,
+            className={classNames(swiperStyles['swiper-block__slide'], {
+              [swiperStyles['swiper-block__slide--is-active']]:
+                index === currentSlideIndex,
             })}
             onClick={() => {
               handleChangeSlide(index);
