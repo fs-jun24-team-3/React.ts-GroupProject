@@ -18,23 +18,23 @@
     }
   }
 
-  &__banner {
-    height: 100%;
-    width: 100%;
-    // background-image: url('../../../img/mainIcons/banerPhone.png');
+  // &__banner {
+  //   height: 100%;
+  //   width: 100%;
+  //   // background-image: url('../../../img/mainIcons/banerPhone.png');
 
-    // @include onTablet {
-      // background-image: url('../../../img/mainIcons/Banner1.png');
-    // }
-    // object-fit: cover;
-    // background-size: cover;
-    // background-position: center;
-    // border-radius: 0px;
+  //   // @include onTablet {
+  //     // background-image: url('../../../img/mainIcons/Banner1.png');
+  //   // }
+  //   // object-fit: cover;
+  //   // background-size: cover;
+  //   // background-position: center;
+  //   // border-radius: 0px;
 
-    // @include onTablet {
-    //   border-radius: 8px;
-    // }
-  }
+  //   // @include onTablet {
+  //   //   border-radius: 8px;
+  //   // }
+  // }
 
   &__button {
     cursor: pointer;
