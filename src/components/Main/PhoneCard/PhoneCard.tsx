@@ -20,7 +20,7 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
       <div className="card">
         <img
           src={BASE_URL + (Array.isArray(images) ? images[0] : images)}
-          alt=""
+          alt="phone logo"
           className="card__logo"
           onClick={() => {
             phoneCardRedirect(pathname, category, id, navigate);
