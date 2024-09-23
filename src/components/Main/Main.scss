@@ -138,10 +138,10 @@
   padding: 32px;
   display: flex;
   flex-direction: column;
+  align-content: center;
   border-radius: 8px;
   transition: transform 1s;
   box-sizing: border-box;
-  // @include cardWidth;
   height: 100%;
 
   &:hover {
@@ -149,12 +149,11 @@
   }
 
   &__logo {
-    max-height: auto;
+    display: flex;
+    max-height: 196px;
     width: 100%;
+    object-fit: contain;
     align-self: center;
-    background-color: transparent;
-    outline: none;
-    border: none;
 
     &:hover {
       cursor: pointer;
@@ -189,8 +188,9 @@
   &__info {
     display: flex;
     flex-direction: column;
+    align-self: center;
     list-style: none;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: auto;
     padding: 0;
   }
