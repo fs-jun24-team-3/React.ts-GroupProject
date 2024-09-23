@@ -18,3 +18,7 @@
 .slider__list::-webkit-scrollbar {
   display: none; /* Сховати скролбар, якщо не потрібен */
 }
+
+.swiper-slide {
+  @include cardWidth;
+}

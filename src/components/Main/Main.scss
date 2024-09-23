@@ -124,7 +124,7 @@
   }
 
   &__item {
-    @include cardItemSize;
+    // @include cardItemSize;
   }
 }
 
@@ -141,7 +141,7 @@
   border-radius: 8px;
   transition: transform 1s;
   box-sizing: border-box;
-  @include cardWidth;
+  // @include cardWidth;
   height: 100%;
 
   &:hover {
@@ -149,8 +149,9 @@
   }
 
   &__logo {
-    max-height: auto;
-    width: 100%;
+    max-height: 196px;
+    width: 90%;
+    object-fit: contain;
     align-self: center;
     background-color: transparent;
     outline: none;

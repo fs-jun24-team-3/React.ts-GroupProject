@@ -9,7 +9,7 @@ export function phoneCardRedirect(
   let targetPath = '';
 
   if (pathname === '/' || pathname.includes('apple')) {
-    targetPath = `/${productCategory}s/${productId}`;
+    targetPath = `/${productCategory}/${productId}`;
   } else {
     targetPath = `${pathname}/${productId}`;
   }
