@@ -5,17 +5,25 @@ import heartImgDefault from '../../../img/headerIcon/like.png';
 import { Phone } from '../../../utils/types/Phone';
 import { Tablet } from '../../../utils/types/Tablet';
 import { Accessory } from '../../../utils/types/Accessory';
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../../app/slices/cartSlise';
+
 type Props = {
   item: Phone | Tablet | Accessory;
 };
 
 export const PhoneCard: React.FC<Props> = ({ item }) => {
   const { name, images, priceRegular, screen, ram, capacity } = item;
+  const dispatch = useDispatch();
 
   const imageUrl = encodeURI(
     `https://raw.githubusercontent.com/mate-academy/react_phone-catalog/f064fa3751d4adbc9a531a51805d593af585860b/public/${images[0]}`,
   );
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(item));
+  };
+
   return (
     <li className="slider__item">
       <div className="card">
@@ -39,7 +47,7 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
             </li>
           </ul>
           <div className="card__interactive-part">
-            <WideButton buttonTitle="Add to cart" />
+            <WideButton buttonTitle="Add to cart" onClick={handleAddToCart} />
             <RoundButton buttonImgPath={heartImgDefault} />
           </div>
         </div>

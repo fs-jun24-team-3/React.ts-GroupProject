@@ -1,86 +1,92 @@
 import React from 'react';
-import iphone from '../../img/imageIphone.png';
 import './CartPage.scss';
 import '../../styles/base/buttons.scss';
 import { CartItem } from './CartItem/CartItem';
-import { Cart } from '../../utils/types/Cart';
+import { useAppSelector } from '../../app/reduxHooks';
+import { RootState } from '../../app/store';
+import { Tablet } from '../../utils/types/Tablet';
+import { Phone } from '../../utils/types/Phone';
+import { Accessory } from '../../utils/types/Accessory';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
-const cartItems = [
-  {
-    id: 1,
-    title: 'Apple iPhone 14 Pro 128GB Silver (MQ023)',
-    img: iphone,
-    price: 29.99,
-    count: 1,
-  },
-  {
-    id: 2,
-    title: 'Item 2',
-    img: iphone,
-    price: 49.99,
-    count: 2,
-  },
-  {
-    id: 3,
-    title: 'Item 3',
-    img: iphone,
-    price: 19.99,
-    count: 3,
-  },
-  {
-    id: 4,
-    title: 'Item 4',
-    img: iphone,
-    price: 99.99,
-    count: 1,
-  },
-  {
-    id: 5,
-    title: 'Item 5',
-    img: iphone,
-    price: 39.99,
-    count: 4,
-  },
-  {
-    id: 6,
-    title: 'Item 6',
-    img: iphone,
-    price: 59.99,
-    count: 2,
-  },
-  {
-    id: 7,
-    title: 'Item 7',
-    img: iphone,
-    price: 25.99,
-    count: 1,
-  },
-  {
-    id: 8,
-    title: 'Item 8',
-    img: iphone,
-    price: 75.99,
-    count: 3,
-  },
-  {
-    id: 9,
-    title: 'Item 9',
-    img: iphone,
-    price: 89.99,
-    count: 2,
-  },
-  {
-    id: 10,
-    title: 'Item 10',
-    img: iphone,
-    price: 15.99,
-    count: 5,
-  },
-];
+// const cartItems = [
+//   {
+//     id: 1,
+//     title: 'Apple iPhone 14 Pro 128GB Silver (MQ023)',
+//     img: iphone,
+//     price: 29.99,
+//     count: 1,
+//   },
+//   {
+//     id: 2,
+//     title: 'Item 2',
+//     img: iphone,
+//     price: 49.99,
+//     count: 2,
+//   },
+//   {
+//     id: 3,
+//     title: 'Item 3',
+//     img: iphone,
+//     price: 19.99,
+//     count: 3,
+//   },
+//   {
+//     id: 4,
+//     title: 'Item 4',
+//     img: iphone,
+//     price: 99.99,
+//     count: 1,
+//   },
+//   {
+//     id: 5,
+//     title: 'Item 5',
+//     img: iphone,
+//     price: 39.99,
+//     count: 4,
+//   },
+//   {
+//     id: 6,
+//     title: 'Item 6',
+//     img: iphone,
+//     price: 59.99,
+//     count: 2,
+//   },
+//   {
+//     id: 7,
+//     title: 'Item 7',
+//     img: iphone,
+//     price: 25.99,
+//     count: 1,
+//   },
+//   {
+//     id: 8,
+//     title: 'Item 8',
+//     img: iphone,
+//     price: 75.99,
+//     count: 3,
+//   },
+//   {
+//     id: 9,
+//     title: 'Item 9',
+//     img: iphone,
+//     price: 89.99,
+//     count: 2,
+//   },
+//   {
+//     id: 10,
+//     title: 'Item 10',
+//     img: iphone,
+//     price: 15.99,
+//     count: 5,
+//   },
+// ];
 
 export const CartPage: React.FC<Props> = () => {
+  const cartItems = useAppSelector((state: RootState) => state.cart.cartItems);
+  // const tablets = useAppSelector((state: RootState) => state.tablets.tablets);
+  // console.log(cartItems);
   return (
     <div className="cart">
       <div className="cart__rout">
@@ -90,7 +96,7 @@ export const CartPage: React.FC<Props> = () => {
 
       <div className="cart__title">Cart</div>
       <div className="cart__items">
-        {cartItems.map((cartItem: Cart) => (
+        {cartItems.map((cartItem: Tablet | Phone | Accessory) => (
           <CartItem key={cartItem.id} cart={cartItem} />
         ))}
 
