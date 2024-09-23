@@ -90,6 +90,7 @@ export const WideButton: React.FC<Props> = ({
     if (useSucceessAnimation) {
       setIsAnimating(true);
       handleCartSubmitting();
+      return;
     }
 
     if (animationSettings.targets !== undefined) {
