@@ -25,7 +25,7 @@ export const WideButton: React.FC<Props> = ({
   const [isAnimatingError, setIsAnimatingError] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const handleCartSubmitting = () => {
+  const handleDefaultButtonClickAction = () => {
     setTimeout(() => {
       anime({
         targets: buttonRef.current,
@@ -89,15 +89,18 @@ export const WideButton: React.FC<Props> = ({
 
     if (useSucceessAnimation) {
       setIsAnimating(true);
-      handleCartSubmitting();
+      handleDefaultButtonClickAction();
+      setIsAnimating(false);
+
       return;
     }
 
     if (animationSettings.targets !== undefined) {
       setIsAnimating(true);
       anime(animationSettings);
-      setIsAnimating(false);
       onClick();
+
+      return;
     }
   };
   return (
