@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../../api/api';
 import { UnionProduct } from '../../../utils/types/UnionProduct';
+import { phoneCardRedirect } from '../../../utils/helpers/phoneCardRedirect';
 import { ProductActions } from '../../ProductActions';
 
 type Props = {
@@ -19,12 +20,10 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
       <div className="card">
         <img
           src={BASE_URL + (Array.isArray(images) ? images[0] : images)}
-          alt=""
+          alt="phone logo"
           className="card__logo"
           onClick={() => {
-            navigate(
-              pathname !== '/' ? `${pathname}/${id}` : `${category}s/${id}`,
-            );
+            phoneCardRedirect(pathname, category, id, navigate);
           }}
         />
         <p className="card__title">{name}</p>
