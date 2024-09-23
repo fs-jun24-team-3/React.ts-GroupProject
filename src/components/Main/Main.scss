@@ -124,7 +124,6 @@
   }
 
   &__item {
-    // @include cardItemSize;
     height: 100%;
   }
 }
@@ -176,7 +175,7 @@
   }
 
   &__price {
-    // margin-top: auto;
+    margin-top: auto;
     font-size: 22px;
     font-weight: 800;
     color: #0f0f11;
@@ -192,7 +191,7 @@
     flex-direction: column;
     list-style: none;
     justify-content: center;
-    // margin-top: auto;
+    margin-top: auto;
     padding: 0;
   }
 

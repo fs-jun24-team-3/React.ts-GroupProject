@@ -25,6 +25,9 @@ export const CartPage: React.FC<Props> = () => {
       <BackButton />
 
       <div className="cart__title">Cart</div>
+      {cartItems.length === 0 && (
+        <div>Your shopping cart is currently empty</div>
+      )}
       <div className="cart__items">
         {cartItems.map((product: CartItems) => {
           return <CartItem key={product.item.id} cart={product} />;
