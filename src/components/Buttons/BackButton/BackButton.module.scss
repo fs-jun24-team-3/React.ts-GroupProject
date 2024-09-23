@@ -1,0 +1,22 @@
+.back {
+  display: inline-flex;
+  cursor: pointer;
+  margin-top: 24px;
+  margin-bottom: 16px;
+
+  &__img {
+    width: 16px;
+    height: 16px;
+    background-image: url(../../../img/arrowActive/ArrowLeft.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &__name {
+    font-weight: 700;
+    color: #89939a;
+    font-size: 12px;
+    line-height: 15px;
+    margin-left: 4px;
+  }
+}
