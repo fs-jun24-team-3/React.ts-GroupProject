@@ -1,34 +1,28 @@
 import React from 'react';
-import { RoundButton } from '../../Buttons/RoundButton';
-import { WideButton } from '../../Buttons/WideButton';
-import heartImgDefault from '../../../img/headerIcon/like.png';
-import { Phone } from '../../../utils/types/Phone';
-import { Tablet } from '../../../utils/types/Tablet';
-import { Accessory } from '../../../utils/types/Accessory';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../../app/slices/cartSlise';
+import { Link } from 'react-router-dom';
+import { BASE_URL } from '../../../api/api';
+import { UnionProduct } from '../../../utils/types/UnionProduct';
+import { ProductActions } from '../../ProductActions';
 
 type Props = {
-  item: Phone | Tablet | Accessory;
+  item: UnionProduct;
 };
 
 export const PhoneCard: React.FC<Props> = ({ item }) => {
-  const { name, images, priceRegular, screen, ram, capacity } = item;
-  const dispatch = useDispatch();
-
-  const imageUrl = encodeURI(
-    `https://raw.githubusercontent.com/mate-academy/react_phone-catalog/f064fa3751d4adbc9a531a51805d593af585860b/public/${images[0]}`,
-  );
-
-  const handleAddToCart = () => {
-    dispatch(addToCart(item));
-  };
+  const { name, category, images, priceRegular, screen, ram, capacity, id } =
+    item;
 
   return (
     <li className="slider__item">
       <div className="card">
-        <img src={imageUrl} alt="" className="card__logo" />
-        <p className="card__title">{name}</p>
+        <Link to={`/${category}/${id}`}>
+          <img
+            src={BASE_URL + (Array.isArray(images) ? images[0] : images)}
+            alt="phone logo"
+            className="card__logo"
+          />
+          <p className="card__title">{name}</p>
+        </Link>
         <div className="card__inform">
           <p className="card__price">${priceRegular}</p>
           <p className="card__separator"></p>
@@ -47,8 +41,7 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
             </li>
           </ul>
           <div className="card__interactive-part">
-            <WideButton buttonTitle="Add to cart" onClick={handleAddToCart} />
-            <RoundButton buttonImgPath={heartImgDefault} />
+            <ProductActions item={item} />
           </div>
         </div>
       </div>

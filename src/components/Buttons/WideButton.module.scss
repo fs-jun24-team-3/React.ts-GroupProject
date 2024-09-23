@@ -1,0 +1,57 @@
+.wide_button {
+  background-color: $wide-button-bg-color-default;
+  font-size: 14px;
+  font-weight: 700;
+  color: $wide-button-text-color-default;
+  border-radius: 48px;
+  border: none;
+  transition: box-shadow, background-color, 0.1s;
+
+  &:hover {
+    box-shadow: $wide-button-box-shadow-on-hover;
+    cursor: pointer;
+  }
+
+  &:active {
+    color: $wide-button-text-color-on-click;
+    border: $wide-button-border-on-click;
+    background-color: $wide-button-bg-color-on-click;
+    box-shadow: none;
+  }
+}
+
+.shake_horizontal {
+  animation: shake_horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+@keyframes shake_horizontal {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70% {
+    background-color: #f12;
+    transform: translateX(-10px);
+  }
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65% {
+    background-color: #fff;
+    transform: translateX(10px);
+  }
+  80% {
+    transform: translateX(8px);
+  }
+  90% {
+    transform: translateX(-8px);
+  }
+}

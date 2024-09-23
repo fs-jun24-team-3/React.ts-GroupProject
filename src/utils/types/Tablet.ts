@@ -1,17 +1,19 @@
 import { DeviceDescription } from './DeviceDescription';
+import { ProductCategory } from './ProductCategory';
+import { ProductColor } from './ProductColor';
 
 export interface Tablet {
   id: string;
-  category: string;
+  category: ProductCategory.Tablet;
   namespaceId: string;
   name: string;
   capacityAvailable: string[];
   capacity: string;
   priceRegular: number;
   priceDiscount: number;
-  colorsAvailable: string[];
-  color: string;
-  images: string;
+  colorsAvailable: ProductColor[];
+  color: ProductColor;
+  images: string[];
   description: DeviceDescription[];
   screen: string;
   resolution: string;

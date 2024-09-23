@@ -2,6 +2,11 @@
   @include container();
 }
 
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .product-content {
   &__title {
     margin-top: 16px;
@@ -23,6 +28,10 @@
     &--description,
     &--tech-specs {
       grid-column: 1 / -1;
+    }
+
+    &--gallery {
+      align-content: center;
     }
 
     @include onTablet {

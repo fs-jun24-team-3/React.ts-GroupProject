@@ -1,21 +1,5 @@
 @import './mixins.scss';
 
-$button-bg-color: #fff;
-$button-border-default: 1px solid #b4bdc3;
-$button-border-on-hover: 1px solid #0f0f11;
-$button-content-color-on-click: #fff;
-$button-bg-color-on-click: #0f0f11;
-
-$wide-button-bg-color-default: #4219d0;
-$wide-button-bg-color-on-click: #fff;
-$wide-button-text-color-default: #fff;
-$wide-button-text-color-on-click: #4219d0;
-$wide-button-box-shadow-on-hover: 0px 3px 13px 0px #17203166;
-$wide-button-border-on-click: 1px solid #e2e6e9;
-
-$heart-button-bg-color-on-click: #fff;
-$heart-button-border-when-active: 1px solid #e2e6e9;
-
 $accent-color: #4219d0;
 $secondary-accent-color: #f4ba47;
 $primary-color: #0f0f11;
@@ -29,6 +13,24 @@ $button-hover-shadow: 0px 1px 13px 0px #17203166;
 
 $font-family: 'Montserrat', sans-serif;
 $base-font-size: 14;
+
+$button-bg-color: #fff;
+$button-border-default: 1px solid #b4bdc3;
+$button-border-on-hover: 1px solid #0f0f11;
+$button-content-color-on-click: #fff;
+$button-bg-color-on-click: #0f0f11;
+
+$button-with-color-border: 1px solid $elemnts-color;
+
+$wide-button-bg-color-default: #4219d0;
+$wide-button-bg-color-on-click: #fff;
+$wide-button-text-color-default: #fff;
+$wide-button-text-color-on-click: #4219d0;
+$wide-button-box-shadow-on-hover: 0px 3px 13px 0px #17203166;
+$wide-button-border-on-click: 1px solid #e2e6e9;
+
+$slide-preview-default-border: 1px solid #e2e6e9;
+$slide-preview-active-hover-border: 1px solid #0f0f11;
 
 $header-height: 48px;
 

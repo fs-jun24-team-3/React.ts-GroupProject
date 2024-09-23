@@ -1,4 +1,60 @@
-.tech-specs-block {
-  background-color: red;
-  height: 464px;
+.section {
+  grid-column: 1 / -1;
+
+  @include onDesktop {
+    grid-column: 14 / -1;
+  }
+
+  .techSpecsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    color: $primary-color;
+
+    @include onTablet {
+      font-size: 22px;
+      line-height: 32px;
+      font-weight: 800;
+    }
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: $elemnts-color;
+  }
+
+  .specsList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+  }
+
+  .specs {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .specsKey {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+
+    color: $secondary-color;
+  }
+
+  .specsValue {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+
+    color: $primary-color;
+  }
 }

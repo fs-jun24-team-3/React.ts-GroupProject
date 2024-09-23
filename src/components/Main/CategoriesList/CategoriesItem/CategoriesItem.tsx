@@ -2,7 +2,6 @@ import React from 'react';
 import './CategoriesItem.scss';
 import { NavLink } from 'react-router-dom';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {
   img: string;
   title: string;
