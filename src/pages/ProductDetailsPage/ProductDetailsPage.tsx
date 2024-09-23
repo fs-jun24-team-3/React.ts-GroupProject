@@ -1,9 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-
 import styles from './ProductDetailsPage.module.scss';
-import { getAccessories, getPhones, getTablets } from '../../api/api';
-
 import { Loading } from '../../components/Loading';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { About } from '../../components/ProductDetails/About';
@@ -14,6 +11,7 @@ import { VariantsActions } from '../../components/ProductDetails/VariantsActions
 import { UnionProduct } from '../../utils/types/UnionProduct';
 import { ProductCategory } from '../../utils/types/ProductCategory';
 import { BackButton } from '../../components/Buttons/BackButton';
+import { chooseProductAPI } from '../../utils/helpers/chooseProductAPI';
 
 export const ProductDetailsPage = () => {
   const [product, setProduct] = useState<UnionProduct | null>(null);
@@ -27,16 +25,7 @@ export const ProductDetailsPage = () => {
   const hasBackButton = window.history.length > 1;
 
   const getProduct = useMemo(() => {
-    switch (true) {
-      case pathname.includes('/phones/'):
-        return getPhones;
-      case pathname.includes('/tablets/'):
-        return getTablets;
-      case pathname.includes('/accessories/'):
-        return getAccessories;
-      default:
-        return getPhones;
-    }
+    return chooseProductAPI(pathname);
   }, [pathname]);
 
   useEffect(() => {
