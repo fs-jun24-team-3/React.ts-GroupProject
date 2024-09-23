@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import styles from './Buttons.module.scss';
+import styles from './WideButton.module.scss';
 import anime from 'animejs';
 import classNames from 'classnames';
 
