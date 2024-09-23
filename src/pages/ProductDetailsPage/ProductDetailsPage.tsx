@@ -55,7 +55,7 @@ export const ProductDetailsPage = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [setIsLoading, setProduct]);
+  }, [setIsLoading, setProduct, productId]);
 
   if (isLoading) {
     return (

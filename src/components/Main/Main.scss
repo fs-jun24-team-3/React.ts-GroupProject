@@ -88,6 +88,9 @@
   &__button {
     height: 32px;
     width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     font-size: 16px;
     border-radius: 48px;
@@ -155,7 +158,9 @@
 
     &:hover {
       cursor: pointer;
-      transition: box-shadow 1.6s, transform 0.6s;
+      transition:
+        box-shadow 1.6s,
+        transform 0.6s;
       transform: scale(101%);
     }
   }
@@ -209,16 +214,6 @@
     }
   }
 
-  &__interactive-part {
-    margin-top: auto;
-    display: flex;
-    justify-content: space-between;
-
-    & :nth-child(n) {
-      margin: 0;
-      padding: 0;
-    }
-  }
   &__inform {
     margin-top: auto;
   }

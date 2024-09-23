@@ -80,17 +80,20 @@
   // }
 }
 
-@mixin wideButtonSizes() {
+@mixin swiperSizes() {
   @include onMobile {
-    width: 100px;
+    width: 288px;
+    height: 288px;
   }
 
   @include onTablet {
-    width: 125px;
+    width: 287px;
+    height: 287px;
   }
 
   @include onDesktop {
-    width: 160px;
+    width: 464px;
+    height: 464px;
   }
 }
 

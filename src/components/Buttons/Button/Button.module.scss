@@ -1,0 +1,38 @@
+.button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__size {
+    &--small {
+      height: 32px;
+      width: 32px;
+      min-width: 32px;
+    }
+
+    &--default {
+      height: 40px;
+      width: 40px;
+      min-width: 40px;
+    }
+
+    &--large {
+      height: 48px;
+      width: 48px;
+      min-width: 48px;
+    }
+  }
+
+  &__shape {
+    &--circle {
+      border-radius: 48px;
+    }
+
+    &--rectangle {
+      border-radius: 4px;
+      width: auto;
+      padding: 8px;
+    }
+  }
+}
