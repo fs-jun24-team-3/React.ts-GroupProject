@@ -11,7 +11,6 @@ type Props = {
   };
   animationSettings?: anime.AnimeParams;
   useSucceessAnimation?: boolean;
-  submitPayment?: boolean;
 };
 
 export const WideButton: React.FC<Props> = ({

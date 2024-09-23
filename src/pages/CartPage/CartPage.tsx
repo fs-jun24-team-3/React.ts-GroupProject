@@ -110,7 +110,6 @@ export const CartPage: React.FC<Props> = () => {
             onClick={() => {
               navigate('/home');
             }}
-            submitPayment={true}
           />
         </div>
       </div>
