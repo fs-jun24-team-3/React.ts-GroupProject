@@ -13,7 +13,6 @@
   }
 
   &__logo {
-    cursor: default;
     width: 64px;
     height: 20px;
     margin-right: 32px;
@@ -28,11 +27,9 @@
   }
 
   &__icons {
-    cursor: default;
     display: flex;
 
     &--like {
-      cursor: default;
       display: none;
       width: 16px;
       height: 16px;
@@ -54,7 +51,6 @@
     }
 
     &--basket {
-      cursor: default;
       display: none;
       width: 16px;
       height: 16px;
@@ -99,6 +95,7 @@
   }
 
   &__icon--like {
+    position: relative;
     display: block;
     border-right: 1px solid $elemnts-color;
     border-left: 1px solid $elemnts-color;
@@ -176,7 +173,7 @@
     }
 
     &--basket {
-      cursor: default;
+      cursor: pointer;
       width: 16px;
       height: 16px;
       background-image: url(../../img/headerIcon/basket.png);

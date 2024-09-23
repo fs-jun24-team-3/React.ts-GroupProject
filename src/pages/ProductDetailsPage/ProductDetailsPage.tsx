@@ -58,6 +58,8 @@ export const ProductDetailsPage = () => {
     );
   }
 
+  console.log(product);
+
   return (
     <div className={styles.container}>
       <Breadcrumbs pageTitle={product.name} />
@@ -83,6 +85,7 @@ export const ProductDetailsPage = () => {
               capacity={product.capacity}
               color={product.color}
               namespaceId={product.namespaceId}
+              product={product}
             />
           </div>
           <div className={styles['product-content__details--description']}>

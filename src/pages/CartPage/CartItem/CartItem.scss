@@ -26,10 +26,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    border: none;
   }
 
   &__image {
-    width: 80px;
+    width: auto;
     height: 80px;
     margin-right: 16px;
     img {
@@ -97,9 +98,9 @@
     }
   }
 
-  &:not(:last-child) {
-    margin-bottom: 16px;
-  }
+  // &:not(:last-child) {
+  //   margin-bottom: 16px;
+  // }
 }
 
 .block__information {
@@ -118,4 +119,3 @@
   justify-content: space-between;
   align-items: center;
 }
-// hello
