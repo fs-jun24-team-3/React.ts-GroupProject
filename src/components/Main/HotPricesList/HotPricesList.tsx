@@ -12,7 +12,7 @@ export const HotPricesList: React.FC<Props> = () => {
 
   useEffect(() => {
     dispatch(loadPhones());
-  });
+  }, []);
 
   return <GoodsSlider sliderTitle={'Brand new models'} productsList={phones} />;
 };

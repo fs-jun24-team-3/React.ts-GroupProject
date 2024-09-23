@@ -44,9 +44,9 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
               <div className="card__item-meaning">{ram}</div>
             </li>
           </ul>
-          <div className="card__interactive-part">
-            <ProductActions />
-          </div>
+        </div>
+        <div className="card__interactive-part">
+          <ProductActions />
         </div>
       </div>
     </li>

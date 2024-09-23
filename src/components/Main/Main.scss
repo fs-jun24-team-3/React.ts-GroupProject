@@ -124,6 +124,7 @@
   }
 
   &__item {
+    height: 100%;
     // @include cardItemSize;
   }
 }
@@ -138,6 +139,7 @@
   padding: 32px;
   display: flex;
   flex-direction: column;
+  align-content: center;
   border-radius: 8px;
   transition: transform 1s;
   box-sizing: border-box;
@@ -189,8 +191,9 @@
   &__info {
     display: flex;
     flex-direction: column;
+    align-self: center;
     list-style: none;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: auto;
     padding: 0;
   }

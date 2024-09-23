@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { PhoneCard } from '../PhoneCard';
 import './GoodSlider.scss';
+import swiperStyles from './GoodSliderSwiper.module.scss';
 import { UnionProduct } from '../../../utils/types/UnionProduct';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
@@ -14,21 +15,6 @@ type Props = {
 
 export const GoodsSlider: React.FC<Props> = ({ sliderTitle, productsList }) => {
   const swiperRef = useRef<SwiperCore>();
-  // const [currScreenWidth, setCurrScreenWidth] = useState<number>(
-  //   window.innerWidth,
-  // );
-
-  // const handleResize = () => {
-  //   setCurrScreenWidth(window.innerWidth);
-  // };
-
-  // useEffect(() => {
-  //   addEventListener('resize', handleResize);
-
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, []);
 
   return (
     <div className="main__slider">
@@ -71,26 +57,20 @@ export const GoodsSlider: React.FC<Props> = ({ sliderTitle, productsList }) => {
           modules={[Keyboard]}
           onSwiper={swiper => (swiperRef.current = swiper)}
           breakpoints={{
-            // 320: {
-            //   slidesPerView: 1, // На екранах шириною до 320px - 1 слайд
-            // },
-            // 640: {
-            //   slidesPerView: 2, // На екранах шириною до 640px - 2 слайди
-            // },
-            // 768: {
-            //   slidesPerView: 3, // На екранах шириною до 768px - 3 слайди
-            // },
             1024: {
-              slidesPerView: 4, // На екранах шириною до 1024px - 4 слайди
+              slidesPerView: 4,
             },
             1200: {
-              slidesPerView: 4, // На екранах шириною до 1200px і більше - 5 слайдів
+              slidesPerView: 4,
             },
           }}
         >
           {productsList.map(product => (
-            <SwiperSlide key={product.id + '-slide'}>
-              <span className="swiper-product__slide">
+            <SwiperSlide
+              key={product.id + '-slide'}
+              className={swiperStyles['swiper-slide']}
+            >
+              <span className={swiperStyles['swiper-product__slide']}>
                 <PhoneCard item={product} />
               </span>
             </SwiperSlide>
