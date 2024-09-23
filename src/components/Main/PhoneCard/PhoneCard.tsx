@@ -21,8 +21,8 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
             alt="phone logo"
             className="card__logo"
           />
-          <p className="card__title">{name}</p>
         </Link>
+        <p className="card__title">{name}</p>
         <div className="card__inform">
           <p className="card__price">${priceRegular}</p>
           <p className="card__separator"></p>
@@ -42,7 +42,7 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
           </ul>
         </div>
         <div className="card__interactive-part">
-            <ProductActions item={item} />
+          <ProductActions item={item} />
         </div>
       </div>
     </li>
