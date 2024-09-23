@@ -1,4 +1,6 @@
 .banner-slider {
+  // @include container;
+
   &__interactive-part {
     @include onTablet {
       @include container;
@@ -13,24 +15,6 @@
     }
     @include onDesktop {
       height: 400px;
-    }
-  }
-
-  &__banner {
-    height: 100%;
-    width: 100%;
-    background-image: url('../../../img/mainIcons/banerPhone.png');
-
-    @include onTablet {
-      background-image: url('../../../img/mainIcons/Banner1.png');
-    }
-    object-fit: cover;
-    background-size: cover;
-    background-position: center;
-    border-radius: 0px;
-
-    @include onTablet {
-      border-radius: 8px;
     }
   }
 
@@ -63,16 +47,10 @@
       grid-column: -2/-1;
     }
 
-    // &:hover {
-    //   border: $button-border-on-hover;
-    // }
-
-    // &:active {
-    //   color: $button-content-color-on-click;
-    //   background-color: $button-bg-color-on-click;
-    // }
     @include onTablet {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 

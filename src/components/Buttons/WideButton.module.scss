@@ -1,6 +1,4 @@
 .wide_button {
-  @include wideButtonSizes;
-
   background-color: $wide-button-bg-color-default;
   font-size: 14px;
   font-weight: 700;

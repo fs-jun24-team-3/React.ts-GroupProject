@@ -51,7 +51,7 @@
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 8px;
-    max-width: 366px
+    max-width: 366px;
   }
 
   &__details {
@@ -82,7 +82,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      &-minus, &-plus {
+      &-minus,
+      &-plus {
         width: 16px;
         height: 16px;
       }
@@ -107,7 +108,7 @@
   align-items: center;
   margin-bottom: 16px;
 
-  @include onTablet{
+  @include onTablet {
     margin-bottom: 16px;
   }
 }

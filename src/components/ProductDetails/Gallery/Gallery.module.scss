@@ -1,0 +1,72 @@
+// #region SwiperConfigs
+.swiper {
+  background-color: $white-color;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 90%;
+  max-height: 464px;
+  height: 90%;
+
+  &__container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.swiper-slide {
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+// #endregion
+
+// #region SwiperBlockStyles
+.swiper-block {
+  display: flex;
+  @include swiperBlockFlexDirection;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 16px;
+
+  &__slides {
+    display: flex;
+    @include swiperSlidesBlockFlexDirection;
+    list-style: none;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+    bottom: 0;
+  }
+
+  &__slide {
+    @include slidePreviewSizes;
+
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    box-sizing: border-box;
+    border: $slide-preview-default-border;
+    padding: 7px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      border: $slide-preview-active-hover-border;
+    }
+
+    &--is-active {
+      border: $slide-preview-active-hover-border;
+    }
+  }
+
+  &__slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+// #endregion

@@ -17,6 +17,7 @@
     &::-webkit-scrollbar {
       visibility: hidden;
     }
+
     scrollbar-width: none;
   }
 }
@@ -27,16 +28,6 @@
     align-items: center;
     gap: 16px;
     height: 400px;
-  }
-
-  &__banner {
-    height: 100%;
-    width: 100%;
-    background-image: url('../../img/mainIcons/Banner1.png');
-    object-fit: cover;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
   }
 
   &__button {
@@ -97,6 +88,9 @@
   &__button {
     height: 32px;
     width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     font-size: 16px;
     border-radius: 48px;
@@ -122,7 +116,6 @@
     &--next {
       width: 16px;
       height: 16px;
-      // padding: 8px;
       background-image: url(../../img/arrowActive/ArrowRight.png);
       background-size: cover;
       background-repeat: no-repeat;
@@ -146,19 +139,30 @@
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-  transition: 1s;
+  transition: transform 1s;
   box-sizing: border-box;
   @include cardWidth;
+  height: 100%;
 
   &:hover {
     transform: scale(105%);
   }
 
   &__logo {
-    height: auto;
+    max-height: auto;
     width: 100%;
-    flex-shrink: 1;
     align-self: center;
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      transition:
+        box-shadow 1.6s,
+        transform 0.6s;
+      transform: scale(101%);
+    }
   }
 
   &__title {
@@ -170,7 +174,7 @@
   }
 
   &__price {
-    margin-top: 0;
+    margin-top: auto;
     font-size: 22px;
     font-weight: 800;
     color: #0f0f11;
@@ -186,7 +190,7 @@
     flex-direction: column;
     list-style: none;
     justify-content: center;
-    margin: 0;
+    margin-top: auto;
     padding: 0;
   }
 
@@ -210,14 +214,7 @@
     }
   }
 
-  &__interactive-part {
-    margin-top: 8px;
-    display: flex;
-    justify-content: space-between;
-
-    & :nth-child(n) {
-      margin: 0;
-      padding: 0;
-    }
+  &__inform {
+    margin-top: auto;
   }
 }

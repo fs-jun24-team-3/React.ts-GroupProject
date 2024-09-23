@@ -1,0 +1,16 @@
+.button-with-image {
+  border: $button-border-default;
+
+  &__image {
+    width: 16px;
+    height: 16px;
+  }
+
+  &--selected {
+    border-color: $elemnts-color;
+  }
+
+  &:hover {
+    border-color: $primary-color;
+  }
+}

@@ -1,0 +1,56 @@
+.container {
+  @include container();
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.product-content {
+  &__title {
+    margin-top: 16px;
+    margin-bottom: 32px;
+
+    @include onTablet {
+      font-size: pxToRem(32);
+      margin-bottom: 40px;
+    }
+  }
+
+  &__details {
+    row-gap: 40px;
+
+    @include mainPageGrid;
+
+    &--gallery,
+    &--variants,
+    &--description,
+    &--tech-specs {
+      grid-column: 1 / -1;
+    }
+
+    &--gallery {
+      align-content: center;
+    }
+
+    @include onTablet {
+      &--gallery {
+        grid-column: span 7;
+      }
+
+      &--variants {
+        grid-column: span 5;
+      }
+    }
+
+    @include onDesktop {
+      &--gallery,
+      &--variants,
+      &--description,
+      &--tech-specs {
+        grid-column: span 12;
+      }
+    }
+  }
+}

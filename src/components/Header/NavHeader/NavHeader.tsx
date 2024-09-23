@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './NavHeader.module.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+
 type Props = {
   handleMenuOpen: () => void;
 };

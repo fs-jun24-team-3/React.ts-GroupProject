@@ -1,0 +1,27 @@
+.variants-block {
+  max-width: 320px;
+
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+
+    h2 {
+      font-size: pxToRem(32);
+    }
+
+    p {
+      color: $secondary-color;
+      text-decoration: line-through;
+      font-size: pxToRem(22);
+    }
+  }
+
+  &__line {
+    height: 1px;
+    background-color: $elemnts-color;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+}

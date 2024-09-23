@@ -3,7 +3,7 @@ import iphone from '../../img/imageIphone.png';
 import './CartPage.scss';
 import '../../styles/base/buttons.scss';
 import { CartItem } from './CartItem/CartItem';
-import { Cart } from '../../type/Cart';
+import { Cart } from '../../utils/types/Cart';
 import { WideButton } from '../../components/Buttons/WideButton';
 import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type

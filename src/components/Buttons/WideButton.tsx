@@ -10,6 +10,7 @@ type Props = {
     [key: string]: number | string | [];
   };
   animationSettings?: anime.AnimeParams;
+  useSucceessAnimation?: boolean;
   submitPayment?: boolean;
 };
 
@@ -18,7 +19,7 @@ export const WideButton: React.FC<Props> = ({
   styleList,
   onClick = () => {},
   animationSettings = {},
-  submitPayment,
+  useSucceessAnimation = true,
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -80,10 +81,16 @@ export const WideButton: React.FC<Props> = ({
   const handleClick = () => {
     if (isAnimatingError) {
       handleError();
+      return;
     }
 
     if (isAnimating) {
       return;
+    }
+
+    if (useSucceessAnimation) {
+      setIsAnimating(true);
+      handleCartSubmitting();
     }
 
     if (animationSettings.targets !== undefined) {
@@ -91,11 +98,6 @@ export const WideButton: React.FC<Props> = ({
       anime(animationSettings);
       setIsAnimating(false);
       onClick();
-    }
-
-    if (submitPayment) {
-      setIsAnimating(true);
-      handleCartSubmitting();
     }
   };
   return (
