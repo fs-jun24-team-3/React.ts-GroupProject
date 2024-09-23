@@ -4,16 +4,17 @@ import '../../styles/base/buttons.scss';
 import { WideButton } from '../../components/Buttons/WideButton';
 import { useNavigate } from 'react-router-dom';
 import { BackButton } from '../../components/Buttons/BackButton';
-import { useAppSelector } from '../../app/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks';
 import { RootState } from '../../app/store';
 import { CartItems } from '../../utils/types/CartItem';
 import { CartItem } from './CartItem/CartItem';
-import { selectTotalCost } from '../../app/slices/cartSlise';
+import { clearCart, selectTotalCost } from '../../app/slices/cartSlise';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
 export const CartPage: React.FC<Props> = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state: RootState) => state.cart.cartItems);
   const totalCost = useAppSelector((state: RootState) =>
     selectTotalCost(state.cart),
@@ -42,6 +43,7 @@ export const CartPage: React.FC<Props> = () => {
               width: '100%',
             }}
             onClick={() => {
+              dispatch(clearCart());
               navigate('/home');
             }}
           />
