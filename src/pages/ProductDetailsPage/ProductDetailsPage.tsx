@@ -13,10 +13,6 @@ import { TechSpecs } from '../../components/ProductDetails/TechSpecs';
 import { VariantsActions } from '../../components/ProductDetails/VariantsActions';
 import { UnionProduct } from '../../utils/types/UnionProduct';
 import { ProductCategory } from '../../utils/types/ProductCategory';
-import { useAppDispatch, useAppSelector } from '../../app/reduxHooks';
-import { loadAccessories } from '../../app/slices/accessoriesSlice';
-import { loadPhones } from '../../app/slices/phonesSlice';
-import { loadTablets } from '../../app/slices/tabletsSlice';
 import { BackButton } from '../../components/Buttons/BackButton';
 
 export const ProductDetailsPage = () => {
@@ -24,11 +20,6 @@ export const ProductDetailsPage = () => {
   const [currentProductList, setCurrentProductList] = useState<UnionProduct[]>(
     [],
   );
-  const dispatch = useAppDispatch();
-  const { phones, tablets, accessories } = useAppSelector(state => state);
-  const phonesList = phones.phones;
-  const tabletsList = tablets.tablets;
-  const accessoriesList = accessories.accessories;
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const { pathname } = useLocation();
@@ -38,19 +29,10 @@ export const ProductDetailsPage = () => {
   const getProduct = useMemo(() => {
     switch (true) {
       case pathname.includes('/phones/'):
-        dispatch(loadPhones());
-        setCurrentProductList(phonesList.slice(0, 20));
-
         return getPhones;
       case pathname.includes('/tablets/'):
-        dispatch(loadTablets());
-        setCurrentProductList(tabletsList.slice(0, 20));
-
         return getTablets;
       case pathname.includes('/accessories/'):
-        dispatch(loadAccessories());
-        setCurrentProductList(accessoriesList.slice(0, 20));
-
         return getAccessories;
       default:
         return getPhones;
@@ -61,6 +43,7 @@ export const ProductDetailsPage = () => {
     getProduct()
       .then(products => {
         const data = products.find(product => product.id === productId);
+        setCurrentProductList(products);
 
         if (data) {
           document.title = data.name;
