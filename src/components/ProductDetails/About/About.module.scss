@@ -1,4 +1,53 @@
-.about-block {
-  background-color: #00ff003d;
-  height: 464px;
+.section {
+  grid-column: 1 / -1;
+
+  @include onDesktop {
+    grid-column: 1 / 13;
+  }
+}
+
+.descriptionSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 700;
+  color: $primary-color;
+
+  @include onTablet {
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 800;
+  }
+}
+
+.divider {
+  width: 96%;
+  height: 1px;
+  background-color: $elemnts-color;
+}
+
+.descriptionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  @include onTablet {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 600;
+    color: $primary-color;
+  }
+}
+
+.descriptionText {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+
+  color: $secondary-color;
 }
