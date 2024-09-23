@@ -8,7 +8,11 @@ import { useAppDispatch, useAppSelector } from '../../app/reduxHooks';
 import { RootState } from '../../app/store';
 import { CartItems } from '../../utils/types/CartItem';
 import { CartItem } from './CartItem/CartItem';
-import { clearCart, selectTotalCost } from '../../app/slices/cartSlise';
+import {
+  clearCart,
+  selectTotalCost,
+  selectTotalQuentity,
+} from '../../app/slices/cartSlise';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
@@ -18,6 +22,10 @@ export const CartPage: React.FC<Props> = () => {
   const cartItems = useAppSelector((state: RootState) => state.cart.cartItems);
   const totalCost = useAppSelector((state: RootState) =>
     selectTotalCost(state.cart),
+  );
+
+  const totalQuentity = useAppSelector((state: RootState) =>
+    selectTotalQuentity(state.cart),
   );
 
   return (
@@ -36,7 +44,7 @@ export const CartPage: React.FC<Props> = () => {
         <div className="cart__total-count">
           <div className="cart__total-count__price">${totalCost}</div>
           <div className="cart__total-count__text">
-            Total for {cartItems.length} items
+            Total for {totalQuentity} items
           </div>
           <div className="cart__total-count__line"></div>
           <WideButton
