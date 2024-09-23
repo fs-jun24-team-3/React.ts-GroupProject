@@ -94,23 +94,6 @@
   }
 }
 
-@mixin swiperSizes() {
-  @include onMobile {
-    width: 288px;
-    height: 288px;
-  }
-
-  @include onTablet {
-    width: 287px;
-    height: 287px;
-  }
-
-  @include onDesktop {
-    width: 464px;
-    height: 464px;
-  }
-}
-
 @mixin slidePreviewSizes() {
   @include onMobile {
     width: 51px;
