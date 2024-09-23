@@ -8,6 +8,7 @@ import { ButtonWithText } from '../../Buttons/ButtonWithText';
 import { ProductColor } from '../../../utils/types/ProductColor';
 import { ButtonSize } from '../../../utils/types/ButtonSize';
 import { ButtonShape } from '../../../utils/types/ButtonShape';
+import { UnionProduct } from '../../../utils/types/UnionProduct';
 
 type Props = {
   capacityAvailable: string[];
@@ -21,6 +22,7 @@ type Props = {
   capacity: string;
   color: string;
   namespaceId: string;
+  product: UnionProduct;
 };
 
 export const VariantsActions: React.FC<Props> = ({
@@ -31,6 +33,7 @@ export const VariantsActions: React.FC<Props> = ({
   capacityAvailable,
   priceRegular,
   priceDiscount,
+  product,
 }) => {
   return (
     <div className={styles['variants-block']}>
@@ -74,7 +77,7 @@ export const VariantsActions: React.FC<Props> = ({
         <p>${priceDiscount}</p>
       </div>
       <div className="variants-block__actions">
-        <ProductActions size={ButtonSize.Large} />
+        <ProductActions size={ButtonSize.Large} item={product} />
       </div>
       <div className="variants-block__info"></div>
     </div>
