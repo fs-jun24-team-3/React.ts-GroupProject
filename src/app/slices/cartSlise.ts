@@ -71,6 +71,11 @@ export const cartSlice = createSlice({
         return total + cartItem.item.priceRegular * cartItem.count;
       }, 0);
     },
+    totalQuentity: (state: CartState) => {
+      return state.cartItems.reduce((total, cartItem) => {
+        return total + cartItem.item.priceRegular * cartItem.count;
+      }, 0);
+    },
   },
 });
 
@@ -88,3 +93,6 @@ export const selectTotalCost = (state: CartState) =>
     (total, cartItem) => total + cartItem.item.priceRegular * cartItem.count,
     0,
   );
+
+export const selectTotalQuentity = (state: CartState) =>
+  state.cartItems.reduce((total, cartItem) => total + cartItem.count, 0);
