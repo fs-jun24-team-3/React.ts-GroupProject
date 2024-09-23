@@ -9,7 +9,7 @@ import { UnionProduct } from '../../utils/types/UnionProduct';
 
 type Props = {
   size?: Exclude<ButtonSize, ButtonSize.Small>;
-  item: UnionProduct;
+  item?: UnionProduct;
 };
 
 export const ProductActions: React.FC<Props> = ({
@@ -18,7 +18,10 @@ export const ProductActions: React.FC<Props> = ({
 }) => {
   const dispatch = useAppDispatch();
   const handleAddToCart = () => {
-    dispatch(addToCart(item));
+    // eslint-disable-next-line prettier/prettier
+    if (item) {
+      dispatch(addToCart(item));
+    }
   };
   return (
     <div className={styles['product-actions-block']}>
