@@ -41,7 +41,7 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
             </li>
           </ul>
           <div className="card__interactive-part">
-            <ProductActions />
+            <ProductActions item={item} />
           </div>
         </div>
       </div>

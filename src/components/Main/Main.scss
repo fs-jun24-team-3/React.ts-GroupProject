@@ -124,7 +124,7 @@
   }
 
   &__item {
-    @include cardItemSize;
+    height: 100%;
   }
 }
 
@@ -141,7 +141,7 @@
   border-radius: 8px;
   transition: transform 1s;
   box-sizing: border-box;
-  @include cardWidth;
+  // @include cardWidth;
   height: 100%;
 
   &:hover {
