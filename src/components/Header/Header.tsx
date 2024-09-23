@@ -53,14 +53,17 @@ export const Header: React.FC<Props> = () => {
         <div className={styles.header__icons}>
           {!isMobileScreen && (
             <>
-              <div
-                className={classNames(
-                  styles['header__icon'],
-                  styles['header__icon--like'],
-                )}
+              <NavLink
+                to="/favorites"
+                onClick={handleMenuOpen}
+                className={({ isActive }) =>
+                  classNames([styles['header__icon--like']], {
+                    [styles['header__icon--active']]: isActive,
+                  })
+                }
               >
                 <div className={styles['header__icons--like']}></div>
-              </div>
+              </NavLink>
               <NavLink
                 to="/cart"
                 onClick={handleMenuOpen}
@@ -102,14 +105,17 @@ export const Header: React.FC<Props> = () => {
             <NavHeader handleMenuOpen={handleMenuOpen} />
           </div>
           <div className={styles['dropdown-icons']}>
-            <div
-              className={classNames(
-                styles['dropdown__icon'],
-                styles['dropdown__icon--like'],
-              )}
+            <NavLink
+              to="/favorites"
+              onClick={handleMenuOpen}
+              className={({ isActive }) =>
+                classNames([styles['dropdown__icon--like']], {
+                  [styles['dropdown__icon--active']]: isActive,
+                })
+              }
             >
               <div className={styles['dropdown__icons--like']}></div>
-            </div>
+            </NavLink>
             <NavLink
               to="/cart"
               onClick={handleMenuOpen}
