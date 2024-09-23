@@ -11,7 +11,7 @@ const initialState: CartState = {
   cartItems: JSON.parse(localStorage.getItem('cart') || '[]'),
 };
 
-export const cartSlice = createSlice({
+const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
@@ -53,7 +53,6 @@ export const cartSlice = createSlice({
       if (existingItem && existingItem.count > 1) {
         existingItem.count -= 1;
       } else {
-        // Якщо кількість стає 0, видаляємо товар
         state.cartItems = state.cartItems.filter(
           cartItem => cartItem.item.id !== action.payload,
         );
@@ -66,6 +65,13 @@ export const cartSlice = createSlice({
       localStorage.removeItem('cart');
     },
   },
+  selectors: {
+    totalCost: (state: CartState) => {
+      return state.cartItems.reduce((total, cartItem) => {
+        return total + cartItem.item.priceRegular * cartItem.count;
+      }, 0);
+    },
+  },
 });
 
 export const {
@@ -76,3 +82,9 @@ export const {
   decreaseQuantity,
 } = cartSlice.actions;
 export const cartReducer = cartSlice.reducer;
+
+export const selectTotalCost = (state: CartState) =>
+  state.cartItems.reduce(
+    (total, cartItem) => total + cartItem.item.priceRegular * cartItem.count,
+    0,
+  );

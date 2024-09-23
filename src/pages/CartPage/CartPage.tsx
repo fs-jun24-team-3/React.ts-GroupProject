@@ -8,13 +8,16 @@ import { useAppSelector } from '../../app/reduxHooks';
 import { RootState } from '../../app/store';
 import { CartItems } from '../../utils/types/CartItem';
 import { CartItem } from './CartItem/CartItem';
+import { selectTotalCost } from '../../app/slices/cartSlise';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
 export const CartPage: React.FC<Props> = () => {
   const navigate = useNavigate();
   const cartItems = useAppSelector((state: RootState) => state.cart.cartItems);
-  console.log(cartItems);
+  const totalCost = useAppSelector((state: RootState) =>
+    selectTotalCost(state.cart),
+  );
 
   return (
     <div className="cart">
@@ -23,13 +26,14 @@ export const CartPage: React.FC<Props> = () => {
       <div className="cart__title">Cart</div>
       <div className="cart__items">
         {cartItems.map((product: CartItems) => {
-          console.log(product);
           return <CartItem key={product.item.id} cart={product} />;
         })}
 
         <div className="cart__total-count">
-          <div className="cart__total-count__price">$2000</div>
-          <div className="cart__total-count__text">Total for 3 items</div>
+          <div className="cart__total-count__price">${totalCost}</div>
+          <div className="cart__total-count__text">
+            Total for {cartItems.length} items
+          </div>
           <div className="cart__total-count__line"></div>
           <WideButton
             buttonTitle={'Checkout'}
