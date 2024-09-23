@@ -1,11 +1,9 @@
 import React from 'react';
-import { RoundButton } from '../../Buttons/RoundButton';
-import { WideButton } from '../../Buttons/WideButton';
-import heartImgDefault from '../../../img/headerIcon/like.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../../api/api';
 import { UnionProduct } from '../../../utils/types/UnionProduct';
-import { phoneCardRedirect } from '../../../utils/helpers/phoneCardRedirect';
+import { phoneCardRedirect } from '../../../utils/helpers/phoneCardRedirect;
+import { ProductActions } from '../../ProductActions';
 
 type Props = {
   item: UnionProduct;
@@ -47,8 +45,7 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
             </li>
           </ul>
           <div className="card__interactive-part">
-            <WideButton buttonTitle="Add to cart" />
-            <RoundButton buttonImgPath={heartImgDefault} />
+            <ProductActions />
           </div>
         </div>
       </div>

@@ -1,0 +1,16 @@
+.variants-block {
+  color: $secondary-color;
+  font-size: pxToRem(12);
+  font-weight: 600;
+  line-height: 15px;
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__items {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+}

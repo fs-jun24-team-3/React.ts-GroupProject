@@ -1,0 +1,14 @@
+.button-with-text {
+  border: $button-with-color-border;
+  font-weight: 600;
+
+  &--selected {
+    border-color: $primary-color;
+    background-color: $primary-color;
+    color: $white-color;
+  }
+
+  &:hover {
+    border-color: $primary-color;
+  }
+}

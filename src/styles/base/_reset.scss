@@ -1,4 +1,6 @@
 body,
+hr,
+button,
 h1,
 h2,
 h3,
@@ -18,4 +20,8 @@ a {
   padding-block-end: 0;
   padding-inline-start: 0;
   padding-inline-end: 0;
+}
+
+button {
+  background-color: transparent;
 }
