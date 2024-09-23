@@ -6,6 +6,7 @@ import { CartItem } from './CartItem/CartItem';
 import { Cart } from '../../utils/types/Cart';
 import { WideButton } from '../../components/Buttons/WideButton';
 import { useNavigate } from 'react-router-dom';
+import { BackButton } from '../../components/Buttons/BackButton';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
@@ -86,10 +87,7 @@ export const CartPage: React.FC<Props> = () => {
   const navigate = useNavigate();
   return (
     <div className="cart">
-      <div className="cart__rout">
-        <div className="cart__rout__img"></div>
-        <div className="cart__rout__name">Back</div>
-      </div>
+      <BackButton />
 
       <div className="cart__title">Cart</div>
       <div className="cart__items">

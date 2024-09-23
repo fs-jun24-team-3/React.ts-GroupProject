@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 import styles from './ProductDetailsPage.module.scss';
 import { getAccessories, getPhones, getTablets } from '../../api/api';
@@ -17,6 +17,7 @@ import { useAppDispatch, useAppSelector } from '../../app/reduxHooks';
 import { loadAccessories } from '../../app/slices/accessoriesSlice';
 import { loadPhones } from '../../app/slices/phonesSlice';
 import { loadTablets } from '../../app/slices/tabletsSlice';
+import { BackButton } from '../../components/Buttons/BackButton';
 
 export const ProductDetailsPage = () => {
   const [product, setProduct] = useState<UnionProduct | null>(null);
@@ -56,8 +57,6 @@ export const ProductDetailsPage = () => {
     }
   }, [pathname]);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     getProduct()
       .then(products => {
@@ -66,6 +65,7 @@ export const ProductDetailsPage = () => {
         if (data) {
           document.title = data.name;
           setProduct(data);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
           setError('Product was not found');
         }
@@ -97,14 +97,7 @@ export const ProductDetailsPage = () => {
   return (
     <div className={styles.container}>
       <Breadcrumbs pageTitle={product.name} />
-      {hasBackButton && (
-        <div className="cart__rout">
-          <div className="cart__rout__img"></div>
-          <div className="cart__rout__name" onClick={() => navigate(-1)}>
-            Back
-          </div>
-        </div>
-      )}
+      {hasBackButton && <BackButton />}
 
       <div className={styles['product-content']}>
         <h2 className={styles['product-content__title']}>{product.name} </h2>

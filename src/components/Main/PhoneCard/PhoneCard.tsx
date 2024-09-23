@@ -1,8 +1,7 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { BASE_URL } from '../../../api/api';
 import { UnionProduct } from '../../../utils/types/UnionProduct';
-import { phoneCardRedirect } from '../../../utils/helpers/phoneCardRedirect';
 import { ProductActions } from '../../ProductActions';
 
 type Props = {
@@ -12,21 +11,18 @@ type Props = {
 export const PhoneCard: React.FC<Props> = ({ item }) => {
   const { name, category, images, priceRegular, screen, ram, capacity, id } =
     item;
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
 
   return (
     <li className="slider__item">
       <div className="card">
-        <img
-          src={BASE_URL + (Array.isArray(images) ? images[0] : images)}
-          alt="phone logo"
-          className="card__logo"
-          onClick={() => {
-            phoneCardRedirect(pathname, category, id, navigate);
-          }}
-        />
-        <p className="card__title">{name}</p>
+        <Link to={`/${category}/${id}`}>
+          <img
+            src={BASE_URL + (Array.isArray(images) ? images[0] : images)}
+            alt="phone logo"
+            className="card__logo"
+          />
+          <p className="card__title">{name}</p>
+        </Link>
         <div className="card__inform">
           <p className="card__price">${priceRegular}</p>
           <p className="card__separator"></p>
