@@ -20,8 +20,6 @@ export const Gallery: React.FC<Props> = ({ images }) => {
     swiperRef.current?.slideTo(index);
   };
 
-  console.log(swiperStyles);
-
   return (
     <div className={swiperStyles['swiper-block']}>
       <Swiper
