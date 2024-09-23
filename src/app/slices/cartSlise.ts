@@ -68,6 +68,11 @@ export const cartSlice = createSlice({
   },
 });
 
-// Експортуємо ред'юсер та дії
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  clearCart,
+  increaseQuantity,
+  decreaseQuantity,
+} = cartSlice.actions;
 export const cartReducer = cartSlice.reducer;
