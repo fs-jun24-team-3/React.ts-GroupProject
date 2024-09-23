@@ -21,8 +21,7 @@ export const WideButton: React.FC<Props> = ({
   useSucceessAnimation = true,
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isAnimatingError, setIsAnimatingError] = useState(false);
+  const [isAnimatingError] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
   const handleDefaultButtonClickAction = () => {
