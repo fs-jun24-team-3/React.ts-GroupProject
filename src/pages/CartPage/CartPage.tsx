@@ -20,6 +20,7 @@ export const CartPage: React.FC<Props> = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state: RootState) => state.cart.cartItems);
+  const isCartEmpty = cartItems.length < 1;
   const totalCost = useAppSelector((state: RootState) =>
     selectTotalCost(state.cart),
   );
@@ -54,9 +55,10 @@ export const CartPage: React.FC<Props> = () => {
             }}
             onClick={() => {
               dispatch(clearCart());
-              navigate('/home');
+              navigate('/userPage');
             }}
             useSucceessAnimation={true}
+            isError={isCartEmpty}
           />
         </div>
       </div>

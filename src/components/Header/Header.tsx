@@ -14,8 +14,6 @@ export const Header: React.FC<Props> = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { favCount } = useAppSelector(state => state.favorites);
 
-  console.log(favCount);
-
   useEffect(() => {
     const handleMenuOnResize = () => {
       if (window.innerWidth > 639 && isMenuOpen) {

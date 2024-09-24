@@ -139,14 +139,16 @@ export const WideButton: React.FC<Props> = ({
 
   const handleError = () => {
     setIsAnimatingError(true);
+    setTimeout(() => {
+      setIsAnimatingError(false);
+    }, 800);
   };
 
   const handleClick = () => {
     if (isError) {
-      handleError();
-      setTimeout(() => {
-        setIsAnimatingError(false);
-      }, 1000);
+      if (!isAnimatingError) {
+        handleError();
+      }
 
       return;
     }
@@ -199,7 +201,7 @@ export const WideButton: React.FC<Props> = ({
     <button
       ref={buttonRef}
       className={classNames(styles.wide_button, {
-        [styles.swing_bottom_fwd]: isAnimatingError,
+        [styles.shake_horizontal]: isAnimatingError,
       })}
       onClick={handleClick}
       style={{ ...styleList }}
