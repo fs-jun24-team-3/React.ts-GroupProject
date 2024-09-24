@@ -93,7 +93,6 @@ export const WideButton: React.FC<Props> = ({
             },
             complete: () => {
               setIsAnimating(false);
-              console.log('permit');
               buttonRef.current!.textContent = 'Cancel';
             },
           });
