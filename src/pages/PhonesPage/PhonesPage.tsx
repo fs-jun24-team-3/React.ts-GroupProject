@@ -17,7 +17,7 @@ export const PhonesPage: React.FC<Props> = () => {
 
   return (
     <>
-      <Catalog items={phones} />
+      <Catalog items={phones} title={'Mobile phones'} isFiltered={true} />
     </>
   );
 };

@@ -5,11 +5,13 @@ import { UnionProduct } from '../../utils/types/UnionProduct';
 
 type Props = {
   items: UnionProduct[];
+  title: string;
+  isFiltered: boolean;
 };
 
 const PHONES_PER_PAGE = 12;
 
-export const Catalog: React.FC<Props> = ({ items }) => {
+export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(items.length / PHONES_PER_PAGE);
@@ -40,9 +42,12 @@ export const Catalog: React.FC<Props> = ({ items }) => {
           <div className={styles.phones__routs__array}></div>
           <div className={styles.phones__routs__currentPage}>Phones</div>
         </div>
-        <div className={styles.phones__title}>Mobile phones</div>
+        <div className={styles.phones__title}>{title}</div>
         <div className={styles.phones__countModel}>{items.length} models</div>
-        <div className={styles.phonesDropdown}>Компонента Олени</div>
+        {isFiltered && (
+          <div className={styles.phonesDropdown}>Компонента Олени</div>
+        )}
+
         <div className={styles.phones__items}>
           {curentItems.map((item: UnionProduct) => (
             <div className={styles.phones__item} key={item.id}>
