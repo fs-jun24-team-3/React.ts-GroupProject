@@ -62,7 +62,7 @@ export const ProductDetailsPage = () => {
 
   return (
     <div className={styles.container}>
-      <Breadcrumbs pageTitle={product.name} />
+      <Breadcrumbs product={product} />
       {hasBackButton && <BackButton />}
 
       <div className={styles['product-content']}>
