@@ -33,9 +33,6 @@ export const favoritesSlice = createSlice({
       localStorage.setItem('favCount', JSON.stringify(state.count));
       localStorage.setItem('favorites', JSON.stringify(state.favoriteItems));
     },
-    // removeFromFavorites: (state, action: PayloadAction<FavoriteItem>) => {},
-    // increaseQuantity: (state, action: PayloadAction<FavoriteItem>) => {},
-    // decreaseQuantity: (state, action: PayloadAction<FavoriteItem>) => {},
   },
 });
 
