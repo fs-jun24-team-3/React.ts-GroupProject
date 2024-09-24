@@ -1,4 +1,3 @@
-// import { MainButton } from '../Buttons/MainButton';
 import styles from './ProductActions.module.scss';
 import React from 'react';
 import { FavoriteButton } from '../Buttons/FavoriteButton';
@@ -37,13 +36,13 @@ export const ProductActions: React.FC<Props> = ({
   };
   return (
     <div className={styles['product-actions-block']}>
-      {/* <MainButton label="Add to cart" size={size} onClick={handleAddToCart} /> */}
       <WideButton
         buttonTitle="Add to cart"
         onClick={handleAddToCart}
         onClickForCancel={handleRemoveFromCart}
         useAnimationForPhoneCard={true}
         animationTimeMS={2000}
+        styleList={{ height: size === 'large' ? 48 : 40 }}
       />
       <FavoriteButton
         size={size}
