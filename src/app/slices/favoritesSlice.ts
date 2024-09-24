@@ -3,10 +3,12 @@ import { UnionProduct } from '../../utils/types/UnionProduct';
 
 interface FavoriteState {
   favoriteItems: UnionProduct[];
+  count: number;
 }
 
 const initialState: FavoriteState = {
   favoriteItems: JSON.parse(localStorage.getItem('favorites') || '[]'),
+  count: JSON.parse(localStorage.getItem('favCount') || '0'),
 };
 
 export const favoritesSlice = createSlice({
@@ -14,20 +16,24 @@ export const favoritesSlice = createSlice({
   initialState,
   reducers: {
     addToFavorites: (state, action: PayloadAction<UnionProduct>) => {
+      console.log(state.favoriteItems);
       const favItem = state.favoriteItems.find(
         favItem => favItem.id === action.payload.id,
       );
 
       if (favItem) {
-        state.favoriteItems = state.favoriteItems.filter(
-          favItem => favItem.id !== action.payload.id,
-        );
+        state.favoriteItems.filter(favItem => favItem.id !== action.payload.id);
+        localStorage.setItem('favCount', JSON.stringify(state.count - 1));
+        state.count -= 1;
       } else {
         state.favoriteItems.push(action.payload);
+        localStorage.setItem('favCount', JSON.stringify(state.count + 1));
+        state.count += 1;
       }
 
       localStorage.setItem('favorites', JSON.stringify(state.favoriteItems));
     },
+    // removeFromFavorites: (state, action: PayloadAction<FavoriteItem>) => {},
     // increaseQuantity: (state, action: PayloadAction<FavoriteItem>) => {},
     // decreaseQuantity: (state, action: PayloadAction<FavoriteItem>) => {},
   },
