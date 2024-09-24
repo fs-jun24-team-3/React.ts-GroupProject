@@ -11,7 +11,7 @@ import banner3 from '../../../img/mainIcons/Banner3.webp';
 import phoneBanner1 from '../../../img/mainIcons/banerPhone.png';
 import phoneBanner2 from '../../../img/mainIcons/banerPhone2.png';
 import phoneBanner3 from '../../../img/mainIcons/banerPhone3.png';
-import { Keyboard } from 'swiper/modules';
+import { Autoplay, Keyboard } from 'swiper/modules';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
@@ -61,12 +61,18 @@ export const MainBannerSlider: React.FC<Props> = () => {
             enabled: true,
           }}
           loop={true}
-          modules={[Keyboard]}
+          modules={[Keyboard, Autoplay]}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
           onSwiper={swiper => {
             swiperRef.current = swiper;
           }}
           onSlideChange={swiper => {
             handleChangeSlide(swiper.realIndex);
+            swiper.autoplay.stop();
+            swiper.autoplay.start();
           }}
         >
           {currScreenWidth! >= 640 ? (
