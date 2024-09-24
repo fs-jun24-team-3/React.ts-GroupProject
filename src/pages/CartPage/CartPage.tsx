@@ -55,7 +55,7 @@ export const CartPage: React.FC<Props> = () => {
             }}
             onClick={() => {
               dispatch(clearCart());
-              navigate('/home');
+              navigate('/user');
             }}
           />
         </div>
