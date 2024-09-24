@@ -1,7 +1,42 @@
 .breadcrumbs {
-  font-size: pxToRem(12);
-  color: $secondary-color;
-  font-weight: 600;
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  @include onTablet {
+    margin: 24px 0 16px;
+  }
+
+  .homeIcon,
+  .chevronIcon {
+    display: flex;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.label {
+  color: $primary-color;
+  font-size: 12px;
+  font-weight: 700;
   line-height: 15px;
-  margin-top: 24px;
+  font-family: inherit;
+
+  &--product {
+    color: $secondary-color;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.chevronSpan {
+  display: flex;
 }
