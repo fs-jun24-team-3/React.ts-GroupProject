@@ -24,7 +24,7 @@ export const Main: React.FC<Props> = () => {
         <MainBannerSlider />
         <GoodsSlider sliderTitle={'Brand new models'} productsList={phones} />
         <CategoriesList />
-        <GoodsSlider sliderTitle={'Brand new models'} productsList={phones} />;
+        <GoodsSlider sliderTitle={'Brand new models'} productsList={phones} />
       </div>
     </>
   );

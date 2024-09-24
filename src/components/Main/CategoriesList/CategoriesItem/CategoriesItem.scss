@@ -2,6 +2,11 @@
   grid-column: span 4;
   text-decoration: none;
   margin-bottom: 32px;
+  transition: transform 1s;
+
+  &:hover {
+    transform: scale(105%);
+  }
 
   @include onDesktop {
     grid-column: span 8;
