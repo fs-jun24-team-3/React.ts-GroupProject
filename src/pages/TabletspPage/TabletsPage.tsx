@@ -15,7 +15,7 @@ export const TabletsPage: React.FC<Props> = () => {
   }, [dispatch]);
   return (
     <>
-      <Catalog items={tablets} />
+      <Catalog items={tablets} title={'Tablets phones'} isFiltered={true} />
     </>
   );
 };

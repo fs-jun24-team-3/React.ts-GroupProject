@@ -17,7 +17,11 @@ export const AccessoriesPage: React.FC<Props> = () => {
   }, [dispatch]);
   return (
     <>
-      <Catalog items={accessories} />
+      <Catalog
+        items={accessories}
+        title={'Accessories phones'}
+        isFiltered={true}
+      />
     </>
   );
 };
