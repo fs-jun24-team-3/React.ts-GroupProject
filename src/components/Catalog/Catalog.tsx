@@ -128,7 +128,7 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
             </div>
           ))}
         </div>
-        {itemsPerPage !== 'all' && (
+        {itemsPerPage !== 'all' && items.length > itemsPerPage && (
           <div className={styles.phones__pagination}>
             <button
               className={styles.phones__pagination__arr}
