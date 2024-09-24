@@ -3,12 +3,12 @@ import { UnionProduct } from '../../utils/types/UnionProduct';
 
 interface FavoriteState {
   favoriteItems: UnionProduct[];
-  count: number;
+  favCount: number;
 }
 
 const initialState: FavoriteState = {
   favoriteItems: JSON.parse(localStorage.getItem('favorites') || '[]'),
-  count: JSON.parse(localStorage.getItem('favCount') || '0'),
+  favCount: JSON.parse(localStorage.getItem('favCount') || '0'),
 };
 
 export const favoritesSlice = createSlice({
@@ -24,13 +24,13 @@ export const favoritesSlice = createSlice({
         state.favoriteItems = state.favoriteItems.filter(
           favItem => favItem.id !== action.payload.id,
         );
-        state.count -= 1;
+        state.favCount -= 1;
       } else {
         state.favoriteItems.push(action.payload);
-        state.count += 1;
+        state.favCount += 1;
       }
 
-      localStorage.setItem('favCount', JSON.stringify(state.count));
+      localStorage.setItem('favCount', JSON.stringify(state.favCount));
       localStorage.setItem('favorites', JSON.stringify(state.favoriteItems));
     },
   },
