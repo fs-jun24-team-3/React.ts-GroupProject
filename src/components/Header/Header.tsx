@@ -4,6 +4,7 @@ import styles from './Header.module.scss';
 import logo from '../../img/Logo.png';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
+import { useAppSelector } from '../../app/reduxHooks';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
@@ -11,6 +12,9 @@ type Props = {};
 export const Header: React.FC<Props> = () => {
   const [isMobileScreen, setIsMobileScreen] = useState(window.innerWidth < 640);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { favCount } = useAppSelector(state => state.favorites);
+
+  console.log(favCount);
 
   useEffect(() => {
     const handleMenuOnResize = () => {
@@ -62,7 +66,25 @@ export const Header: React.FC<Props> = () => {
                   })
                 }
               >
-                <div className={styles['header__icons--like']}></div>
+                <div className={styles['header__icons--like']}>
+                  {
+                    <div
+                      className={classNames(
+                        styles['favorites-count-container'],
+                        {
+                          [styles['favorites-count-container--visible']]:
+                            favCount > 0,
+                        },
+                      )}
+                    >
+                      <div className={styles['favorites-count']}>
+                        <p className={styles['favorites-count__meaning']}>
+                          {favCount}
+                        </p>
+                      </div>
+                    </div>
+                  }
+                </div>
               </NavLink>
               <NavLink
                 to="/cart"

@@ -32,7 +32,11 @@ export const ProductActions: React.FC<Props> = ({
   return (
     <div className={styles['product-actions-block']}>
       <MainButton label="Add to cart" size={size} onClick={handleAddToCart} />
-      <FavoriteButton size={size} onClick={handleAddToFavorites} />
+      <FavoriteButton
+        size={size}
+        onClick={handleAddToFavorites}
+        productId={item!.id}
+      />
     </div>
   );
 };
