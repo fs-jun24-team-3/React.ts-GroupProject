@@ -1,7 +1,8 @@
 import { DeviceDescription } from './DeviceDescription';
+import { Product } from './Product';
 import { ProductCategory } from './ProductCategory';
 
-export interface Tablet {
+export interface Tablet extends Product {
   id: string;
   category: ProductCategory.Tablet;
   namespaceId: string;
