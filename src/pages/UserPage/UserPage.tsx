@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './UserPage.module.scss';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 type FormData = {
   name: string;
@@ -27,8 +28,8 @@ export const UserPage: React.FC = () => {
 
   return (
     <div className={styles.user}>
-      <div className="dropDown">drop</div>
-      <div className="user__title">User</div>
+      <Breadcrumbs />
+      <div className={styles.user__title}>User page</div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <ul className={styles.user__list}>
           <li className={styles.user__input}>

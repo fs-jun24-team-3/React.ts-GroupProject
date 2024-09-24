@@ -28,6 +28,13 @@ export const CartPage: React.FC<Props> = () => {
     selectTotalQuentity(state.cart),
   );
 
+  const saveOrder = () => {
+    if (cartItems.length !== 0) {
+      dispatch(clearCart());
+      navigate('/user');
+    }
+  };
+
   return (
     <div className="cart">
       <BackButton />
@@ -53,10 +60,7 @@ export const CartPage: React.FC<Props> = () => {
               height: 48,
               width: '100%',
             }}
-            onClick={() => {
-              dispatch(clearCart());
-              navigate('/user');
-            }}
+            onClick={saveOrder}
           />
         </div>
       </div>
