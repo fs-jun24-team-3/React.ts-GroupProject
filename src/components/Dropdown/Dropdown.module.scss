@@ -1,12 +1,15 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  padding-top: 40px;
+  padding-right: 16px;
 
   &-label {
     display: block;
     color: $secondary-color;
     font-size: 12px;
     padding-bottom: 4px;
+    font-weight: 700px;
   }
 
   &-toggle {

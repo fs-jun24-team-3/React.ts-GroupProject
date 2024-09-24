@@ -1,42 +1,42 @@
 import React, { useEffect, useState } from 'react';
-import styles from './Dropdown.module.scss';
-import { SortOption } from '../../utils/types/SortOption';
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+import styles from './ItemsPerPageDropdown.module.scss';
+import { ItemsPerPageOption } from '../../utils/types/SortOption';
+
 type Props = {
-  handleSort: (option: SortOption) => void;
-  initialSortOption: SortOption;
+  onSelect: (option: ItemsPerPageOption) => void;
+  initialOption: ItemsPerPageOption;
 };
 
-export const Dropdown: React.FC<Props> = ({
-  handleSort,
-  initialSortOption,
+export const ItemsPerPageDropdown: React.FC<Props> = ({
+  onSelect,
+  initialOption,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] =
-    useState<SortOption>('alphabetical');
+    useState<ItemsPerPageOption>(initialOption);
 
   useEffect(() => {
-    setSelectedOption(initialSortOption);
-  }, [initialSortOption]);
+    setSelectedOption(initialOption);
+  }, [initialOption]);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const handleOptionSelect = (option: SortOption) => {
+  const handleOptionSelect = (option: ItemsPerPageOption) => {
     setSelectedOption(option);
-    handleSort(option);
+    onSelect(option);
     setIsOpen(false);
   };
 
-  const options: { value: SortOption; label: string }[] = [
-    { value: 'alphabetical', label: 'Alphabetically' },
-    { value: 'price_asc', label: 'Price Ascending' },
-    { value: 'price_desc', label: 'Price Descending' },
-    { value: 'newest', label: 'Newest' },
+  const options: { value: ItemsPerPageOption; label: string }[] = [
+    { value: 4, label: '4 per page' },
+    { value: 8, label: '8 per page' },
+    { value: 16, label: '16 per page' },
+    { value: 'all', label: 'Show all' },
   ];
 
   return (
     <div className={styles.dropdown}>
-      <span className={styles['dropdown-label']}>Sort by:</span>
+      <span className={styles['dropdown-label']}>Show:</span>
       <button
         className={`${styles['dropdown-toggle']} ${isOpen ? styles['dropdown-toggle-clicked'] : ''}`}
         onClick={toggleDropdown}
@@ -55,7 +55,7 @@ export const Dropdown: React.FC<Props> = ({
         <div className={styles['dropdown-menu']}>
           {options.map(option => (
             <button
-              key={option.value}
+              key={option.value.toString()}
               className={styles['dropdown-item']}
               onClick={() => handleOptionSelect(option.value)}
             >

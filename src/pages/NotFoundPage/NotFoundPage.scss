@@ -1,5 +1,20 @@
 .not-found {
-  @include mainPageGrid;
+  @include mainPageGrid();
+  
+
+  &__container {
+    padding: 0 16px;
+    max-width: 1200px;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      padding: 24px 36px;
+    }
+
+    @include onDesktop {
+      padding: 56px 152px;
+    }
+  }
 
   &__title {
     font-size: pxToRem(20);
@@ -9,15 +24,15 @@
     grid-column: 1/-1;
 
     @include onTablet {
-      font-size: pxToRem(30);
+      font-size: pxToRem(35);
       margin-top: 16px;
       font-weight: 800;
-      margin-bottom: 8px;
+      margin-bottom: 16px;
     }
 
     @include onDesktop {
       color: $primary-color;
-      font-size: pxToRem(32);
+      font-size: pxToRem(35);
       line-height: 41px;
       letter-spacing: -1px;
       font-weight: 800;
@@ -28,11 +43,19 @@
 
   &__description {
     color: $secondary-color;
-    font-size: 14px;
+    font-size: pxToRem(16);
     font-weight: 500;
     line-height: 21px;
     margin-bottom: 14px;
     grid-column: 1/-1;
+
+    @include onTablet {
+      font-size: pxToRem(20);
+    }
+
+    @include onDesktop {
+      font-size: pxToRem(25);
+    }
   }
 
   &__link {
