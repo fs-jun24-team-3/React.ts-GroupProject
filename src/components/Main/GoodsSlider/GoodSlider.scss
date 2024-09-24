@@ -13,6 +13,10 @@
   margin: 0;
   list-style: none;
   column-gap: 16px;
+
+  > div {
+    padding: 13px;
+  }
 }
 
 .slider__list::-webkit-scrollbar {

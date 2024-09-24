@@ -77,8 +77,8 @@ export const VariantsActions: React.FC<Props> = ({
       </VariantsBlock>
       <div className={styles['variants-block__line']} />
       <div className={styles['variants-block__price']}>
-        <h2>${priceRegular}</h2>
-        <p>${priceDiscount}</p>
+        <h2>${priceDiscount}</h2>
+        <p>${priceRegular}</p>
       </div>
       <div className="variants-block__actions">
         <ProductActions size={ButtonSize.Large} item={product} />

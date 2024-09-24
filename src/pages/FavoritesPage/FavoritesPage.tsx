@@ -1,8 +1,8 @@
 import { Catalog } from '../../components/Catalog/Catalog';
-import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
 // import styles from './FavoritesPage.module.scss';
 import { useAppSelector } from '../../app/reduxHooks';
 import { RootState } from '../../app/store';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 export const FavoritesPage = () => {
   //в цій компоненті я передію не данні favorites, а данні accessories(це заглушка).

@@ -7,6 +7,7 @@ import { Dropdown } from '../Dropdown';
 import { ItemsPerPageDropdown } from '../ItemsPerPageDropdown';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { sortProducts } from '../../utils/helpers/sortProducts';
+import { Breadcrumbs } from '../Breadcrumbs';
 
 type Props = {
   items: UnionProduct[];
@@ -107,11 +108,7 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
   return (
     <>
       <div className={styles.phones}>
-        <div className={styles.phones__routs}>
-          <div className={styles.phones__routs__home}></div>
-          <div className={styles.phones__routs__array}></div>
-          <div className={styles.phones__routs__currentPage}>Phones</div>
-        </div>
+        <Breadcrumbs />
         <div className={styles.phones__title}>{title}</div>
         <div className={styles.phones__countModel}>{items.length} models</div>
         {isFiltered && (
