@@ -61,6 +61,7 @@
       background-repeat: no-repeat;
       background-position: center;
       margin: 16px;
+      position: relative;
 
       @include onTablet {
         margin: 16px;
@@ -172,6 +173,7 @@
       background-repeat: no-repeat;
       background-position: center;
       margin: 16px 50%;
+      position: relative;
     }
 
     &--basket {
@@ -183,6 +185,7 @@
       background-repeat: no-repeat;
       background-position: center;
       margin: 16px 50%;
+      position: relative;
     }
   }
 
@@ -209,7 +212,7 @@
   }
 }
 
-.favorites-count {
+.favProduct-and-product-count {
   display: flex;
   justify-content: center;
   align-items: center;
