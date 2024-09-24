@@ -18,7 +18,6 @@ export const ProductActions: React.FC<Props> = ({
 }) => {
   const dispatch = useAppDispatch();
   const handleAddToCart = () => {
-    // eslint-disable-next-line prettier/prettier
     if (item) {
       dispatch(addToCart(item));
     }

@@ -1,0 +1,10 @@
+.swiper-slide {
+  @include cardItemSize;
+}
+
+.swiper-product__slide {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
+}

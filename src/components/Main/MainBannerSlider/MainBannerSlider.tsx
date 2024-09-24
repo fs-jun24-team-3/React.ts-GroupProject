@@ -60,12 +60,14 @@ export const MainBannerSlider: React.FC<Props> = () => {
           keyboard={{
             enabled: true,
           }}
+          loop={true}
           modules={[Keyboard]}
           onSwiper={swiper => {
             swiperRef.current = swiper;
           }}
           onSlideChange={swiper => {
-            handleChangeSlide(swiper.activeIndex);
+            console.log(swiper.realIndex);
+            handleChangeSlide(swiper.realIndex);
           }}
         >
           {currScreenWidth! >= 640 ? (
