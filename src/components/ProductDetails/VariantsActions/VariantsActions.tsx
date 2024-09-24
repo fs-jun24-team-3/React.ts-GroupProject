@@ -28,8 +28,12 @@ type Props = {
 export const VariantsActions: React.FC<Props> = ({
   colorsAvailable,
   color,
+  screen,
+  resolution,
   namespaceId,
+  processor,
   capacity,
+  ram,
   capacityAvailable,
   priceRegular,
   priceDiscount,
@@ -79,7 +83,43 @@ export const VariantsActions: React.FC<Props> = ({
       <div className="variants-block__actions">
         <ProductActions size={ButtonSize.Large} item={product} />
       </div>
-      <div className="variants-block__info"></div>
+      <div className={styles['variants-block__info']}>
+        <ul className={styles['variants-block__info--list']}>
+          <li className={styles['variants-block__info--list-item']}>
+            <strong className={styles['variants-block__info--title']}>
+              Screen
+            </strong>
+            <span className={styles['variants-block__info--value']}>
+              {screen}
+            </span>
+          </li>
+
+          <li className={styles['variants-block__info--list-item']}>
+            <strong className={styles['variants-block__info--title']}>
+              Resolution
+            </strong>
+            <span className={styles['variants-block__info--value']}>
+              {resolution}
+            </span>
+          </li>
+
+          <li className={styles['variants-block__info--list-item']}>
+            <strong className={styles['variants-block__info--title']}>
+              Processor
+            </strong>
+            <span className={styles['variants-block__info--value']}>
+              {processor}
+            </span>
+          </li>
+
+          <li className={styles['variants-block__info--list-item']}>
+            <strong className={styles['variants-block__info--title']}>
+              Ram
+            </strong>
+            <span className={styles['variants-block__info--value']}>{ram}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

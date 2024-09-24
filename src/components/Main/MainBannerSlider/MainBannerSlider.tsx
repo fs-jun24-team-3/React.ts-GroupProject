@@ -66,7 +66,6 @@ export const MainBannerSlider: React.FC<Props> = () => {
             swiperRef.current = swiper;
           }}
           onSlideChange={swiper => {
-            console.log(swiper.realIndex);
             handleChangeSlide(swiper.realIndex);
           }}
         >
