@@ -51,12 +51,12 @@ export const CartPage: React.FC<Props> = () => {
             buttonTitle={'Checkout'}
             styleList={{
               height: 48,
-              width: '100%',
             }}
             onClick={() => {
               dispatch(clearCart());
               navigate('/home');
             }}
+            useSucceessAnimation={true}
           />
         </div>
       </div>

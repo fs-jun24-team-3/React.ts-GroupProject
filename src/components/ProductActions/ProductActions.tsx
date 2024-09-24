@@ -1,12 +1,13 @@
-import { MainButton } from '../Buttons/MainButton';
+// import { MainButton } from '../Buttons/MainButton';
 import styles from './ProductActions.module.scss';
 import React from 'react';
 import { FavoriteButton } from '../Buttons/FavoriteButton';
 import { ButtonSize } from '../../utils/types/ButtonSize';
 import { useAppDispatch } from '../../app/reduxHooks';
-import { addToCart } from '../../app/slices/cartSlise';
+import { addToCart, removeFromCart } from '../../app/slices/cartSlise';
 import { UnionProduct } from '../../utils/types/UnionProduct';
 import { addToFavorites } from '../../app/slices/favoritesSlice';
+import { WideButton } from '../Buttons/WideButton';
 
 type Props = {
   size?: Exclude<ButtonSize, ButtonSize.Small>;
@@ -24,6 +25,11 @@ export const ProductActions: React.FC<Props> = ({
       dispatch(addToCart(item));
     }
   };
+  const handleRemoveFromCart = () => {
+    if (item) {
+      dispatch(removeFromCart(item.id));
+    }
+  };
   const handleAddToFavorites = () => {
     if (item) {
       dispatch(addToFavorites(item));
@@ -31,7 +37,14 @@ export const ProductActions: React.FC<Props> = ({
   };
   return (
     <div className={styles['product-actions-block']}>
-      <MainButton label="Add to cart" size={size} onClick={handleAddToCart} />
+      {/* <MainButton label="Add to cart" size={size} onClick={handleAddToCart} /> */}
+      <WideButton
+        buttonTitle="Add to cart"
+        onClick={handleAddToCart}
+        onClickForCancel={handleRemoveFromCart}
+        useAnimationForPhoneCard={true}
+        animationTimeMS={2000}
+      />
       <FavoriteButton
         size={size}
         onClick={handleAddToFavorites}
