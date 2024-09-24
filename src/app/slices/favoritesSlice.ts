@@ -21,16 +21,17 @@ export const favoritesSlice = createSlice({
         favItem => favItem.id === action.payload.id,
       );
 
-      if (favItem) {
-        state.favoriteItems.filter(favItem => favItem.id !== action.payload.id);
-        localStorage.setItem('favCount', JSON.stringify(state.count - 1));
+      if (favItem !== undefined) {
+        state.favoriteItems = state.favoriteItems.filter(
+          favItem => favItem.id !== action.payload.id,
+        );
         state.count -= 1;
       } else {
         state.favoriteItems.push(action.payload);
-        localStorage.setItem('favCount', JSON.stringify(state.count + 1));
         state.count += 1;
       }
 
+      localStorage.setItem('favCount', JSON.stringify(state.count));
       localStorage.setItem('favorites', JSON.stringify(state.favoriteItems));
     },
     // removeFromFavorites: (state, action: PayloadAction<FavoriteItem>) => {},
