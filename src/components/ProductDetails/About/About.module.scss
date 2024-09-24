@@ -13,9 +13,6 @@
 }
 
 .sectionTitle {
-  font-size: 20px;
-  line-height: 26px;
-  font-weight: 700;
   color: $primary-color;
 
   @include onTablet {
@@ -37,17 +34,11 @@
   gap: 8px;
 
   @include onTablet {
-    font-size: 20px;
-    line-height: 26px;
-    font-weight: 600;
     color: $primary-color;
   }
 }
 
 .descriptionText {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 21px;
-
   color: $secondary-color;
+  font-weight: 500;
 }
