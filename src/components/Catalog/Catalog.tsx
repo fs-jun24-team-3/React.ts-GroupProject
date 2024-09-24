@@ -6,6 +6,7 @@ import { ItemsPerPageOption, SortOption } from '../../utils/types/SortOption';
 import { Dropdown } from '../Dropdown';
 import { ItemsPerPageDropdown } from '../ItemsPerPageDropdown';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { sortProducts } from '../../utils/helpers/sortProducts';
 
 type Props = {
   items: UnionProduct[];
@@ -47,19 +48,7 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
   }, [location.search]);
 
   const sortedItems = useMemo(() => {
-    let sorted = [...items];
-    switch (sortOption) {
-      case 'alphabetical':
-        return sorted.sort((a, b) => a.name.localeCompare(b.name));
-      case 'price_asc':
-        return sorted.sort((a, b) => a.priceDiscount - b.priceDiscount);
-      case 'price_desc':
-        return sorted.sort((a, b) => b.priceDiscount - a.priceDiscount);
-      case 'newest':
-        return sorted.sort((a, b) => b.year - a.year);
-      default:
-        return sorted;
-    }
+    return sortProducts(items, sortOption);
   }, [items, sortOption]);
 
   const paginatedItems = useMemo(() => {
