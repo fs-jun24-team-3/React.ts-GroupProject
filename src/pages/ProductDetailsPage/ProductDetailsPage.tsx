@@ -22,13 +22,11 @@ export const ProductDetailsPage = () => {
   const hasBackButton = window.history.length > 1;
 
   useEffect(() => {
-    getProduct(pathname as string, productId as string)
+    getProduct(pathname, productId)
       .then(product => {
-        const data = product;
-
-        if (data) {
-          document.title = data.name;
-          setProduct(data);
+        if (product) {
+          document.title = product.name;
+          setProduct(product);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
           setError('Product was not found');
@@ -58,11 +56,9 @@ export const ProductDetailsPage = () => {
     );
   }
 
-  console.log(product);
-
   return (
     <div className={styles.container}>
-      <Breadcrumbs pageTitle={product.name} />
+      <Breadcrumbs product={product} />
       {hasBackButton && <BackButton />}
 
       <div className={styles['product-content']}>

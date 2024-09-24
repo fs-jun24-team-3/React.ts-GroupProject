@@ -24,4 +24,37 @@
     margin-top: 24px;
     margin-bottom: 24px;
   }
+
+  &__info {
+    margin-top: 32px;
+
+    &--list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+
+      &-item {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    &--title {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 15px;
+
+      color: $secondary-color;
+    }
+
+    &--value {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 15px;
+
+      color: $primary-color;
+    }
+  }
 }
