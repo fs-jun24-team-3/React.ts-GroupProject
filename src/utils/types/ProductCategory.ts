@@ -1,5 +1,5 @@
 export enum ProductCategory {
-  Phone = 'phone',
-  Tablet = 'tablet',
-  Accessory = 'accessory',
+  Phone = 'phones',
+  Tablet = 'tablets',
+  Accessory = 'accessories',
 }

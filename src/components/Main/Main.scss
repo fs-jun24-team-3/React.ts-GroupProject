@@ -30,16 +30,6 @@
     height: 400px;
   }
 
-  &__banner {
-    height: 100%;
-    width: 100%;
-    background-image: url('../../img/mainIcons/Banner1.png');
-    object-fit: cover;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-  }
-
   &__button {
     cursor: pointer;
     height: 100%;
@@ -98,6 +88,9 @@
   &__button {
     height: 32px;
     width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     font-size: 16px;
     border-radius: 48px;
@@ -131,7 +124,7 @@
   }
 
   &__item {
-    @include cardItemSize;
+    height: 100%;
   }
 }
 
@@ -145,10 +138,10 @@
   padding: 32px;
   display: flex;
   flex-direction: column;
+  align-content: center;
   border-radius: 8px;
   transition: transform 1s;
   box-sizing: border-box;
-  @include cardWidth;
   height: 100%;
 
   &:hover {
@@ -156,22 +149,24 @@
   }
 
   &__logo {
-    max-height: auto;
+    display: flex;
+    max-height: 196px;
     width: 100%;
+    object-fit: contain;
     align-self: center;
-    background-color: transparent;
-    outline: none;
-    border: none;
 
     &:hover {
       cursor: pointer;
-      transition: box-shadow 1.6s, transform 0.6s;
+      transition:
+        box-shadow 1.6s,
+        transform 0.6s;
       transform: scale(101%);
     }
   }
 
   &__title {
     white-space: normal;
+    color: $primary-color;
     margin-top: 16px;
     font-size: 14px;
     font-weight: 600;
@@ -193,8 +188,9 @@
   &__info {
     display: flex;
     flex-direction: column;
+    align-self: center;
     list-style: none;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: auto;
     padding: 0;
   }
@@ -219,16 +215,6 @@
     }
   }
 
-  &__interactive-part {
-    margin-top: auto;
-    display: flex;
-    justify-content: space-between;
-
-    & :nth-child(n) {
-      margin: 0;
-      padding: 0;
-    }
-  }
   &__inform {
     margin-top: auto;
   }

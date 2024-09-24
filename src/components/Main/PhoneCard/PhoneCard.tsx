@@ -1,10 +1,8 @@
 import React from 'react';
-import { RoundButton } from '../../Buttons/RoundButton';
-import { WideButton } from '../../Buttons/WideButton';
-import heartImgDefault from '../../../img/headerIcon/like.png';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { BASE_URL } from '../../../api/api';
 import { UnionProduct } from '../../../utils/types/UnionProduct';
+import { ProductActions } from '../../ProductActions';
 
 type Props = {
   item: UnionProduct;
@@ -13,22 +11,17 @@ type Props = {
 export const PhoneCard: React.FC<Props> = ({ item }) => {
   const { name, category, images, priceRegular, screen, ram, capacity, id } =
     item;
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
 
   return (
     <li className="slider__item">
       <div className="card">
-        <img
-          src={BASE_URL + (Array.isArray(images) ? images[0] : images)}
-          alt=""
-          className="card__logo"
-          onClick={() => {
-            navigate(
-              pathname !== '/' ? `${pathname}/${id}` : `${category}s/${id}`,
-            );
-          }}
-        />
+        <Link to={`/${category}/${id}`}>
+          <img
+            src={BASE_URL + (Array.isArray(images) ? images[0] : images)}
+            alt="phone logo"
+            className="card__logo"
+          />
+        </Link>
         <p className="card__title">{name}</p>
         <div className="card__inform">
           <p className="card__price">${priceRegular}</p>
@@ -47,10 +40,9 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
               <div className="card__item-meaning">{ram}</div>
             </li>
           </ul>
-          <div className="card__interactive-part">
-            <WideButton buttonTitle="Add to cart" />
-            <RoundButton buttonImgPath={heartImgDefault} />
-          </div>
+        </div>
+        <div className="card__interactive-part">
+          <ProductActions item={item} />
         </div>
       </div>
     </li>

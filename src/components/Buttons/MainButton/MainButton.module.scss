@@ -1,0 +1,29 @@
+.main-button {
+  background-color: $wide-button-bg-color-default;
+  color: $wide-button-text-color-default;
+  width: 100%;
+  border-radius: 48px;
+  border: none;
+  transition: box-shadow, background-color, 0.1s;
+
+  &__size {
+    &--default {
+      height: 40px;
+    }
+
+    &--large {
+      height: 48px;
+    }
+  }
+
+  &:hover {
+    box-shadow: $wide-button-box-shadow-on-hover;
+  }
+
+  &:active {
+    color: $wide-button-text-color-on-click;
+    border: $wide-button-border-on-click;
+    background-color: $wide-button-bg-color-on-click;
+    box-shadow: none;
+  }
+}

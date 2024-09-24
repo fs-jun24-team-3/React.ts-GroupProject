@@ -34,11 +34,11 @@
     }
 
     &-clicked {
-      border: $button-border-on-hover;  
+      border: $button-border-on-hover;
     }
 
     &:hover {
-      border: $button-border-on-hover; 
+      border: $button-border-on-hover;
     }
   }
 
@@ -75,9 +75,9 @@
     text-align: left;
     background-color: $white-color;
     overflow: hidden;
-    box-shadow: 0px 2px 15px 0px #0000000D;
+    box-shadow: 0px 2px 15px 0px #0000000d;
     border: $elemnts-color;
-    
+
     @include onTablet {
       min-width: 187px;
     }

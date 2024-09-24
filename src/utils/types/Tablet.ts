@@ -1,6 +1,7 @@
 import { DeviceDescription } from './DeviceDescription';
 import { Product } from './Product';
 import { ProductCategory } from './ProductCategory';
+import { ProductColor } from './ProductColor';
 
 export interface Tablet extends Product {
   id: string;
@@ -11,8 +12,8 @@ export interface Tablet extends Product {
   capacity: string;
   priceRegular: number;
   priceDiscount: number;
-  colorsAvailable: string[];
-  color: string;
+  colorsAvailable: ProductColor[];
+  color: ProductColor;
   images: string[];
   description: DeviceDescription[];
   screen: string;

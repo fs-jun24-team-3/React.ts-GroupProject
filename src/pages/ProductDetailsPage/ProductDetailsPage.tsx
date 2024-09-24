@@ -1,18 +1,17 @@
-import { useEffect, useMemo, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-
+import { useEffect, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import styles from './ProductDetailsPage.module.scss';
-import { getAccessories, getPhones, getTablets } from '../../api/api';
-
 import { Loading } from '../../components/Loading';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { About } from '../../components/ProductDetails/About';
-import { GoodsSlider } from '../../components/Main/GoodsSlider';
 import { Gallery } from '../../components/ProductDetails/Gallery';
 import { TechSpecs } from '../../components/ProductDetails/TechSpecs';
 import { VariantsActions } from '../../components/ProductDetails/VariantsActions';
 import { UnionProduct } from '../../utils/types/UnionProduct';
 import { ProductCategory } from '../../utils/types/ProductCategory';
+import { BackButton } from '../../components/Buttons/BackButton';
+import { getProduct } from '../../api/api';
+import { RecommendedList } from '../../components/ProductDetails/RecommendedList';
 
 export const ProductDetailsPage = () => {
   const [product, setProduct] = useState<UnionProduct | null>(null);
@@ -22,29 +21,15 @@ export const ProductDetailsPage = () => {
   const { productId } = useParams() as { productId: string };
   const hasBackButton = window.history.length > 1;
 
-  const getProduct = useMemo(() => {
-    switch (true) {
-      case pathname.includes('/phones/'):
-        return getPhones;
-      case pathname.includes('/tablets/'):
-        return getTablets;
-      case pathname.includes('/accessories/'):
-        return getAccessories;
-      default:
-        return getPhones;
-    }
-  }, [pathname]);
-
-  const navigate = useNavigate();
-
   useEffect(() => {
-    getProduct()
-      .then(products => {
-        const data = products.find(product => product.id === productId);
+    getProduct(pathname as string, productId as string)
+      .then(product => {
+        const data = product;
 
         if (data) {
           document.title = data.name;
           setProduct(data);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
           setError('Product was not found');
         }
@@ -55,7 +40,7 @@ export const ProductDetailsPage = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [setIsLoading, setProduct]);
+  }, [setIsLoading, setProduct, productId, pathname]);
 
   if (isLoading) {
     return (
@@ -73,17 +58,12 @@ export const ProductDetailsPage = () => {
     );
   }
 
+  console.log(product);
+
   return (
     <div className={styles.container}>
-      <Breadcrumbs pageTitle={product.name} />
-      {hasBackButton && (
-        <div className="cart__rout">
-          <div className="cart__rout__img"></div>
-          <div className="cart__rout__name" onClick={() => navigate(-1)}>
-            Back
-          </div>
-        </div>
-      )}
+      <Breadcrumbs product={product} />
+      {hasBackButton && <BackButton />}
 
       <div className={styles['product-content']}>
         <h2 className={styles['product-content__title']}>{product.name} </h2>
@@ -105,6 +85,7 @@ export const ProductDetailsPage = () => {
               capacity={product.capacity}
               color={product.color}
               namespaceId={product.namespaceId}
+              product={product}
             />
           </div>
           <div className={styles['product-content__details--description']}>
@@ -133,7 +114,7 @@ export const ProductDetailsPage = () => {
         </div>
       </div>
 
-      <GoodsSlider sliderTitle="You may also like" />
+      <RecommendedList />
     </div>
   );
 };

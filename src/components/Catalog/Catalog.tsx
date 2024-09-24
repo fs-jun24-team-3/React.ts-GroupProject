@@ -9,9 +9,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 type Props = {
   items: UnionProduct[];
+  title: string;
+  isFiltered: boolean;
 };
 
-export const Catalog: React.FC<Props> = ({ items }) => {
+export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
@@ -121,15 +123,18 @@ export const Catalog: React.FC<Props> = ({ items }) => {
           <div className={styles.phones__routs__array}></div>
           <div className={styles.phones__routs__currentPage}>Phones</div>
         </div>
-        <div className={styles.phones__title}>Mobile phones</div>
+        <div className={styles.phones__title}>{title}</div>
         <div className={styles.phones__countModel}>{items.length} models</div>
-        <div className={styles.phonesDropdown}>
-          <Dropdown handleSort={handleSort} initialSortOption={sortOption} />
-          <ItemsPerPageDropdown
-            onSelect={handleItemsPerPageChange}
-            initialOption={itemsPerPage}
-          />
-        </div>
+        {isFiltered && (
+          <div className={styles.phonesDropdown}>
+            <Dropdown handleSort={handleSort} initialSortOption={sortOption} />
+            <ItemsPerPageDropdown
+              onSelect={handleItemsPerPageChange}
+              initialOption={itemsPerPage}
+            />
+          </div>
+        )}
+
         <div className={styles.phones__items}>
           {paginatedItems.map((item: UnionProduct) => (
             <div className={styles.phones__item} key={item.id}>

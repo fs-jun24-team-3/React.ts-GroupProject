@@ -1,6 +1,7 @@
 import { Accessory } from '../utils/types/Accessory';
 import { Phone } from '../utils/types/Phone';
 import { Product } from '../utils/types/Product';
+import { ProductCategory } from '../utils/types/ProductCategory';
 import { Tablet } from '../utils/types/Tablet';
 
 export const BASE_URL =
@@ -24,19 +25,23 @@ export const getPhones = () => get<Phone[]>('api/phones');
 export const getTablets = () => get<Tablet[]>('api/tablets');
 export const getProducts = () => get<Product[]>('api/products');
 export const getAccessories = () => get<Accessory[]>('api/accessories');
-export const getGood = (goodsType: string, phoneId: string) => {
-  switch (goodsType) {
-    case 'iphone':
+export const getProduct = (pathname: string, phoneId: string) => {
+  switch (true) {
+    case pathname.includes(ProductCategory.Phone):
       return getPhones().then(phones => {
         return phones.find(phones => phones.id === phoneId);
       });
-    case 'ipad':
+    case pathname.includes(ProductCategory.Tablet):
       return getTablets().then(tablet => {
         return tablet.find(tablet => tablet.id === phoneId);
       });
-    case 'watch':
+    case pathname.includes(ProductCategory.Accessory):
       return getAccessories().then(accessory => {
         return accessory.find(accessory => accessory.id === phoneId);
+      });
+    default:
+      return getPhones().then(phones => {
+        return phones.find(phones => phones.id === phoneId);
       });
   }
 };
