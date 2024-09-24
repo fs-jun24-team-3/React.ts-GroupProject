@@ -16,7 +16,6 @@ export const favoritesSlice = createSlice({
   initialState,
   reducers: {
     addToFavorites: (state, action: PayloadAction<UnionProduct>) => {
-      console.log(state.favoriteItems);
       const favItem = state.favoriteItems.find(
         favItem => favItem.id === action.payload.id,
       );
