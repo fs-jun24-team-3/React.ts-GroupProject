@@ -1,6 +1,8 @@
 .categorie {
   grid-column: span 4;
   text-decoration: none;
+  margin-bottom: 32px;
+
   @include onDesktop {
     grid-column: span 8;
   }

@@ -1,5 +1,4 @@
 import { Catalog } from '../../components/Catalog/Catalog';
-import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
 // import styles from './FavoritesPage.module.scss';
 import { useAppSelector } from '../../app/reduxHooks';
 import { RootState } from '../../app/store';
@@ -13,7 +12,6 @@ export const FavoritesPage = () => {
 
   return (
     <>
-      <Breadcrumbs />
       <Catalog items={favorites} title={'Favorites'} isFiltered={false} />
     </>
   );
