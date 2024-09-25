@@ -185,8 +185,6 @@
     }
   }
 
-  
-
   &__separator {
     content: '';
     border: 1px solid #e2e6e9;
@@ -219,6 +217,8 @@
 
     &-meaning {
       color: #0f0f11;
+      white-space: break-spaces;
+      text-align: right;
     }
   }
 
