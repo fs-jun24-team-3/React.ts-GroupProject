@@ -88,6 +88,10 @@
       justify-content: center;
       align-items: center;
 
+      &:not(:disabled) {
+        cursor: pointer;
+      }
+
       &:disabled {
         &,
         &:hover {
@@ -142,6 +146,7 @@
       font-size: 14px;
       font-weight: 600;
       line-height: 21px;
+      cursor: pointer;
       &:hover {
         border: 1px solid $primary-color;
       }
