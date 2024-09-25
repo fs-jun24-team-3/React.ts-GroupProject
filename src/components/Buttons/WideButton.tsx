@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './WideButton.module.scss';
 import anime from 'animejs';
 import classNames from 'classnames';
@@ -32,12 +32,16 @@ export const WideButton: React.FC<Props> = ({
   const [animationTimeSum] = useState(
     useSucceessAnimation ? 2000 + animationTimeMS : animationTimeMS,
   );
+  const isAnimatingRef = useRef(false);
   const [isAnimatingError, setIsAnimatingError] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const animationInstance = useRef<anime.AnimeInstance | null>(null);
   const [clicksCount, setClicksCount] = useState(1);
+  const [key, setKey] = useState<string | null>(null);
+
+  console.log(animationInstance.current);
 
   const handleDefaultButtonClickAction = () => {
-    anime({
+    animationInstance.current = anime({
       targets: buttonRef.current,
       backgroundColor: '#fff',
       color: '#31FC56',
@@ -57,10 +61,14 @@ export const WideButton: React.FC<Props> = ({
       ],
       easing: 'easeInOutQuad',
       begin: () => {
-        buttonRef.current!.textContent = '';
+        if (buttonRef.current) {
+          buttonRef.current.textContent = '';
+        }
       },
       complete: () => {
-        buttonRef.current!.textContent = 'Success';
+        if (buttonRef.current) {
+          buttonRef.current!.textContent = 'Success';
+        }
       },
     });
   };
@@ -71,7 +79,7 @@ export const WideButton: React.FC<Props> = ({
       case 1: {
         handleDefaultButtonClickAction();
         setTimeout(() => {
-          anime({
+          animationInstance.current = anime({
             targets: buttonRef.current,
             backgroundColor: '#fff',
             color: '#fc0202',
@@ -89,11 +97,15 @@ export const WideButton: React.FC<Props> = ({
             easing: 'easeInOutQuad',
             begin: () => {
               onClick();
-              buttonRef.current!.textContent = '';
+              if (buttonRef.current) {
+                buttonRef.current.textContent = '';
+              }
             },
             complete: () => {
-              setIsAnimating(false);
-              buttonRef.current!.textContent = 'Cancel';
+              isAnimatingRef.current = false;
+              if (buttonRef.current) {
+                buttonRef.current!.textContent = 'Cancel';
+              }
             },
           });
         }, animationTimeSum);
@@ -101,7 +113,7 @@ export const WideButton: React.FC<Props> = ({
         return;
       }
       case 2: {
-        anime({
+        animationInstance.current = anime({
           targets: buttonRef.current,
           backgroundColor: '#4219d0',
           color: '#fff',
@@ -123,11 +135,15 @@ export const WideButton: React.FC<Props> = ({
           easing: 'easeInOutQuad',
           begin: () => {
             onClickForCancel();
-            buttonRef.current!.textContent = '';
+            if (buttonRef.current) {
+              buttonRef.current.textContent = '';
+            }
           },
           complete: () => {
-            setIsAnimating(false);
-            buttonRef.current!.textContent = 'Add to cart';
+            isAnimatingRef.current = false;
+            if (buttonRef.current) {
+              buttonRef.current!.textContent = 'Add to cart';
+            }
           },
         });
 
@@ -152,12 +168,12 @@ export const WideButton: React.FC<Props> = ({
       return;
     }
 
-    if (isAnimating) {
+    if (isAnimatingRef.current) {
       return;
     }
 
-    if (useAnimationForPhoneCard && !isAnimating) {
-      setIsAnimating(true);
+    if (useAnimationForPhoneCard && !isAnimatingRef.current) {
+      isAnimatingRef.current = true;
       handleAnimationForPhoneCard();
 
       if (clicksCount >= 2) {
@@ -168,26 +184,25 @@ export const WideButton: React.FC<Props> = ({
     }
 
     if (useSucceessAnimation) {
-      setIsAnimating(true);
+      isAnimatingRef.current = true;
       handleDefaultButtonClickAction();
-      setIsAnimating(false);
 
-      if (!isAnimating) {
-        setIsAnimating(true);
+      if (isAnimatingRef.current === true) {
+        isAnimatingRef.current = true;
         anime(animationSettings);
         setTimeout(() => {
-          setIsAnimating(false);
+          isAnimatingRef.current = false;
           onClick();
         }, animationTimeSum);
       }
 
       return;
     } else {
-      if (!isAnimating) {
-        setIsAnimating(true);
+      if (isAnimatingRef.current) {
+        isAnimatingRef.current = true;
         anime(animationSettings);
         setTimeout(() => {
-          setIsAnimating(false);
+          isAnimatingRef.current = false;
           onClick();
         }, animationTimeSum);
       }
@@ -196,8 +211,27 @@ export const WideButton: React.FC<Props> = ({
     }
   };
 
+  useEffect(() => {
+    setKey(String(Math.random));
+
+    return () => {
+      if (animationInstance.current) {
+        animationInstance.current.pause();
+      }
+      setIsAnimatingError(false);
+      isAnimatingRef.current = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (animationInstance.current) {
+      animationInstance.current.play();
+    }
+  }, []);
+
   return (
     <button
+      key={key}
       ref={buttonRef}
       className={classNames(styles.wide_button, {
         [styles.shake_horizontal]: isAnimatingError,
