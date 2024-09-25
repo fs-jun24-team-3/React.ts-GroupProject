@@ -13,7 +13,7 @@ import {
   selectTotalCost,
   selectTotalQuentity,
 } from '../../app/slices/cartSlise';
-import { addToOrder } from '../../app/slices/orderSlice';
+// import { addToOrder } from '../../app/slices/orderSlice';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
@@ -21,7 +21,7 @@ export const CartPage: React.FC<Props> = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state: RootState) => state.cart.cartItems);
-  // const isCartEmpty = cartItems.length < 1;
+  const isCartEmpty = cartItems.length < 1;
   const totalCost = useAppSelector((state: RootState) =>
     selectTotalCost(state.cart),
   );
@@ -32,12 +32,10 @@ export const CartPage: React.FC<Props> = () => {
 
   const saveOrder = () => {
     if (cartItems.length !== 0) {
-      dispatch(addToOrder(cartItems));
       dispatch(clearCart());
       navigate('/user');
     }
   };
-
   return (
     <div className="cart">
       <BackButton />
@@ -62,6 +60,8 @@ export const CartPage: React.FC<Props> = () => {
             styleList={{
               height: 48,
             }}
+            useSucceessAnimation={true}
+            isError={isCartEmpty}
             onClick={saveOrder}
           />
         </div>

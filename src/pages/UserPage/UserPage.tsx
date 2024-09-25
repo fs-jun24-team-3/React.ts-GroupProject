@@ -35,7 +35,7 @@ export const UserPage: React.FC = () => {
   const onSubmit = (data: FormData) => {
     console.log(data);
     localStorage.setItem('userData', JSON.stringify(data));
-    alert('Data saved successfully!');
+    // alert('Data saved successfully!');
     reset();
   };
 
