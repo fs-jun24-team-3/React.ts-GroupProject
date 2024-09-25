@@ -18,7 +18,7 @@ export const ProductActions: React.FC<Props> = ({
   item,
 }) => {
   const dispatch = useAppDispatch();
-  const inCart = useAppSelector(state =>
+  const isInCart = useAppSelector(state =>
     state.cart.cartItems.some(el => el.item.id === item.id),
   );
 
@@ -40,9 +40,10 @@ export const ProductActions: React.FC<Props> = ({
   return (
     <div className={styles['product-actions-block']}>
       <MainButton
-        label={inCart ? 'Remove from cart' : 'Add to cart'}
+        label={isInCart ? 'In cart' : 'Add to cart'}
         size={size}
-        onClick={inCart ? handleRemoveFromCart : handleAddToCart}
+        isSelected={isInCart}
+        onClick={isInCart ? handleRemoveFromCart : handleAddToCart}
       />
       <FavoriteButton
         size={size}
