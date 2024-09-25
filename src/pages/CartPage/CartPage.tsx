@@ -13,6 +13,7 @@ import {
   selectTotalCost,
   selectTotalQuentity,
 } from '../../app/slices/cartSlise';
+import { addToOrder } from '../../app/slices/orderSlice';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
@@ -30,6 +31,7 @@ export const CartPage: React.FC<Props> = () => {
 
   const saveOrder = () => {
     if (cartItems.length !== 0) {
+      dispatch(addToOrder(cartItems));
       dispatch(clearCart());
       navigate('/user');
     }

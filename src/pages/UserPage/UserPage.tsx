@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './UserPage.module.scss';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
+import { useNavigate } from 'react-router-dom';
 
 type FormData = {
   name: string;
@@ -12,6 +13,18 @@ type FormData = {
 };
 
 export const UserPage: React.FC = () => {
+  const navigate = useNavigate(); // Отримуємо функцію navigate
+
+  useEffect(() => {
+    //   const user = localStorage.getItem('userData');
+
+    //   console.log(user);
+    const user = localStorage.getItem('userData');
+
+    if (user) {
+      navigate('/order'); // Виконуємо переадресацію
+    }
+  }, [navigate]);
   const {
     register,
     handleSubmit,
@@ -25,6 +38,8 @@ export const UserPage: React.FC = () => {
     alert('Data saved successfully!');
     reset();
   };
+
+  // console.log(user);
 
   return (
     <div className={styles.user}>
