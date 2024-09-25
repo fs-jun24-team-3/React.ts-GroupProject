@@ -17,6 +17,7 @@ export const Main: React.FC<Props> = () => {
   }, [phones]);
 
   useEffect(() => {
+    document.title = 'Nice Gadgets';
     dispatch(loadPhones());
   }, []);
 

@@ -17,6 +17,7 @@ export const PhonesPage: React.FC<Props> = () => {
 
   useEffect(() => {
     dispatch(loadPhones());
+    document.title = 'Phones';
   }, [dispatch]);
 
   if (loading || !phones.length) {

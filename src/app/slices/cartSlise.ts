@@ -90,7 +90,7 @@ export const cartReducer = cartSlice.reducer;
 
 export const selectTotalCost = (state: CartState) =>
   state.cartItems.reduce(
-    (total, cartItem) => total + cartItem.item.priceRegular * cartItem.count,
+    (total, cartItem) => total + cartItem.item.priceDiscount * cartItem.count,
     0,
   );
 

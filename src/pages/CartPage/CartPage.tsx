@@ -13,7 +13,7 @@ import {
   selectTotalCost,
   selectTotalQuentity,
 } from '../../app/slices/cartSlise';
-// import { addToOrder } from '../../app/slices/orderSlice';
+import { addToOrder } from '../../app/slices/orderSlice';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
@@ -30,8 +30,11 @@ export const CartPage: React.FC<Props> = () => {
     selectTotalQuentity(state.cart),
   );
 
+  document.title = 'Cart';
+
   const saveOrder = () => {
     if (cartItems.length !== 0) {
+      dispatch(addToOrder(cartItems));
       dispatch(clearCart());
       navigate('/user');
     }
@@ -42,7 +45,9 @@ export const CartPage: React.FC<Props> = () => {
 
       <div className="cart__title">Cart</div>
       {cartItems.length === 0 && (
-        <div>Your shopping cart is currently empty</div>
+        <div className="cart__empty-message">
+          Your shopping cart is currently empty
+        </div>
       )}
       <div className="cart__items">
         {cartItems.map((product: CartItems) => {

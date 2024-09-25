@@ -9,6 +9,9 @@ import {
   increaseQuantity,
   removeFromCart,
 } from '../../../app/slices/cartSlise';
+import { BASE_URL } from '../../../api/api';
+import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
 type Props = {
   cart: CartItems;
@@ -17,9 +20,6 @@ type Props = {
 
 export const CartItem: React.FC<Props> = ({ cart, isOrder = false }) => {
   const dispatch = useAppDispatch();
-  const imageUrl = encodeURI(
-    `https://raw.githubusercontent.com/mate-academy/react_phone-catalog/f064fa3751d4adbc9a531a51805d593af585860b/public/${cart.item.images[0]}`,
-  );
 
   const deleteItem = () => {
     dispatch(removeFromCart(cart.item.id));
@@ -39,10 +39,19 @@ export const CartItem: React.FC<Props> = ({ cart, isOrder = false }) => {
         {!isOrder && (
           <button onClick={deleteItem} className="cartItem__close"></button>
         )}
-        <img className="cartItem__image" src={imageUrl} />
-        <div className="cartItem__name">{cart.item.name}</div>
+        <img
+          className="cartItem__image"
+          src={`${BASE_URL}/${cart.item.images[0]}`}
+        />
+        <Link to={`/${cart.item.category}/${cart.item.id}`}>
+          <p className="cartItem__name">{cart.item.name}</p>
+        </Link>
       </div>
-      <div className="block__price">
+      <div
+        className={classNames('block__price', {
+          'block__price--order': isOrder,
+        })}
+      >
         <div className="cartItem__count">
           {!isOrder && (
             <button className="cartItem__count--button" onClick={decrease}>
@@ -57,10 +66,10 @@ export const CartItem: React.FC<Props> = ({ cart, isOrder = false }) => {
             </button>
           )}
         </div>
-        <div className="cartItem__price">${cart.item.priceRegular}</div>
+        <div className="cartItem__price">${cart.item.priceDiscount}</div>
         {isOrder && (
           <div className="cartItem__price">
-            ${cart.item.priceRegular * cart.count}
+            ${cart.item.priceDiscount * cart.count}
           </div>
         )}
       </div>

@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import styles from './UserPage.module.scss';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../app/slices/orderSlice';
 
 type FormData = {
   name: string;
@@ -14,11 +16,10 @@ type FormData = {
 
 export const UserPage: React.FC = () => {
   const navigate = useNavigate(); // Отримуємо функцію navigate
+  const dispatch = useDispatch();
+  document.title = 'Create new user';
 
   useEffect(() => {
-    //   const user = localStorage.getItem('userData');
-
-    //   console.log(user);
     const user = localStorage.getItem('userData');
 
     if (user) {
@@ -29,17 +30,12 @@ export const UserPage: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<FormData>();
 
   const onSubmit = (data: FormData) => {
-    console.log(data);
-    localStorage.setItem('userData', JSON.stringify(data));
-    // alert('Data saved successfully!');
-    reset();
+    dispatch(setUser(data));
+    navigate('/order', { replace: true });
   };
-
-  // console.log(user);
 
   return (
     <div className={styles.user}>

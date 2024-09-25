@@ -2,6 +2,8 @@ import './NotFoundPage.scss';
 import { Link } from 'react-router-dom';
 
 export const NotFoundPage = () => {
+  document.title = 'Page not found';
+
   return (
     <div className="not-found">
       <div className="not-found__container">

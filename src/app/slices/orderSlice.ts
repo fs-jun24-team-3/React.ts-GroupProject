@@ -1,21 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CartItems } from '../../utils/types/CartItem';
-
-// Тип для користувача
-type User = {
-  name: string;
-  surname: string;
-  phone: string;
-  post: string;
-  city: string;
-};
+import { Order } from '../../utils/types/Order';
+import { User } from '../../utils/types/User';
 
 // Тип для замовлення
-type Order = {
-  user: User | null;
-  cartItems: CartItems[]; // Використовуємо тип CartItems
-  totalPrice: number;
-};
 
 // Функція для отримання даних корзини з LocalStorage
 const getCartItemsFromLocalStorage = (): CartItems[] => {
@@ -92,7 +80,7 @@ export const orderSlice = createSlice({
       state.cartItems = [];
       localStorage.removeItem('orderCart');
     },
-    setUser: (state, action: PayloadAction<User | null>) => {
+    setUser: (state, action: PayloadAction<User>) => {
       state.user = action.payload;
       localStorage.setItem('userData', JSON.stringify(action.payload));
     },

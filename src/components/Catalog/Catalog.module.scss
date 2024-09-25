@@ -48,6 +48,7 @@
     font-weight: 600;
     font-size: 14px;
     color: $secondary-color;
+    margin-bottom: 16px;
   }
   &__items {
     list-style: none;
@@ -141,10 +142,9 @@
 
 .phonesDropdown {
   display: flex;
-  
 }
 
-.noResults{
+.noResults {
   margin-top: 20px;
 }
 

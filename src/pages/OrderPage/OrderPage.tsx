@@ -14,6 +14,8 @@ import {
 type Props = {};
 
 export const OrderPage: React.FC<Props> = () => {
+  document.title = 'Order';
+
   const orderItems = useAppSelector(
     (state: RootState) => state.order.cartItems,
   );
@@ -46,12 +48,49 @@ export const OrderPage: React.FC<Props> = () => {
           <div className={styles.order__totalInformation__text}>
             Total for {totalQuentity} items
           </div>
-          <div className={styles.order__user}>
-            <div className={styles.order__user__name}>{user?.name}</div>
-            <div className={styles.order__user__name}>{user?.surname}</div>
-            <div className={styles.order__user__name}>{user?.phone}</div>
-            <div className={styles.order__user__name}>{user?.post}</div>
-            <div className={styles.order__user__name}>{user?.city}</div>
+          <div className={styles['order__user']}>
+            <div className={styles['order__info']}>
+              <ul className={styles['order__info--list']}>
+                <li className={styles['order__info--list-item']}>
+                  <strong className={styles['order__info--title']}>Name</strong>
+                  <span className={styles['order__info--value']}>
+                    {user?.name}
+                  </span>
+                </li>
+
+                <li className={styles['order__info--list-item']}>
+                  <strong className={styles['order__info--title']}>
+                    Surname
+                  </strong>
+                  <span className={styles['order__info--value']}>
+                    {user?.surname}
+                  </span>
+                </li>
+
+                <li className={styles['order__info--list-item']}>
+                  <strong className={styles['order__info--title']}>
+                    Phone
+                  </strong>
+                  <span className={styles['order__info--value']}>
+                    {user?.phone}
+                  </span>
+                </li>
+
+                <li className={styles['order__info--list-item']}>
+                  <strong className={styles['order__info--title']}>Post</strong>
+                  <span className={styles['order__info--value']}>
+                    {user?.post}
+                  </span>
+                </li>
+
+                <li className={styles['order__info--list-item']}>
+                  <strong className={styles['order__info--title']}>City</strong>
+                  <span className={styles['order__info--value']}>
+                    {user?.city}
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
           <div className={styles.order__totalInformation__line}></div>
         </div>
