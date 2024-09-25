@@ -31,6 +31,7 @@
     &__img {
       width: 89px;
       height: 30px;
+      cursor: pointer;
     }
   }
 
@@ -69,6 +70,7 @@
 
       &:hover {
         border: 1px solid $primary-color;
+        cursor: pointer;
       }
 
       &:active {

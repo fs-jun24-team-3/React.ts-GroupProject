@@ -5,5 +5,9 @@ import styles from './Loading.module.scss';
 type Props = {};
 
 export const Loading: React.FC<Props> = () => {
-  return <span className={styles.loader}></span>;
+  return (
+    <div className={styles['loader-block']}>
+      <span className={styles['loader-block__element']}></span>
+    </div>
+  );
 };

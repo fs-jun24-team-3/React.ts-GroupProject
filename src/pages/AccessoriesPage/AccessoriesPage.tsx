@@ -3,25 +3,29 @@ import { useAppDispatch, useAppSelector } from '../../app/reduxHooks';
 import { RootState } from '../../app/store';
 import { loadAccessories } from '../../app/slices/accessoriesSlice';
 import { Catalog } from '../../components/Catalog/Catalog';
+import { Loading } from '../../components/Loading';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 
 export const AccessoriesPage: React.FC<Props> = () => {
   const dispatch = useAppDispatch();
-  const accessories = useAppSelector(
-    (state: RootState) => state.accessories.accessories,
-  );
+
+  const { accessories, loading } = useAppSelector((state: RootState) => ({
+    accessories: state.accessories.accessories,
+    loading: state.accessories.isAccessoryLoading,
+  }));
 
   useEffect(() => {
     dispatch(loadAccessories());
   }, [dispatch]);
+
+  if (loading || !accessories.length) {
+    return <Loading />;
+  }
+
   return (
     <>
-      <Catalog
-        items={accessories}
-        title={'Accessories phones'}
-        isFiltered={true}
-      />
+      <Catalog items={accessories} title={'Accessories'} isFiltered={true} />
     </>
   );
 };

@@ -14,9 +14,9 @@ export const CategoriesItem: React.FC<Props> = ({ img, title, text, link }) => {
     <div className="categorie">
       <NavLink to={link}>
         <img className="categorie__img" src={img} />
+        <div className="categorie__title">{title}</div>
+        <div className="categorie__text">{text}</div>
       </NavLink>
-      <div className="categorie__title">{title}</div>
-      <div className="categorie__text">{text}</div>
     </div>
   );
 };

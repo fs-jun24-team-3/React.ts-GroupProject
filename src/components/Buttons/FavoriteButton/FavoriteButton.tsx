@@ -1,21 +1,28 @@
 import heart from '../../../img/headerIcon/like.png';
 import heartSelected from '../../../img/heartOnClick.png';
-import React, { useState } from 'react';
+import React from 'react';
 import { ButtonWithImage } from '../ButtonWithImage';
 import { ButtonSize } from '../../../utils/types/ButtonSize';
+import { useAppSelector } from '../../../app/reduxHooks';
 
 type Props = {
   size: ButtonSize;
+  productId: string;
+  onClick: () => void;
 };
 
-export const FavoriteButton: React.FC<Props> = ({ size }) => {
-  const isDefaultSelected = false;
-  const [isSelected, setIsSelected] = useState(isDefaultSelected);
+export const FavoriteButton: React.FC<Props> = ({
+  size,
+  productId,
+  onClick,
+}) => {
+  const { favoriteItems } = useAppSelector(state => state.favorites);
+  const isSelected = favoriteItems.some(favItem => favItem.id === productId);
 
   return (
     <ButtonWithImage
       onClick={() => {
-        setIsSelected(!isSelected);
+        onClick();
       }}
       size={size}
       path={isSelected ? heartSelected : heart}

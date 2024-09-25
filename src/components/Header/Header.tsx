@@ -4,6 +4,7 @@ import styles from './Header.module.scss';
 import logo from '../../img/Logo.png';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
+import { useAppSelector } from '../../app/reduxHooks';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
@@ -11,6 +12,12 @@ type Props = {};
 export const Header: React.FC<Props> = () => {
   const [isMobileScreen, setIsMobileScreen] = useState(window.innerWidth < 640);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { favCount } = useAppSelector(state => state.favorites);
+  const { cartItems } = useAppSelector(state => state.cart);
+  const productsCountInCart = cartItems.reduce(
+    (acc, cartItem) => acc + cartItem.count,
+    0,
+  );
 
   useEffect(() => {
     const handleMenuOnResize = () => {
@@ -62,7 +69,28 @@ export const Header: React.FC<Props> = () => {
                   })
                 }
               >
-                <div className={styles['header__icons--like']}></div>
+                <div className={styles['header__icons--like']}>
+                  <div
+                    className={classNames(
+                      styles['favProduct-and-product-count-container'],
+                      {
+                        [styles[
+                          'favProduct-and-product-count-container--visible'
+                        ]]: favCount > 0,
+                      },
+                    )}
+                  >
+                    <div className={styles['favProduct-and-product-count']}>
+                      <p
+                        className={
+                          styles['favProduct-and-product-count__meaning']
+                        }
+                      >
+                        {favCount}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </NavLink>
               <NavLink
                 to="/cart"
@@ -73,7 +101,28 @@ export const Header: React.FC<Props> = () => {
                   })
                 }
               >
-                <div className={styles['header__icons--basket']}></div>
+                <div className={styles['header__icons--basket']}>
+                  <div
+                    className={classNames(
+                      styles['favProduct-and-product-count-container'],
+                      {
+                        [styles[
+                          'favProduct-and-product-count-container--visible'
+                        ]]: productsCountInCart > 0,
+                      },
+                    )}
+                  >
+                    <div className={styles['favProduct-and-product-count']}>
+                      <p
+                        className={
+                          styles['favProduct-and-product-count__meaning']
+                        }
+                      >
+                        {productsCountInCart}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </NavLink>
             </>
           )}
@@ -114,7 +163,28 @@ export const Header: React.FC<Props> = () => {
                 })
               }
             >
-              <div className={styles['dropdown__icons--like']}></div>
+              <div className={styles['dropdown__icons--like']}>
+                <div
+                  className={classNames(
+                    styles['favProduct-and-product-count-container'],
+                    {
+                      [styles[
+                        'favProduct-and-product-count-container--visible'
+                      ]]: favCount > 0,
+                    },
+                  )}
+                >
+                  <div className={styles['favProduct-and-product-count']}>
+                    <p
+                      className={
+                        styles['favProduct-and-product-count__meaning']
+                      }
+                    >
+                      {favCount}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </NavLink>
             <NavLink
               to="/cart"
@@ -125,7 +195,28 @@ export const Header: React.FC<Props> = () => {
                 })
               }
             >
-              <div className={styles['dropdown__icons--basket']}></div>
+              <div className={styles['dropdown__icons--basket']}>
+                <div
+                  className={classNames(
+                    styles['favProduct-and-product-count-container'],
+                    {
+                      [styles[
+                        'favProduct-and-product-count-container--visible'
+                      ]]: productsCountInCart > 0,
+                    },
+                  )}
+                >
+                  <div className={styles['favProduct-and-product-count']}>
+                    <p
+                      className={
+                        styles['favProduct-and-product-count__meaning']
+                      }
+                    >
+                      {productsCountInCart}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </NavLink>
           </div>
         </div>

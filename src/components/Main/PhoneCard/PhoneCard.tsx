@@ -9,8 +9,17 @@ type Props = {
 };
 
 export const PhoneCard: React.FC<Props> = ({ item }) => {
-  const { name, category, images, priceRegular, screen, ram, capacity, id } =
-    item;
+  const {
+    name,
+    priceDiscount,
+    category,
+    images,
+    priceRegular,
+    screen,
+    ram,
+    capacity,
+    id,
+  } = item;
 
   return (
     <li className="slider__item">
@@ -21,10 +30,15 @@ export const PhoneCard: React.FC<Props> = ({ item }) => {
             alt="phone logo"
             className="card__logo"
           />
+          <p className="card__title">{name}</p>
         </Link>
-        <p className="card__title">{name}</p>
         <div className="card__inform">
-          <p className="card__price">${priceRegular}</p>
+          <p className="card__price">
+            ${priceDiscount}{' '}
+            <del className="card__price card__price--discount">
+              ${priceRegular}
+            </del>
+          </p>
           <p className="card__separator"></p>
           <ul className="card__info">
             <li className="card__item">

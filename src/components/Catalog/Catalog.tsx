@@ -6,6 +6,8 @@ import { ItemsPerPageOption, SortOption } from '../../utils/types/SortOption';
 import { Dropdown } from '../Dropdown';
 import { ItemsPerPageDropdown } from '../ItemsPerPageDropdown';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { sortProducts } from '../../utils/helpers/sortProducts';
+import { Breadcrumbs } from '../Breadcrumbs';
 
 type Props = {
   items: UnionProduct[];
@@ -47,19 +49,7 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
   }, [location.search]);
 
   const sortedItems = useMemo(() => {
-    let sorted = [...items];
-    switch (sortOption) {
-      case 'alphabetical':
-        return sorted.sort((a, b) => a.name.localeCompare(b.name));
-      case 'price_asc':
-        return sorted.sort((a, b) => a.priceDiscount - b.priceDiscount);
-      case 'price_desc':
-        return sorted.sort((a, b) => b.priceDiscount - a.priceDiscount);
-      case 'newest':
-        return sorted.sort((a, b) => b.year - a.year);
-      default:
-        return sorted;
-    }
+    return sortProducts(items, sortOption);
   }, [items, sortOption]);
 
   const paginatedItems = useMemo(() => {
@@ -118,11 +108,7 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
   return (
     <>
       <div className={styles.phones}>
-        <div className={styles.phones__routs}>
-          <div className={styles.phones__routs__home}></div>
-          <div className={styles.phones__routs__array}></div>
-          <div className={styles.phones__routs__currentPage}>Phones</div>
-        </div>
+        <Breadcrumbs />
         <div className={styles.phones__title}>{title}</div>
         <div className={styles.phones__countModel}>{items.length} models</div>
         {isFiltered && (
@@ -142,7 +128,7 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
             </div>
           ))}
         </div>
-        {itemsPerPage !== 'all' && (
+        {itemsPerPage !== 'all' && items.length > itemsPerPage && (
           <div className={styles.phones__pagination}>
             <button
               className={styles.phones__pagination__arr}

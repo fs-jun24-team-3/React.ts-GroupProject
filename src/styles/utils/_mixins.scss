@@ -66,17 +66,17 @@
   height: 100%;
   @include onMobile {
     width: 212px;
-    height: 439px;
+    // height: 439px;
   }
 
   @include onTablet {
     width: 237px;
-    height: 512px;
+    // height: 512px;
   }
 
   @include onDesktop {
     width: 272px;
-    height: 506px;
+    // height: 506px;
   }
 }
 
@@ -150,4 +150,8 @@
   @include onTablet {
     flex-direction: column;
   }
+}
+
+@mixin phoneCardWideButtonHeight {
+  height: 40px;
 }
