@@ -6,6 +6,7 @@ import { ItemsPerPageOption, SortOption } from '../../utils/types/SortOption';
 import { Dropdown } from '../Dropdown';
 import { ItemsPerPageDropdown } from '../ItemsPerPageDropdown';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { SearchBar } from '../SearchBar/SearchBar';
 import { sortProducts } from '../../utils/helpers/sortProducts';
 import { Breadcrumbs } from '../Breadcrumbs';
 
@@ -21,6 +22,7 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOption, setSortOption] = useState<SortOption>('alphabetical');
   const [itemsPerPage, setItemsPerPage] = useState<ItemsPerPageOption>(16);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -48,22 +50,35 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
     }
   }, [location.search]);
 
-  const sortedItems = useMemo(() => {
-    return sortProducts(items, sortOption);
-  }, [items, sortOption]);
+  const filteredItems = useMemo(() => {
+    let filtered = sortProducts(items, sortOption);
+    if (searchQuery.trim() !== '') {
+      filtered = filtered.filter(item =>
+        item.name.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
+    }
+    return filtered;
+  }, [items, sortOption, searchQuery]);
 
   const paginatedItems = useMemo(() => {
+    let filtered = filteredItems;
+    if (searchQuery.trim() !== '') {
+      filtered = filteredItems.filter(item =>
+        item.name.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
+    }
+
     if (itemsPerPage === 'all') {
-      return sortedItems;
+      return filtered;
     }
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    return sortedItems.slice(indexOfFirstItem, indexOfLastItem);
-  }, [sortedItems, currentPage, itemsPerPage]);
+    return filtered.slice(indexOfFirstItem, indexOfLastItem);
+  }, [filteredItems, currentPage, itemsPerPage, searchQuery]);
 
   const totalPages =
-    itemsPerPage === 'all' ? 1 : Math.ceil(sortedItems.length / itemsPerPage);
+    itemsPerPage === 'all' ? 1 : Math.ceil(filteredItems.length / itemsPerPage);
 
   const handlePrevPage = () => {
     if (currentPage > 1) {
@@ -79,15 +94,26 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-  const updateURL = (sort: SortOption, perPage: ItemsPerPageOption) => {
+  const updateURL = (
+    sort: SortOption,
+    perPage: ItemsPerPageOption,
+    searchQuery: string,
+  ) => {
     const searchParams = new URLSearchParams(location.search);
     searchParams.set('sort', sort);
 
-    if (perPage === 8) {
+    if (perPage === 16) {
       searchParams.delete('perPage');
     } else {
       searchParams.set('perPage', perPage.toString());
     }
+
+    if (searchQuery.trim() !== '') {
+      searchParams.set('q', searchQuery);
+    } else {
+      searchParams.delete('q');
+    }
+
     navigate(`${location.pathname}?${searchParams.toString()}`, {
       replace: true,
     });
@@ -96,13 +122,19 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
   const handleSort = (option: SortOption) => {
     setSortOption(option);
     setCurrentPage(1);
-    updateURL(option, itemsPerPage);
+    updateURL(option, itemsPerPage, searchQuery);
   };
 
   const handleItemsPerPageChange = (option: ItemsPerPageOption) => {
     setItemsPerPage(option);
     setCurrentPage(1);
-    updateURL(sortOption, option);
+    updateURL(sortOption, option, searchQuery);
+  };
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+    updateURL(sortOption, itemsPerPage, query);
   };
 
   return (
@@ -110,25 +142,43 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
       <div className={styles.phones}>
         <Breadcrumbs />
         <div className={styles.phones__title}>{title}</div>
-        <div className={styles.phones__countModel}>{items.length} models</div>
+        <div className={styles.phones__countModel}>
+          {filteredItems.length} models
+        </div>
         {isFiltered && (
-          <div className={styles.phonesDropdown}>
-            <Dropdown handleSort={handleSort} initialSortOption={sortOption} />
-            <ItemsPerPageDropdown
-              onSelect={handleItemsPerPageChange}
-              initialOption={itemsPerPage}
-            />
+          <div className={styles.filtration}>
+            <div className={styles.phonesDropdown}>
+              <Dropdown
+                handleSort={handleSort}
+                initialSortOption={sortOption}
+              />
+              <ItemsPerPageDropdown
+                onSelect={handleItemsPerPageChange}
+                initialOption={itemsPerPage}
+              />
+            </div>
+            <SearchBar onSearch={handleSearch} />
           </div>
         )}
 
-        <div className={styles.phones__items}>
-          {paginatedItems.map((item: UnionProduct) => (
-            <div className={styles.phones__item} key={item.id}>
-              <PhoneCard item={item} />
-            </div>
-          ))}
-        </div>
-        {itemsPerPage !== 'all' && (
+        {paginatedItems.length === 0 && (
+          <div className={styles.noResults}>
+            <h2>No results found</h2>
+            <p>Try searching for something else.</p>
+          </div>
+        )}
+
+        {paginatedItems.length > 0 && (
+          <div className={styles.phones__items}>
+            {paginatedItems.map((item: UnionProduct) => (
+              <div className={styles.phones__item} key={item.id}>
+                <PhoneCard item={item} />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {paginatedItems.length > 0 && itemsPerPage !== 'all' && (
           <div className={styles.phones__pagination}>
             <button
               className={styles.phones__pagination__arr}

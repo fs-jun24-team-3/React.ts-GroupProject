@@ -1,7 +1,10 @@
 .dropdown {
     position: relative;
     display: inline-block;
-    padding-top: 40px;
+    
+    @include onDesktop {
+      padding-top: 40px;
+    }
   
     &-label {
       display: block;

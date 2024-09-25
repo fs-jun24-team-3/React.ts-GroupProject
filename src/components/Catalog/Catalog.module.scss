@@ -138,3 +138,21 @@
     }
   }
 }
+
+.phonesDropdown {
+  display: flex;
+  
+}
+
+.noResults{
+  margin-top: 20px;
+}
+
+.filtration {
+  display: flex;
+  flex-direction: column;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+}

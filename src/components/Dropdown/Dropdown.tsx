@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Dropdown.module.scss';
 import { SortOption } from '../../utils/types/SortOption';
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+import { useOutsideClick } from 'outsideclick-react';
+
 type Props = {
   handleSort: (option: SortOption) => void;
   initialSortOption: SortOption;
@@ -27,6 +28,12 @@ export const Dropdown: React.FC<Props> = ({
     setIsOpen(false);
   };
 
+  const handleOutsideClick = () => {
+    setIsOpen(false);
+  };
+
+  const ref = useOutsideClick(handleOutsideClick);
+
   const options: { value: SortOption; label: string }[] = [
     { value: 'alphabetical', label: 'Alphabetically' },
     { value: 'price_asc', label: 'Price Ascending' },
@@ -35,7 +42,7 @@ export const Dropdown: React.FC<Props> = ({
   ];
 
   return (
-    <div className={styles.dropdown}>
+    <div ref={ref} className={styles.dropdown}>
       <span className={styles['dropdown-label']}>Sort by:</span>
       <button
         className={`${styles['dropdown-toggle']} ${isOpen ? styles['dropdown-toggle-clicked'] : ''}`}
