@@ -5,6 +5,7 @@ import { productsSlice } from './slices/productsSlice';
 import { tabletsSlice } from './slices/tabletsSlice';
 import { cartSlice } from './slices/cartSlise';
 import { favoritesSlice } from './slices/favoritesSlice';
+import { orderSlice } from './slices/orderSlice';
 
 const rootReducer = combineSlices(
   accessoriesSlice,
@@ -13,6 +14,7 @@ const rootReducer = combineSlices(
   tabletsSlice,
   cartSlice,
   favoritesSlice,
+  orderSlice,
 );
 
 export const store = configureStore({
