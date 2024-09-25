@@ -16,7 +16,9 @@ export const RecommendedList = () => {
 
   useEffect(() => {
     getProducts().then(products => {
-      setCurrentProductList(products);
+      setCurrentProductList(
+        products.filter(product => !pathname.includes(product.id)),
+      );
     });
   }, []);
 
