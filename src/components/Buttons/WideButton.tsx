@@ -38,8 +38,6 @@ export const WideButton: React.FC<Props> = ({
   const [clicksCount, setClicksCount] = useState(1);
   const [key, setKey] = useState<string | null>(null);
 
-  console.log(animationInstance.current);
-
   const handleDefaultButtonClickAction = () => {
     animationInstance.current = anime({
       targets: buttonRef.current,
@@ -213,20 +211,6 @@ export const WideButton: React.FC<Props> = ({
 
   useEffect(() => {
     setKey(String(Math.random));
-
-    return () => {
-      if (animationInstance.current) {
-        animationInstance.current.pause();
-      }
-      setIsAnimatingError(false);
-      isAnimatingRef.current = false;
-    };
-  }, []);
-
-  useEffect(() => {
-    if (animationInstance.current) {
-      animationInstance.current.play();
-    }
   }, []);
 
   return (
