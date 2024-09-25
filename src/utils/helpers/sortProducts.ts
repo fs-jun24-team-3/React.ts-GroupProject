@@ -14,7 +14,7 @@ export function sortProducts(items: UnionProduct[], sortOption: SortOption) {
       return sorted.sort((a, b) => b.priceDiscount - a.priceDiscount);
 
     case 'newest':
-      return sorted.sort((a, b) => b.year - a.year);
+      return sorted.sort((a, b) => b.name.localeCompare(a.name));
 
     default:
       return sorted;
