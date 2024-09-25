@@ -1,8 +1,11 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  padding-top: 40px;
   padding-right: 16px;
+  
+  @include onDesktop {
+    padding-top: 40px;
+  }
 
   &-label {
     display: block;
