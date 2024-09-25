@@ -87,6 +87,22 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      &:disabled {
+        &,
+        &:hover {
+          border-color: $elemnts-color;
+        }
+
+        div[class*='Left'] {
+          background-image: url(../../img/arrow/ArrowLeft.png);
+        }
+
+        div[class*='Right'] {
+          background-image: url(../../img/arrow/ArrowRight.png);
+        }
+      }
+
       &:hover {
         border: 1px solid $primary-color;
       }
