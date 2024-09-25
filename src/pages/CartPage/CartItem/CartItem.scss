@@ -9,6 +9,10 @@
   padding: 16px;
   grid-column: 1/-1;
 
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
   @include onTablet {
     padding: 24px;
     flex-direction: row;
@@ -32,7 +36,7 @@
 
   &__image {
     width: auto;
-    height: 80px;
+    height: 66px;
     margin-right: 16px;
     cursor: pointer;
     img {
@@ -51,11 +55,12 @@
   }
 
   &__name {
-    font-size: 16px;
-    font-weight: 600;
     margin-bottom: 8px;
     max-width: 366px;
-    cursor: pointer;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
   }
 
   &__details {
@@ -105,12 +110,15 @@
 
 .block__information {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
 
   @include onTablet {
-    margin-bottom: 16px;
+    margin-bottom: 0;
+  }
+
+  a {
+    color: $primary-color;
   }
 }
 
@@ -118,4 +126,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &--order {
+    justify-content: flex-end;
+  }
 }

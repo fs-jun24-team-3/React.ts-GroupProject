@@ -17,6 +17,7 @@ export const TabletsPage: React.FC<Props> = () => {
 
   useEffect(() => {
     dispatch(loadTablets());
+    document.title = 'Tablets';
   }, [dispatch]);
 
   if (loading || !tablets.length) {

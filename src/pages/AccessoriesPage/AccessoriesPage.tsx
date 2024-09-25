@@ -17,6 +17,7 @@ export const AccessoriesPage: React.FC<Props> = () => {
 
   useEffect(() => {
     dispatch(loadAccessories());
+    document.title = 'Accessories';
   }, [dispatch]);
 
   if (loading || !accessories.length) {

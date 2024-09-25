@@ -175,7 +175,8 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
         <Breadcrumbs />
         <div className={styles.phones__title}>{title}</div>
         <div className={styles.phones__countModel}>
-          {filteredItems.length} models
+          {filteredItems.length}{' '}
+          {filteredItems.length === 1 ? 'model' : 'models'}
         </div>
         {isFiltered && (
           <div className={styles.filtration}>
@@ -193,7 +194,7 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
           </div>
         )}
 
-        {paginatedItems.length === 0 && (
+        {paginatedItems.length === 0 && isFiltered && (
           <div className={styles.noResults}>
             <h2>No results found</h2>
             <p>Try searching for something else.</p>
