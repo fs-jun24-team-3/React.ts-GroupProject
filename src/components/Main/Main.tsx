@@ -1,18 +1,13 @@
 import React, { useEffect, useMemo } from 'react';
 import './Main.scss';
 import { MainBannerSlider } from './MainBannerSlider';
-// import { GoodsSlider } from './GoodsSlider';
 import { CategoriesList } from './CategoriesList';
 import { GoodsSlider } from './GoodsSlider';
 import { loadPhones } from '../../app/slices/phonesSlice';
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks';
-import { Phone } from '../../utils/types/Phone';
+import { sortByHighDiscounts } from '../../utils/helpers/sortByHighDiscounts';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
-
-function sortByHighDiscounts(phones: Phone[]) {
-  return [...phones].sort((p1, p2) => p2.priceDiscount - p1.priceDiscount);
-}
 
 export const Main: React.FC<Props> = () => {
   const dispatch = useAppDispatch();
@@ -33,7 +28,7 @@ export const Main: React.FC<Props> = () => {
         <GoodsSlider sliderTitle={'Brand new models'} productsList={phones} />
         <CategoriesList />
         <GoodsSlider
-          sliderTitle={'HotPrices'}
+          sliderTitle={'Hot prices'}
           productsList={phonesWithHighestDiscounts}
         />
       </div>
