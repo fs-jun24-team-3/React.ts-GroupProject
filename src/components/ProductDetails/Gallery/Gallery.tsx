@@ -20,13 +20,15 @@ export const Gallery: React.FC<Props> = ({ images }) => {
     swiperRef.current?.slideTo(index);
   };
 
+  SwiperCore.use([Pagination]);
+
   return (
     <div className={swiperStyles['swiper-block']}>
       <Swiper
         className={swiperStyles['swiper']}
         pagination={{
-          dynamicBullets: true,
           clickable: true,
+          dynamicBullets: true,
         }}
         keyboard={{
           enabled: true,
@@ -41,6 +43,9 @@ export const Gallery: React.FC<Props> = ({ images }) => {
         }}
         onSwiper={swiper => {
           swiperRef.current = swiper;
+          if (swiper.pagination.el) {
+            (swiper.pagination.el as HTMLElement).style.bottom = '-20px';
+          }
         }}
         onSlideChange={swiper => {
           setCurrentSlideIndex(swiper.activeIndex);

@@ -22,6 +22,12 @@
     cursor: grabbing;
   }
 }
+
+:global {
+  .swiper-pagination {
+    bottom: -15px !important;
+  }
+}
 // #endregion
 
 // #region SwiperBlockStyles
