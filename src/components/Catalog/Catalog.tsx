@@ -105,6 +105,38 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
     updateURL(sortOption, option);
   };
 
+  const generatePageNumbers = (currentPage: number, totalPages: number) => {
+    const delta = 2;
+    const range: number[] = [];
+
+    range.push(1);
+
+    for (
+      let i = Math.max(2, currentPage - delta);
+      i <= Math.min(totalPages - 1, currentPage + delta);
+      i++
+    ) {
+      range.push(i);
+    }
+
+    if (totalPages > 1) {
+      range.push(totalPages);
+    }
+
+    let result: (number | '...')[] = [];
+    let lastPage = 0;
+
+    for (let i of range) {
+      if (i - lastPage > 1) {
+        result.push('...');
+      }
+      result.push(i);
+      lastPage = i;
+    }
+
+    return result;
+  };
+
   return (
     <>
       <div className={styles.phones}>
@@ -128,6 +160,7 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
             </div>
           ))}
         </div>
+
         {itemsPerPage !== 'all' && items.length > itemsPerPage && (
           <div className={styles.phones__pagination}>
             <button
@@ -137,21 +170,33 @@ export const Catalog: React.FC<Props> = ({ items, title, isFiltered }) => {
             >
               <div className={styles.phones__pagination__arrLeft}></div>
             </button>
+
             <div className={styles.phones__pagination__buttons}>
-              {[...Array(totalPages)].map((_, index) => (
-                <button
-                  key={index + 1}
-                  onClick={() => paginate(index + 1)}
-                  className={
-                    currentPage !== index + 1
-                      ? styles.phones__pagination__button
-                      : styles.phones__pagination__button_current
-                  }
-                >
-                  {index + 1}
-                </button>
-              ))}
+              {generatePageNumbers(currentPage, totalPages).map(
+                (page, index) =>
+                  page === '...' ? (
+                    <span
+                      key={index}
+                      className={styles.phones__pagination__ellipsis}
+                    >
+                      ...
+                    </span>
+                  ) : (
+                    <button
+                      key={index}
+                      onClick={() => paginate(page as number)}
+                      className={
+                        currentPage !== page
+                          ? styles.phones__pagination__button
+                          : styles.phones__pagination__button_current
+                      }
+                    >
+                      {page}
+                    </button>
+                  ),
+              )}
             </div>
+
             <button
               onClick={handleNextPage}
               className={styles.phones__pagination__arr}
