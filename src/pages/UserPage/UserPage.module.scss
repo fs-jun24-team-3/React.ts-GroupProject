@@ -1,0 +1,131 @@
+.user {
+  @include container;
+  &__list {
+    @include mainPageGrid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    row-gap: 16px;
+    margin-top: 40px;
+  }
+  &__input {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    grid-column: 1/-1;
+    @include onTablet {
+      grid-column: 3/-3;
+    }
+    @include onDesktop {
+      grid-column: 5/-5;
+    }
+    &__title {
+      margin-bottom: 10px;
+    }
+    &__text {
+      width: 100%;
+      grid-column: 1/-1;
+      display: block;
+      box-sizing: border-box;
+      height: 24px;
+      font-size: 16px;
+
+      @include onTablet {
+        height: 36px;
+      }
+      border: $slide-preview-default-border;
+      border-radius: 16px;
+      color: $primary-color;
+      padding: 10px;
+      //   background-color: aqua;
+      &:hover {
+        border: $button-border-on-hover;
+      }
+    }
+  }
+  &__button {
+    grid-column: 1/-1;
+    margin-top: 40px;
+    @include onTablet {
+      grid-column: 3/-3;
+    }
+    @include onDesktop {
+      grid-column: 5/-5;
+    }
+  }
+  &__title {
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+    letter-spacing: -1%;
+    margin-bottom: 32px;
+    @include onTablet {
+      font-size: 48px;
+      line-height: 56px;
+    }
+  }
+}
+.error {
+  color: red;
+}
+
+.wide_button {
+  width: 100%;
+  height: 36px;
+  background-color: $wide-button-bg-color-default;
+  font-size: 14px;
+  font-weight: 700;
+  color: $wide-button-text-color-default;
+  border-radius: 48px;
+  border: none;
+  transition: box-shadow, background-color, 0.1s;
+
+  &:hover {
+    box-shadow: $wide-button-box-shadow-on-hover;
+    cursor: pointer;
+  }
+
+  &:active {
+    color: $wide-button-text-color-on-click;
+    border: $wide-button-border-on-click;
+    background-color: $wide-button-bg-color-on-click;
+    box-shadow: none;
+  }
+}
+
+.shake_horizontal {
+  animation: shake_horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+@keyframes shake_horizontal {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70% {
+    background-color: #f12;
+    transform: translateX(-10px);
+  }
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65% {
+    background-color: #fff;
+    transform: translateX(10px);
+  }
+  80% {
+    transform: translateX(8px);
+  }
+  90% {
+    transform: translateX(-8px);
+  }
+}

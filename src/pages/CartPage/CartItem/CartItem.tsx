@@ -12,9 +12,10 @@ import {
 
 type Props = {
   cart: CartItems;
+  isOrder?: boolean;
 };
 
-export const CartItem: React.FC<Props> = ({ cart }) => {
+export const CartItem: React.FC<Props> = ({ cart, isOrder = false }) => {
   const dispatch = useAppDispatch();
   const imageUrl = encodeURI(
     `https://raw.githubusercontent.com/mate-academy/react_phone-catalog/f064fa3751d4adbc9a531a51805d593af585860b/public/${cart.item.images[0]}`,
@@ -35,21 +36,33 @@ export const CartItem: React.FC<Props> = ({ cart }) => {
   return (
     <div className="cartItem">
       <div className="block__information">
-        <button onClick={deleteItem} className="cartItem__close"></button>
+        {!isOrder && (
+          <button onClick={deleteItem} className="cartItem__close"></button>
+        )}
         <img className="cartItem__image" src={imageUrl} />
         <div className="cartItem__name">{cart.item.name}</div>
       </div>
       <div className="block__price">
         <div className="cartItem__count">
-          <button className="cartItem__count--button" onClick={decrease}>
-            <img src={minus} className="cartItem__count--button-minus" />
-          </button>
+          {!isOrder && (
+            <button className="cartItem__count--button" onClick={decrease}>
+              <img src={minus} className="cartItem__count--button-minus" />
+            </button>
+          )}
+
           <div className="cartItem__count__number">{cart.count}</div>
-          <button className="cartItem__count--button" onClick={increase}>
-            <img src={plus} className="cartItem__count--button-plus" />
-          </button>
+          {!isOrder && (
+            <button className="cartItem__count--button" onClick={increase}>
+              <img src={plus} className="cartItem__count--button-plus" />
+            </button>
+          )}
         </div>
         <div className="cartItem__price">${cart.item.priceRegular}</div>
+        {isOrder && (
+          <div className="cartItem__price">
+            ${cart.item.priceRegular * cart.count}
+          </div>
+        )}
       </div>
     </div>
   );
