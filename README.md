@@ -1,6 +1,9 @@
 ## About project:
 > This project is a web application built using React and TypeScript, designed to provide users with a dynamic and interactive experience. It leverages Redux and Redux Toolkit for state management, ensuring efficient handling of application state and making the app responsive to user interactions.
 
+## Demo link:
+> - [Here](https://fs-jun24-team-3.github.io/React.ts-GroupProject/)
+
 ## Key Features:
 > - Responsive Design: The application is styled using Module SCSS, allowing for modular and reusable CSS components that promote maintainability and scalability.
 > - Animation Effects: Anime.js is utilized to create smooth animations, enhancing the user experience and providing visually engaging transitions between states.
