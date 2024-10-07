@@ -5,7 +5,7 @@ This project is a web application built using React and TypeScript, designed to 
 [Rounded purple](https://www.figma.com/design/xMK2Dy0mfBbJJSNctmOuLW/Phone-catalog-(V2)-Rounded-Style-1?node-id=0-1&node-type=canvas)
 
 ## Demo link:
-[Here you can look at the stable project version](https://fs-jun24-team-3.github.io/React.ts-GroupProject/)
+[Nice Gadgets Store preview](https://fs-jun24-team-3.github.io/React.ts-GroupProject/)
 
 ## Key Features:
 - Responsive Design: The application is styled using Module SCSS, allowing for modular and reusable CSS components that promote maintainability and scalability.
