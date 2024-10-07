@@ -33,11 +33,11 @@
 
 ## Before starting
 
-> 1.  git checkout origin develop
-> 2.  git pull
+> 1.  git checkout develop
+> 2.  git pull origin develop
 > 3.  git checkout -b `your branch name`
 
-## How to add/push/commit:
+## How to add/commit/push:
 
 > 1.  git add ./src
 > 2.  git commit -m '`your message`'
