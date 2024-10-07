@@ -36,6 +36,7 @@ The primary goal of this project is to demonstrate the integration of various mo
 > 1.  git checkout develop
 > 2.  git pull origin develop
 > 3.  git checkout -b `your branch name`
+> 4.  npm run dev (to see your work)
 
 ## How to add/commit/push:
 
