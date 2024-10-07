@@ -1,5 +1,5 @@
 **##About project:**
-> - This project is a web application built using React and TypeScript, designed to provide users with a dynamic and interactive experience. It leverages Redux and Redux Toolkit for state management, ensuring efficient handling of application state and making the app responsive to user interactions.
+> This project is a web application built using React and TypeScript, designed to provide users with a dynamic and interactive experience. It leverages Redux and Redux Toolkit for state management, ensuring efficient handling of application state and making the app responsive to user interactions.
 
 **##Key Features:**
 > - Responsive Design: The application is styled using Module SCSS, allowing for modular and reusable CSS components that promote maintainability and scalability.
@@ -8,7 +8,7 @@
 > - Data Persistence: User preferences and data are stored in Local Storage, ensuring that information is retained across sessions, thus improving the overall usability of the application.
 
 **##Purpose:**
-> - The primary goal of this project is to demonstrate the integration of various modern web technologies to create a seamless, user-friendly interface while also providing a solid foundation for further development and feature enhancement.
+> The primary goal of this project is to demonstrate the integration of various modern web technologies to create a seamless, user-friendly interface while also providing a solid foundation for further development and feature enhancement.
 
 **##Technologies Used:**
 > - React: For building user interfaces.
@@ -18,6 +18,8 @@
 > - Anime.js: For creating animations.
 > - Swiper: For implementing image sliders.
 > - Local Storage: For data persistence.
+
+|===================================================================================================================================================================================================================|
 
 ## How to name your branches:
 
