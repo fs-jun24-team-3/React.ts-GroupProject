@@ -49,9 +49,3 @@
 
 > - This function calculate '`rem`' value, as it is more flexible and responsive than px units.
 > - Use pxToRem($value) function for '`font-size`' property. F.e. '`font-size: pxToRem(48);`' - just paste your value from the layout into the parentheses.
-
-## Instructions
-
-> - Install Prettier Extention and use this [VSCode settings](https://mate-academy.github.io/fe-program/tools/vscode/settings.json) to enable format on save.
-> - Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_redux-list-of-todos/)
-> - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
