@@ -1,16 +1,16 @@
-**##About project:**
+## About project:
 > This project is a web application built using React and TypeScript, designed to provide users with a dynamic and interactive experience. It leverages Redux and Redux Toolkit for state management, ensuring efficient handling of application state and making the app responsive to user interactions.
 
-**##Key Features:**
+## Key Features:
 > - Responsive Design: The application is styled using Module SCSS, allowing for modular and reusable CSS components that promote maintainability and scalability.
 > - Animation Effects: Anime.js is utilized to create smooth animations, enhancing the user experience and providing visually engaging transitions between states.
 > - Image Carousel: The project includes a Swiper component, enabling users to effortlessly navigate through a collection of images, showcasing a sleek and intuitive design.
 > - Data Persistence: User preferences and data are stored in Local Storage, ensuring that information is retained across sessions, thus improving the overall usability of the application.
 
-**##Purpose:**
+## Purpose:
 > The primary goal of this project is to demonstrate the integration of various modern web technologies to create a seamless, user-friendly interface while also providing a solid foundation for further development and feature enhancement.
 
-**##Technologies Used:**
+## Technologies Used:
 > - React: For building user interfaces.
 > - TypeScript: For type safety and improved developer experience.
 > - Redux/Redux Toolkit: For state management.
