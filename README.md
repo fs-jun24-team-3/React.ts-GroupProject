@@ -1,6 +1,9 @@
 ## About project:
 This project is a web application built using React and TypeScript, designed to provide users with a dynamic and interactive experience. It leverages Redux and Redux Toolkit for state management, ensuring efficient handling of application state and making the app responsive to user interactions.
 
+## Design markup:
+[Rounded purple](https://www.figma.com/design/xMK2Dy0mfBbJJSNctmOuLW/Phone-catalog-(V2)-Rounded-Style-1?node-id=0-1&node-type=canvas)
+
 ## Demo link:
 [Here](https://fs-jun24-team-3.github.io/React.ts-GroupProject/)
 
